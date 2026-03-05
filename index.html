@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Уроки с Добрыней</title>
+  <meta name="description" content="Воспитательный 2D-мультпроект о добре, справедливости и нравственном выборе для школьников.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="#top">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="#top">Главная</a>
+        <a class="top-nav__link" href="#about">О проекте</a>
+        <a class="top-nav__link" href="#episodes">Серии</a>
+        <a class="top-nav__link" href="#author">Об авторе</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <img class="fhero" src="/images/fhero.jpg">
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="#episodes">Смотреть серии</a>
+      <a class="btn btn--ghost" href="#about">О проекте</a>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card card--about" id="about">
+      <h2>О проекте</h2>
+      <p>
+        «Уроки с Добрыней» — воспитательный образовательный проект для учеников 3-5 классов, направленный на развитие
+        духовно-нравственных ценностей, эмпатии, ответственности и умения делать правильный выбор.
+      </p>
+      <p>
+        Главный герой — мальчик Добрыня. Он любознательный и искренний, как многие дети, и часто оказывается в ситуациях,
+        где нужно сделать нравственный выбор: между удобством и добротой, равнодушием и состраданием, личной выгодой и честностью.
+      </p>
+      <p>
+        Решение Добрыня принимает не один — вместе с детьми.
+      </p>
+      <p>
+        Каждая серия — это история, которая останавливается в момент выбора. Школьники обсуждают ситуацию, делятся мнениями
+        и помогают герою найти правильный путь.
+      </p>
+      <p>
+        «Уроки с Добрыней» можно использовать на уроках духовно-нравственной культуры народов России, классных часах,
+        во внеурочной деятельности и в воспитательной работе школы.
+      </p>
+      <p>
+        Проект помогает говорить с детьми о важном: о доброте, честности, дружбе, уважении и ответственности.
+        И рядом с ними в этом пути всегда идет их добрый друг — Добрыня.
+      </p>
+      <p><strong>Проект включает:</strong></p>
+      <ul>
+        <li>авторский рассказ и вопросы для обсуждения;</li>
+        <li>рабочая тетрадь для закрепления темы;</li>
+        <li>методические рекомендации для педагога.</li>
+      </ul>
+    </section>
+
+    <section class="card card--episodes" id="episodes">
+      <div class="episodes__panel">
+        <h2>Серии</h2>
+        <p class="episodes__hint">Выберите серию, чтобы обновить плеер и материалы:</p>
+        <ul class="episodes__list" id="episodes-list"></ul>
+      </div>
+
+      <div class="player-block">
+        <div class="player-block__head">
+          <p class="player-block__label">Мультфильм</p>
+          <h3 id="episode-title">Знакомство с Добрыней</h3>
+        </div>
+
+        <div class="player-shell" aria-label="Встроенный плеер VK Видео">
+          <iframe
+            id="vk-player"
+            src="https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000000&hd=2&autoplay=0"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Плеер VK Видео"
+          ></iframe>
+        </div>
+
+        <div class="player-actions">
+          <a class="btn btn--primary" id="watch-link" href="https://vkvideo.ru/" target="_blank" rel="noopener noreferrer">Перейти в VK Видео</a>
+          <a class="btn btn--secondary" id="workbook-link" href="#" download>Скачать рабочую тетрадь</a>
+          <a class="btn btn--secondary" id="guide-link" href="#" download>Скачать методические рекомендации</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card card--author" id="author">
+      <div class="author__photo">
+        <img class="author__image" src="images/me.jpg" alt="Автор проекта" loading="lazy">
+        <div class="author__photo-placeholder">Фото автора</div>
+      </div>
+      <div class="author__content">
+        <h2>Об авторе проекта</h2>
+        <p>
+          Проект разработан педагогом, который много лет работает с детьми и помогает формировать ценностные ориентиры
+          через понятные истории, совместное обсуждение и творческие задания.
+        </p>
+        <p>
+          Главная идея — поддержать ребёнка в умении сопереживать, быть честным, проявлять уважение к другим
+          и принимать ответственные решения в повседневной жизни.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
