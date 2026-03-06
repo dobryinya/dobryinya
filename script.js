@@ -67,7 +67,7 @@ const episodes = [
   {
     id: 8,
     title: "8 серия — Умение прощать",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000008&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239027",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
