@@ -153,12 +153,12 @@ function inferWatchUrl(playerUrl) {
 }
 
 function resolveEpisodeLinks(episode, normalizedPlayerUrl) {
-  const episodeNum = String(episode.id).padStart(2, "0");
+  const episodeNum = String(episode.id);
   const vkVideoId = String(episode.id).padStart(9, "0");
   const fallbackWatchUrl = inferWatchUrl(episode.playerUrl) || inferWatchUrl(normalizedPlayerUrl) || `https://vkvideo.ru/video-00000000_${vkVideoId}`;
   const watchUrl = episode.watchUrl && episode.watchUrl !== "https://vkvideo.ru/" ? episode.watchUrl : fallbackWatchUrl;
-  const workbookUrl = episode.workbookUrl && episode.workbookUrl !== "#" ? episode.workbookUrl : `materials/workbook-${episodeNum}.pdf`;
-  const guideUrl = episode.guideUrl && episode.guideUrl !== "#" ? episode.guideUrl : `materials/guide-${episodeNum}.pdf`;
+  const workbookUrl = episode.workbookUrl && episode.workbookUrl !== "#" ? episode.workbookUrl : `materials/work-list/${episodeNum}.pdf`;
+  const guideUrl = episode.guideUrl && episode.guideUrl !== "#" ? episode.guideUrl : `materials/metod-rek/${episodeNum}r.pdf`;
 
   return {
     watchUrl,
