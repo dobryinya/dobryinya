@@ -59,7 +59,7 @@ const episodes = [
   {
     id: 7,
     title: "7 серия — Трудолюбие",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000007&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239026",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
