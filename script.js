@@ -375,12 +375,90 @@ function initNavigation() {
   });
 }
 
+function initPdfPreview() {
+  const modalEl = document.getElementById("pdf-modal");
+  const frameEl = document.getElementById("pdf-frame");
+  const closeBtnEl = document.getElementById("pdf-close-btn");
+  const openLinkEl = document.getElementById("pdf-open-link");
+  const downloadLinkEl = document.getElementById("pdf-download-link");
+  const modalTitleEl = document.getElementById("pdf-modal-title");
+
+  if (
+    !(modalEl instanceof HTMLElement) ||
+    !(frameEl instanceof HTMLIFrameElement) ||
+    !(closeBtnEl instanceof HTMLButtonElement) ||
+    !(openLinkEl instanceof HTMLAnchorElement) ||
+    !(downloadLinkEl instanceof HTMLAnchorElement) ||
+    !(modalTitleEl instanceof HTMLElement)
+  ) {
+    return;
+  }
+
+  const closeModal = () => {
+    modalEl.classList.remove("is-open");
+    modalEl.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    frameEl.src = "about:blank";
+  };
+
+  const openModal = (pdfUrl, label) => {
+    const cleanUrl = pdfUrl.trim();
+    if (!cleanUrl || cleanUrl === "#") {
+      return;
+    }
+
+    const previewUrl = cleanUrl.includes("#") ? cleanUrl : `${cleanUrl}#view=FitH`;
+    const activeEpisodeTitle = titleEl.textContent.trim();
+
+    modalTitleEl.textContent = `${label} — ${activeEpisodeTitle}`;
+    openLinkEl.href = cleanUrl;
+    downloadLinkEl.href = cleanUrl;
+    frameEl.src = previewUrl;
+
+    modalEl.classList.add("is-open");
+    modalEl.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  };
+
+  const openPdfFromButton = (event, label) => {
+    event.preventDefault();
+    if (!(event.currentTarget instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    const buttonEl = event.currentTarget;
+    if (buttonEl.classList.contains("is-disabled")) {
+      return;
+    }
+
+    openModal(buttonEl.href, label);
+  };
+
+  workbookEl.addEventListener("click", (event) => openPdfFromButton(event, "Рабочая тетрадь"));
+  guideEl.addEventListener("click", (event) => openPdfFromButton(event, "Методические рекомендации"));
+
+  closeBtnEl.addEventListener("click", closeModal);
+  modalEl.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLElement && target.hasAttribute("data-pdf-close")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modalEl.classList.contains("is-open")) {
+      closeModal();
+    }
+  });
+}
+
 function initYear() {
   const yearEl = document.getElementById("year");
   yearEl.textContent = String(new Date().getFullYear());
 }
 
 initNavigation();
+initPdfPreview();
 renderEpisodes();
 setupRevealAnimation();
 initAuthorPhoto();
