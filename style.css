@@ -39,7 +39,8 @@ body {
   padding-top: 96px;
 }
 
-body.nav-open {
+body.nav-open,
+body.modal-open {
   overflow: hidden;
 }
 
@@ -374,6 +375,98 @@ header[id] {
   flex-wrap: wrap;
 }
 
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.pdf-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.pdf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 35, 63, 0.56);
+  backdrop-filter: blur(2px);
+}
+
+.pdf-modal__dialog {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: calc(100vh - 28px);
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(47, 141, 246, 0.35);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.98), rgba(236, 250, 255, 0.96));
+  box-shadow: 0 24px 50px rgba(14, 38, 66, 0.32);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.24s ease;
+}
+
+.pdf-modal.is-open .pdf-modal__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.pdf-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pdf-modal__title {
+  margin: 0;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(19px, 2vw, 24px);
+  color: #1f4f7e;
+}
+
+.pdf-modal__close {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(47, 141, 246, 0.34);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #1f4f7e;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pdf-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdf-modal__frame {
+  width: 100%;
+  min-height: min(68vh, 760px);
+  border: 1px solid rgba(47, 141, 246, 0.28);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.pdf-modal__note {
+  margin: 0;
+  color: #365a7d;
+  font-size: 14px;
+}
+
 .player-actions .btn {
   will-change: transform, opacity;
 }
@@ -621,5 +714,27 @@ header[id] {
 
   .player-actions .btn {
     width: 100%;
+  }
+
+  .pdf-modal {
+    padding: 0;
+  }
+
+  .pdf-modal__dialog {
+    width: 100%;
+    max-height: 100dvh;
+    min-height: 100dvh;
+    border-radius: 0;
+    border: 0;
+    padding: 10px;
+  }
+
+  .pdf-modal__actions .btn {
+    width: 100%;
+  }
+
+  .pdf-modal__frame {
+    min-height: calc(100dvh - 190px);
+    border-radius: 10px;
   }
 }
