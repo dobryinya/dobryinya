@@ -11,7 +11,7 @@ const episodes = [
   {
     id: 1,
     title: "1 серия — Что такое доброта",
-    playerUrl: "https://vkvideo.ru/video-236469097_456239017",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239021",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
