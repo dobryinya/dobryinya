@@ -158,7 +158,7 @@ function resolveEpisodeLinks(episode, normalizedPlayerUrl) {
   const fallbackWatchUrl = inferWatchUrl(episode.playerUrl) || inferWatchUrl(normalizedPlayerUrl) || `https://vkvideo.ru/video-00000000_${vkVideoId}`;
   const watchUrl = episode.watchUrl && episode.watchUrl !== "https://vkvideo.ru/" ? episode.watchUrl : fallbackWatchUrl;
   const workbookUrl = episode.workbookUrl && episode.workbookUrl !== "#" ? episode.workbookUrl : `materials/work-list/${episodeNum}.pdf`;
-  const guideUrl = episode.guideUrl && episode.guideUrl !== "#" ? episode.guideUrl : `materials/metod-rek/${episodeNum}r.pdf`;
+  const guideUrl = episode.guideUrl && episode.guideUrl !== "#" ? episode.guideUrl : `materials/metod-rek/${episodeNum}MP.pdf`;
 
   return {
     watchUrl,
@@ -202,6 +202,7 @@ function setEpisode(episodeId) {
   setActionLink(watchEl, links.watchUrl);
   setActionLink(workbookEl, links.workbookUrl);
   setActionLink(guideEl, links.guideUrl);
+  guideEl.hidden = selected.id === 0;
 
   if (shouldAnimate) {
     animateActionButtons();
