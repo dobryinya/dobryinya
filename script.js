@@ -51,7 +51,7 @@ const episodes = [
   {
     id: 6,
     title: "6 серия — Совесть",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000006&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239025",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
