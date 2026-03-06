@@ -18,7 +18,7 @@ const episodes = [
   },
   {
     id: 2,
-    title: "2 серия — Милосердие",
+    title: "2 серия — Сострадание",
     playerUrl: "https://vkvideo.ru/video-236469097_456239019",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
