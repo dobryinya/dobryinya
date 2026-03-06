@@ -75,7 +75,7 @@ const episodes = [
   {
     id: 9,
     title: "9 серия — Самоконтроль. Гнев",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000009&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239028",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
@@ -83,7 +83,7 @@ const episodes = [
   {
     id: 10,
     title: "10 серия — Россия начинается с любви",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000010&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239029",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
