@@ -3,7 +3,7 @@ const episodes = [
   {
     id: 0,
     title: "Знакомство с Добрыней",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000000&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-1415705_456252206?sh=4",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
@@ -11,7 +11,7 @@ const episodes = [
   {
     id: 1,
     title: "1 серия — Что такое доброта",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000001&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-151774268_456240963?t=2h28m9s",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
@@ -100,10 +100,63 @@ const actionsEl = document.querySelector(".player-actions");
 
 let activeEpisodeId = null;
 
-function resolveEpisodeLinks(episode) {
+function normalizeVkPlayerUrl(rawUrl) {
+  if (typeof rawUrl !== "string") {
+    return "";
+  }
+
+  const source = rawUrl.trim();
+  if (!source) {
+    return "";
+  }
+
+  if (source.includes("video_ext.php")) {
+    return source;
+  }
+
+  const pageMatch = source.match(/video(-?\d+)_(-?\d+)/i);
+  if (!pageMatch) {
+    return source;
+  }
+
+  const [, ownerId, videoId] = pageMatch;
+  return `https://vkvideo.ru/video_ext.php?oid=${ownerId}&id=${videoId}&hd=2&autoplay=0`;
+}
+
+function inferWatchUrl(playerUrl) {
+  if (typeof playerUrl !== "string" || !playerUrl.trim()) {
+    return "";
+  }
+
+  const source = playerUrl.trim();
+  const directPageMatch = source.match(/https?:\/\/vkvideo\.ru\/video-?\d+_-?\d+/i);
+  if (directPageMatch) {
+    return directPageMatch[0];
+  }
+
+  try {
+    const parsedUrl = new URL(source);
+    if (!parsedUrl.pathname.includes("video_ext.php")) {
+      return "";
+    }
+
+    const ownerId = parsedUrl.searchParams.get("oid");
+    const videoId = parsedUrl.searchParams.get("id");
+    if (!ownerId || !videoId) {
+      return "";
+    }
+
+    return `https://vkvideo.ru/video${ownerId}_${videoId}`;
+  } catch {
+    return "";
+  }
+}
+
+function resolveEpisodeLinks(episode, normalizedPlayerUrl) {
   const episodeNum = String(episode.id).padStart(2, "0");
   const vkVideoId = String(episode.id).padStart(9, "0");
-  const watchUrl = episode.watchUrl && episode.watchUrl !== "https://vkvideo.ru/" ? episode.watchUrl : `https://vkvideo.ru/video-00000000_${vkVideoId}`;
+  const fallbackWatchUrl = inferWatchUrl(episode.playerUrl) || inferWatchUrl(normalizedPlayerUrl) || `https://vkvideo.ru/video-00000000_${vkVideoId}`;
+  const watchUrl = episode.watchUrl && episode.watchUrl !== "https://vkvideo.ru/" ? episode.watchUrl : fallbackWatchUrl;
   const workbookUrl = episode.workbookUrl && episode.workbookUrl !== "#" ? episode.workbookUrl : `materials/workbook-${episodeNum}.pdf`;
   const guideUrl = episode.guideUrl && episode.guideUrl !== "#" ? episode.guideUrl : `materials/guide-${episodeNum}.pdf`;
 
@@ -140,11 +193,12 @@ function setEpisode(episodeId) {
     return;
   }
 
-  const links = resolveEpisodeLinks(selected);
+  const normalizedPlayerUrl = normalizeVkPlayerUrl(selected.playerUrl);
+  const links = resolveEpisodeLinks(selected, normalizedPlayerUrl);
   const shouldAnimate = activeEpisodeId !== null && activeEpisodeId !== episodeId;
 
   titleEl.textContent = selected.title;
-  playerEl.src = selected.playerUrl;
+  playerEl.src = normalizedPlayerUrl;
   setActionLink(watchEl, links.watchUrl);
   setActionLink(workbookEl, links.workbookUrl);
   setActionLink(guideEl, links.guideUrl);
@@ -195,6 +249,14 @@ function renderEpisodes() {
 
 function setupRevealAnimation() {
   const nodes = document.querySelectorAll(".card, .hero");
+  const isMobileScreen = window.matchMedia("(max-width: 700px)").matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (isMobileScreen || reducedMotion) {
+    nodes.forEach((node) => node.classList.add("is-visible"));
+    return;
+  }
+
   nodes.forEach((node) => node.classList.add("reveal"));
 
   const observer = new IntersectionObserver(
@@ -207,7 +269,8 @@ function setupRevealAnimation() {
       });
     },
     {
-      threshold: 0.18
+      threshold: 0.02,
+      rootMargin: "0px 0px -6% 0px"
     }
   );
 
