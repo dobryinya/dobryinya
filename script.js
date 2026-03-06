@@ -43,7 +43,7 @@ const episodes = [
   {
     id: 5,
     title: "5 серия — Терпение",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000005&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239024",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
