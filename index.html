@@ -130,6 +130,24 @@
     <p>© <span id="year"></span> Уроки с Добрыней</p>
   </footer>
 
+  <div class="pdf-modal" id="pdf-modal" aria-hidden="true">
+    <div class="pdf-modal__backdrop" data-pdf-close></div>
+    <div class="pdf-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-modal-title">
+      <div class="pdf-modal__head">
+        <h3 class="pdf-modal__title" id="pdf-modal-title">Предпросмотр PDF</h3>
+        <button class="pdf-modal__close" id="pdf-close-btn" type="button" aria-label="Закрыть предпросмотр">✕</button>
+      </div>
+
+      <div class="pdf-modal__actions">
+        <a class="btn btn--ghost" id="pdf-open-link" href="#" target="_blank" rel="noopener noreferrer">Открыть в новой вкладке</a>
+        <a class="btn btn--secondary" id="pdf-download-link" href="#" download>Скачать PDF</a>
+      </div>
+
+      <iframe class="pdf-modal__frame" id="pdf-frame" title="Предпросмотр PDF" loading="lazy"></iframe>
+      <p class="pdf-modal__note">Если PDF не отображается, нажмите «Открыть в новой вкладке».</p>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
