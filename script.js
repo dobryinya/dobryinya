@@ -35,7 +35,7 @@ const episodes = [
   {
     id: 4,
     title: "4 серия — Ответственность",
-    playerUrl: "https://vkvideo.ru/video_ext.php?oid=-00000000&id=000000004&hd=2&autoplay=0",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239023",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
