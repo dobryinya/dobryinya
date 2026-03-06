@@ -3,7 +3,7 @@ const episodes = [
   {
     id: 0,
     title: "Знакомство с Добрыней",
-    playerUrl: "https://vkvideo.ru/video-1415705_456252206?sh=4",
+    playerUrl: "https://vkvideo.ru/video-236469097_456239018",
     watchUrl: "https://vkvideo.ru/",
     workbookUrl: "#",
     guideUrl: "#"
