@@ -48,6 +48,18 @@ body.modal-open {
   overflow: hidden;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 section[id],
 header[id] {
   scroll-margin-top: 110px;
@@ -730,15 +742,3 @@ header[id] {
     min-height: 100dvh;
     border-radius: 0;
     border: 0;
-    padding: 10px;
-  }
-
-  .pdf-modal__actions .btn {
-    width: 100%;
-  }
-
-  .pdf-modal__frame {
-    min-height: calc(100dvh - 190px);
-    border-radius: 10px;
-  }
-}
