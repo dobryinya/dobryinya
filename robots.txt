@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Host: https://урокисдобрыней.рф
-Sitemap: https://урокисдобрыней.рф/sitemap.xml
+Host: https://xn--90afejibyddpgiv5j.xn--p1ai
+Sitemap: https://xn--90afejibyddpgiv5j.xn--p1ai/sitemap.xml
