@@ -29,6 +29,8 @@
       <div class="top-nav__menu" id="nav-menu">
         <a class="top-nav__link" href="#top">Главная</a>
         <a class="top-nav__link" href="#about">О проекте</a>
+        <a class="top-nav__link" href="#cards">Карточки</a>
+        <a class="top-nav__link" href="#igroteka">Игротека</a>
         <a class="top-nav__link" href="#episodes">Серии</a>
         <a class="top-nav__link" href="#author">Об авторе</a>
       </div>
@@ -79,6 +81,7 @@
       </ul>
     </section>
 
+    
     <section class="card card--episodes" id="episodes">
       <div class="episodes__panel">
         <h2>Серии</h2>
@@ -128,6 +131,115 @@
         </p>
       </div>
     </section>
+
+
+    <section class="card card--cards" id="cards">
+      
+
+      <div class="cards-carousel" id="cards-carousel" aria-label="Карусель карточек проекта">
+        <button class="cards-carousel__nav cards-carousel__nav--prev" id="cards-prev" type="button" aria-label="Предыдущие карточки">‹</button>
+        <div class="cards-carousel__viewport">
+          <div class="cards-grid" id="cards-grid">
+            <article class="project-card">
+              <img class="project-card__image" src="images/cards/1.jpg" alt="Карточка проекта Уроки с Добрыней" loading="lazy">
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__image" src="images/cards/2.jpg" alt="Карточка о принципе Добрыня не решает сам" loading="lazy">
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__image" src="images/cards/3.jpg" alt="Карточка о дидактическом конструкторе проекта" loading="lazy">
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__image" src="images/cards/4.jpg" alt="Карточка о рабочей тетради для школьников" loading="lazy">
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__image" src="images/cards/5.jpg" alt="Карточка о творческом продолжении историй с Добрыней" loading="lazy">
+            </article>
+          </div>
+        </div>
+        <button class="cards-carousel__nav cards-carousel__nav--next" id="cards-next" type="button" aria-label="Следующие карточки">›</button>
+      </div>
+    </section>
+
+    <section class="card card--igroteka" id="igroteka">
+      <h2>Игротека</h2>
+      <p class="section-hint">Все карточки показаны без дополнительных описаний, потому что подписи уже есть на самих изображениях.</p>
+
+      <div class="igroteka-carousel" id="igroteka-carousel" aria-label="Карусель карточек игротеки">
+        <button class="igroteka-carousel__nav igroteka-carousel__nav--prev" id="igroteka-prev" type="button" aria-label="Предыдущая карточка">‹</button>
+
+        <div class="igroteka-carousel__viewport">
+          <ul class="igroteka-carousel__track" id="igroteka-track">
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/1.jpg" alt="Баннер Игротека Добрыни" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/2.jpg" alt="Игра Мост понимания" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/3.jpg" alt="Игра Добрынин дневник" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/4.jpg" alt="Игра Лабиринт выбора" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/5.jpg" alt="Игра Зеркало души" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/6.jpg" alt="Игра Цепочка добра" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/7.jpg" alt="Игра Дерево ценностей" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/8.jpg" alt="Ролевая игра Советчики Добрыни" loading="lazy">
+            </li>
+
+            <li class="igroteka-slide">
+              <img class="igroteka-slide__image" src="images/cards/igroteka/9.jpg" alt="Квест Путь Добрыни" loading="lazy">
+            </li>
+
+          </ul>
+        </div>
+
+        <button class="igroteka-carousel__nav igroteka-carousel__nav--next" id="igroteka-next" type="button" aria-label="Следующая карточка">›</button>
+      </div>
+
+      <div class="igroteka-carousel__dots" id="igroteka-dots" aria-label="Индикаторы карточек игротеки"></div>
+
+      <div class="igroteka-download">
+        <div class="igroteka-download__content">
+          <h3>PDF-файл для печати и раздачи</h3>
+          <p>Откройте предпросмотр, чтобы быстро посмотреть материал, или скачайте файл для работы офлайн.</p>
+        </div>
+        <div class="igroteka-download__actions">
+          <a
+            class="btn btn--primary"
+            href="images/cards/igroteka/11.pdf"
+            data-pdf-preview
+            data-pdf-label="Сборник игротеки Добрыни"
+          >
+            Предпросмотр PDF
+          </a>
+          <a class="btn btn--secondary" href="images/cards/igroteka/11.pdf" download>
+            Скачать PDF
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
   </main>
 
   <footer class="footer">
