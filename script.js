@@ -376,6 +376,346 @@ function initNavigation() {
   });
 }
 
+function initCardsCarousel() {
+  const carouselEl = document.getElementById("cards-carousel");
+  const gridEl = document.getElementById("cards-grid");
+  const prevBtnEl = document.getElementById("cards-prev");
+  const nextBtnEl = document.getElementById("cards-next");
+
+  if (
+    !(carouselEl instanceof HTMLElement) ||
+    !(gridEl instanceof HTMLElement) ||
+    !(prevBtnEl instanceof HTMLButtonElement) ||
+    !(nextBtnEl instanceof HTMLButtonElement)
+  ) {
+    return;
+  }
+
+  const cardPool = Array.from(gridEl.querySelectorAll(".project-card"))
+    .map((cardEl) => {
+      const imageEl = cardEl.querySelector(".project-card__image");
+      if (!(imageEl instanceof HTMLImageElement)) {
+        return null;
+      }
+
+      return {
+        src: imageEl.getAttribute("src") || "",
+        alt: imageEl.getAttribute("alt") || "Карточка проекта"
+      };
+    })
+    .filter(Boolean);
+
+  if (cardPool.length < 2) {
+    return;
+  }
+
+  let startIndex = 0;
+  let autoPlayTimer = 0;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const getVisibleCards = () => {
+    return 1;
+  };
+
+  const getStepSize = () => Math.min(getVisibleCards(), Math.max(cardPool.length - 1, 1));
+
+  const render = (direction = 1, animate = true) => {
+    const visibleCards = Math.min(getVisibleCards(), cardPool.length);
+    const nodes = [];
+    const animationClass = direction < 0 ? "project-card--enter-prev" : "project-card--enter-next";
+
+    for (let offset = 0; offset < visibleCards; offset += 1) {
+      const card = cardPool[(startIndex + offset) % cardPool.length];
+      if (!card) {
+        continue;
+      }
+
+      const cardEl = document.createElement("article");
+      cardEl.className = "project-card";
+
+      const imageEl = document.createElement("img");
+      imageEl.className = "project-card__image";
+      imageEl.src = card.src;
+      imageEl.alt = card.alt;
+      imageEl.loading = "lazy";
+
+      cardEl.append(imageEl);
+      if (animate) {
+        cardEl.classList.add(animationClass);
+      }
+      nodes.push(cardEl);
+    }
+
+    gridEl.replaceChildren(...nodes);
+  };
+
+  const shift = (step, animate = true) => {
+    startIndex = (startIndex + step + cardPool.length) % cardPool.length;
+    render(step, animate);
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayTimer) {
+      window.clearInterval(autoPlayTimer);
+      autoPlayTimer = 0;
+    }
+  };
+
+  const startAutoPlay = () => {
+    if (reducedMotion) {
+      return;
+    }
+
+    stopAutoPlay();
+    autoPlayTimer = window.setInterval(() => {
+      shift(getStepSize());
+    }, 6800);
+  };
+
+  prevBtnEl.addEventListener("click", () => {
+    shift(-getStepSize());
+    startAutoPlay();
+  });
+
+  nextBtnEl.addEventListener("click", () => {
+    shift(getStepSize());
+    startAutoPlay();
+  });
+
+  window.addEventListener("resize", () => render(1, false));
+
+  carouselEl.addEventListener("mouseenter", stopAutoPlay);
+  carouselEl.addEventListener("mouseleave", startAutoPlay);
+  carouselEl.addEventListener("focusin", stopAutoPlay);
+  carouselEl.addEventListener("focusout", (event) => {
+    const nextFocusTarget = event.relatedTarget;
+    if (!(nextFocusTarget instanceof Node) || !carouselEl.contains(nextFocusTarget)) {
+      startAutoPlay();
+    }
+  });
+
+  render(1, false);
+  startAutoPlay();
+}
+
+function initIgrotekaCarousel() {
+  const carouselEl = document.getElementById("igroteka-carousel");
+  const trackEl = document.getElementById("igroteka-track");
+  const dotsEl = document.getElementById("igroteka-dots");
+  const prevBtnEl = document.getElementById("igroteka-prev");
+  const nextBtnEl = document.getElementById("igroteka-next");
+
+  if (
+    !(carouselEl instanceof HTMLElement) ||
+    !(trackEl instanceof HTMLElement) ||
+    !(dotsEl instanceof HTMLElement) ||
+    !(prevBtnEl instanceof HTMLButtonElement) ||
+    !(nextBtnEl instanceof HTMLButtonElement)
+  ) {
+    return;
+  }
+
+  const slideEls = Array.from(trackEl.querySelectorAll(".igroteka-slide"));
+  const viewportEl = carouselEl.querySelector(".igroteka-carousel__viewport");
+  if (!slideEls.length) {
+    return;
+  }
+  if (!(viewportEl instanceof HTMLElement)) {
+    return;
+  }
+
+  let activeIndex = 0;
+  let autoPlayTimer = 0;
+  let motionClassTimer = 0;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  dotsEl.innerHTML = slideEls
+    .map(
+      (_, index) => `
+        <button
+          class="igroteka-carousel__dot"
+          type="button"
+          data-index="${index}"
+          aria-label="Карточка игротеки ${index + 1}"
+        ></button>
+      `
+    )
+    .join("");
+
+  const dotEls = Array.from(dotsEl.querySelectorAll(".igroteka-carousel__dot"));
+
+  const render = () => {
+    const viewportWidth = viewportEl.getBoundingClientRect().width;
+    const sideOffset = Math.max(120, Math.min(260, viewportWidth * 0.3));
+    carouselEl.style.setProperty("--igroteka-side-shift", `${sideOffset}px`);
+    const totalSlides = slideEls.length;
+
+    slideEls.forEach((slide, index) => {
+      let offset = index - activeIndex;
+      const half = totalSlides / 2;
+      if (offset > half) {
+        offset -= totalSlides;
+      }
+      if (offset < -half) {
+        offset += totalSlides;
+      }
+
+      slide.style.removeProperty("transform");
+      slide.style.removeProperty("opacity");
+      slide.style.removeProperty("z-index");
+      slide.style.removeProperty("pointer-events");
+      slide.style.removeProperty("filter");
+
+      slide.classList.remove("is-center", "is-left", "is-right", "is-hidden-left", "is-hidden-right", "is-active");
+
+      const isActive = offset === 0;
+      if (isActive) {
+        slide.classList.add("is-center", "is-active");
+        slide.setAttribute("aria-hidden", "false");
+        return;
+      }
+
+      if (offset === -1) {
+        slide.classList.add("is-left");
+        slide.setAttribute("aria-hidden", "true");
+        return;
+      }
+
+      if (offset === 1) {
+        slide.classList.add("is-right");
+        slide.setAttribute("aria-hidden", "true");
+        return;
+      }
+
+      slide.classList.add(offset < 0 ? "is-hidden-left" : "is-hidden-right");
+      slide.setAttribute("aria-hidden", "true");
+    });
+
+    dotEls.forEach((dotEl, index) => {
+      const isActive = index === activeIndex;
+      dotEl.classList.toggle("is-active", isActive);
+      dotEl.setAttribute("aria-current", isActive ? "true" : "false");
+    });
+  };
+
+  const getSlideDirection = (currentIndex, nextIndex) => {
+    const total = slideEls.length;
+    const forwardDistance = (nextIndex - currentIndex + total) % total;
+    const backwardDistance = (currentIndex - nextIndex + total) % total;
+
+    if (forwardDistance === backwardDistance) {
+      return 1;
+    }
+
+    return forwardDistance < backwardDistance ? 1 : -1;
+  };
+
+  const markMotionDirection = (direction) => {
+    carouselEl.classList.remove("is-shifting-next", "is-shifting-prev");
+    if (motionClassTimer) {
+      window.clearTimeout(motionClassTimer);
+      motionClassTimer = 0;
+    }
+
+    const motionClass = direction < 0 ? "is-shifting-prev" : "is-shifting-next";
+    carouselEl.classList.add(motionClass);
+
+    motionClassTimer = window.setTimeout(() => {
+      carouselEl.classList.remove("is-shifting-next", "is-shifting-prev");
+      motionClassTimer = 0;
+    }, 620);
+  };
+
+  const setSlide = (nextIndex) => {
+    const targetIndex = (nextIndex + slideEls.length) % slideEls.length;
+    if (targetIndex === activeIndex) {
+      return;
+    }
+
+    const direction = getSlideDirection(activeIndex, targetIndex);
+    markMotionDirection(direction);
+    activeIndex = targetIndex;
+    render();
+  };
+
+  const stopAutoPlay = () => {
+    if (autoPlayTimer) {
+      window.clearInterval(autoPlayTimer);
+      autoPlayTimer = 0;
+    }
+  };
+
+  const startAutoPlay = () => {
+    if (reducedMotion || slideEls.length < 2) {
+      return;
+    }
+
+    stopAutoPlay();
+    autoPlayTimer = window.setInterval(() => {
+      setSlide(activeIndex + 1);
+    }, 6500);
+  };
+
+  prevBtnEl.addEventListener("click", () => {
+    setSlide(activeIndex - 1);
+    startAutoPlay();
+  });
+
+  nextBtnEl.addEventListener("click", () => {
+    setSlide(activeIndex + 1);
+    startAutoPlay();
+  });
+
+  dotsEl.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = target.closest(".igroteka-carousel__dot");
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const index = Number(button.dataset.index);
+    if (Number.isNaN(index)) {
+      return;
+    }
+
+    setSlide(index);
+    startAutoPlay();
+  });
+
+  carouselEl.addEventListener("mouseenter", stopAutoPlay);
+  carouselEl.addEventListener("mouseleave", startAutoPlay);
+  carouselEl.addEventListener("focusin", stopAutoPlay);
+  carouselEl.addEventListener("focusout", (event) => {
+    const nextFocusTarget = event.relatedTarget;
+    if (!(nextFocusTarget instanceof Node) || !carouselEl.contains(nextFocusTarget)) {
+      startAutoPlay();
+    }
+  });
+
+  carouselEl.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      setSlide(activeIndex - 1);
+      startAutoPlay();
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      setSlide(activeIndex + 1);
+      startAutoPlay();
+    }
+  });
+
+  window.addEventListener("resize", render);
+
+  render();
+  startAutoPlay();
+}
+
 function initPdfPreview() {
   const modalEl = document.getElementById("pdf-modal");
   const frameEl = document.getElementById("pdf-frame");
@@ -409,9 +749,7 @@ function initPdfPreview() {
     }
 
     const previewUrl = cleanUrl.includes("#") ? cleanUrl : `${cleanUrl}#view=FitH`;
-    const activeEpisodeTitle = titleEl.textContent.trim();
-
-    modalTitleEl.textContent = `${label} — ${activeEpisodeTitle}`;
+    modalTitleEl.textContent = label;
     openLinkEl.href = cleanUrl;
     downloadLinkEl.href = cleanUrl;
     frameEl.src = previewUrl;
@@ -432,11 +770,36 @@ function initPdfPreview() {
       return;
     }
 
-    openModal(buttonEl.href, label);
+    const activeEpisodeTitle = titleEl.textContent.trim();
+    openModal(buttonEl.href, `${label} — ${activeEpisodeTitle}`);
   };
 
-  workbookEl.addEventListener("click", (event) => openPdfFromButton(event, "Рабочая тетрадь"));
-  guideEl.addEventListener("click", (event) => openPdfFromButton(event, "Методические рекомендации"));
+  if (workbookEl instanceof HTMLAnchorElement) {
+    workbookEl.addEventListener("click", (event) => openPdfFromButton(event, "Рабочая тетрадь"));
+  }
+
+  if (guideEl instanceof HTMLAnchorElement) {
+    guideEl.addEventListener("click", (event) => openPdfFromButton(event, "Методические рекомендации"));
+  }
+
+  const staticPreviewLinks = document.querySelectorAll("[data-pdf-preview]");
+  staticPreviewLinks.forEach((linkEl) => {
+    if (!(linkEl instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    linkEl.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const pdfUrl = linkEl.dataset.pdfUrl || linkEl.getAttribute("href") || "";
+      const label = linkEl.dataset.pdfLabel?.trim() || "Предпросмотр PDF";
+      if (!pdfUrl || pdfUrl === "#") {
+        return;
+      }
+
+      openModal(pdfUrl, label);
+    });
+  });
 
   closeBtnEl.addEventListener("click", closeModal);
   modalEl.addEventListener("click", (event) => {
@@ -460,6 +823,8 @@ function initYear() {
 
 initNavigation();
 initPdfPreview();
+initCardsCarousel();
+initIgrotekaCarousel();
 renderEpisodes();
 setupRevealAnimation();
 initAuthorPhoto();
