@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Викторина — Уроки с Добрыней</title>
+  <meta name="description" content="Интерактивная викторина о доброте, честности, дружбе и нравственном выборе.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html#top">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="index.html#top">Главная</a>
+        <a class="top-nav__link" href="index.html#about">О проекте</a>
+        <a class="top-nav__link" href="index.html#cards">Карточки</a>
+        <a class="top-nav__link" href="index.html#igroteka">Игротека</a>
+        <a class="top-nav__link" href="index.html#episodes">Серии</a>
+        <a class="top-nav__link" href="index.html#author">Об авторе</a>
+        <a class="top-nav__link is-active" href="viktorine.html" aria-current="page">Викторина</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="layout quiz-page" id="top">
+    <section class="quiz-hero card card--quiz">
+      <p class="quiz-hero__label">Игротека Добрыни</p>
+      <h1>Тропа добра</h1>
+      <p>Выбирай ответ, нажимай «Ответить», читай объяснение «Почему?» и переходи к следующему вопросу.</p>
+      <button class="btn btn--primary quiz-start" id="quiz-start" type="button">Начать викторину</button>
+    </section>
+
+    <section class="quiz-screen card card--quiz" id="quiz-screen" hidden>
+      <div class="quiz-progress" aria-live="polite">
+        <span id="quiz-counter">Вопрос 1 из 10</span>
+        <span id="quiz-score">Правильных ответов: 0</span>
+      </div>
+
+      <div class="quiz-meter" aria-hidden="true">
+        <span id="quiz-meter-bar"></span>
+      </div>
+
+      <article class="quiz-question" aria-live="polite">
+        <h2 id="quiz-title">Вопрос 1</h2>
+        <p class="quiz-question__text" id="quiz-question-text"></p>
+
+        <div class="quiz-options" id="quiz-options"></div>
+
+        <div class="quiz-feedback" id="quiz-feedback" hidden></div>
+      </article>
+
+      <div class="quiz-actions">
+        <button class="btn btn--primary" id="quiz-main-btn" type="button" disabled>Ответить</button>
+        <a class="btn btn--ghost" href="index.html#top">Вернуться на главную</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
