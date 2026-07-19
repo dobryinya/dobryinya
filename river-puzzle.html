@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Умная переправа — Добрыня-эрудит</title>
+  <meta name="description" content="Логическая игра Умная переправа проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="koza.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page koza-page">
+    <section class="card koza-intro" id="koza-intro">
+      <p class="game-label">Логическая головоломка</p>
+      <h1>Умная переправа</h1>
+      <p>Перевези всех на правый берег. В лодке помещается только Добрыня и один пассажир.</p>
+      <div class="koza-rules">
+        <span>Нельзя оставлять волка с козой</span>
+        <span>Нельзя оставлять козу с капустой</span>
+      </div>
+      <button class="btn btn--primary" id="koza-start-btn" type="button">Начать игру</button>
+    </section>
+
+    <section class="card koza-shell" id="koza-shell" hidden>
+      <div class="koza-head">
+        <div>
+          <p class="game-label">Логическая головоломка</p>
+          <h1>Умная переправа</h1>
+        </div>
+        <div class="koza-head__actions">
+          <div class="koza-moves"><span>Ходы</span><strong id="koza-moves">0</strong></div>
+          <button class="btn btn--ghost" id="koza-restart-btn" type="button">Начать заново</button>
+        </div>
+      </div>
+
+      <div class="koza-scene" id="koza-scene" aria-label="Игровое поле">
+        <div class="koza-scene__river" aria-hidden="true">
+          <div class="koza-scene__river-track">
+            <img src="/images/erudit/koza/bgriver.png" alt="">
+            <img src="/images/erudit/koza/bgriver.png" alt="">
+          </div>
+        </div>
+
+        <div class="koza-scene__sky" aria-hidden="true">
+          <div class="koza-scene__sky-track">
+            <img src="/images/erudit/koza/bgsky.png" alt="">
+            <img src="/images/erudit/koza/bgsky.png" alt="">
+          </div>
+        </div>
+
+        <img class="koza-scene__main" src="/images/erudit/koza/bgmain.png" alt="Горная долина с рекой">
+
+        <button class="koza-character koza-character--wolf" type="button" data-item="wolf" aria-label="Выбрать волка">
+          <img src="/images/erudit/koza/wolf.png" alt="Волк">
+        </button>
+        <button class="koza-character koza-character--goat" type="button" data-item="goat" aria-label="Выбрать козу">
+          <img src="/images/erudit/koza/koza.png" alt="Коза">
+        </button>
+        <button class="koza-character koza-character--cabbage" type="button" data-item="cabbage" aria-label="Выбрать капусту">
+          <img src="/images/erudit/koza/kapusta.png" alt="Капуста">
+        </button>
+
+        <button class="koza-boat" id="koza-boat" type="button" aria-label="Лодка">
+          <img id="koza-boat-image" src="/images/erudit/koza/boat.png" alt="Добрыня в лодке">
+        </button>
+
+        <div class="koza-bank-label koza-bank-label--left">Левый берег</div>
+        <div class="koza-bank-label koza-bank-label--right">Правый берег</div>
+      </div>
+
+      <div class="koza-controls">
+        <p class="koza-status" id="koza-status">Выбери пассажира и отправляйся в путь.</p>
+        <button class="btn btn--primary koza-cross-btn" id="koza-cross-btn" type="button">Переплыть на правый берег →</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="koza-modal" id="koza-modal" hidden>
+    <div class="koza-modal__backdrop"></div>
+    <section class="koza-modal__card" role="dialog" aria-modal="true" aria-labelledby="koza-modal-title">
+      <p class="game-label" id="koza-modal-label">Результат</p>
+      <h2 id="koza-modal-title">Игра завершена</h2>
+      <p id="koza-modal-text"></p>
+      <div class="koza-modal__actions">
+        <button class="btn btn--primary" id="koza-modal-restart" type="button">Играть ещё</button>
+        <a class="btn btn--ghost" href="erudit.html">К тренажёрам</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/erudit/koza.js"></script>
+</body>
+</html>
