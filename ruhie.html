@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рюхи — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Рюхи для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="ruhie-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page ruhie-page">
+    <section class="card game-card ruhie-start" id="ruhie-start">
+      <img class="ruhie-start__icon" src="images/ruha1.png" alt="Рюха" draggable="false">
+      <p class="game-label">Игра народов Северо-Запада</p>
+      <h1>Рюхи</h1>
+      <p class="ruhie-start__text">
+      Натяни руку с дубиной, отпусти ее и сбей как можно больше рюх за 5 попыток.
+      </p>
+      <button class="btn btn--primary ruhie-btn" id="ruhie-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card ruhie-shell" id="ruhie-shell" hidden>
+      <div class="ruhie-hud" aria-label="Панель игры">
+        <div class="ruhie-hud__item">
+          <span>Очки</span>
+          <strong id="ruhie-score">0</strong>
+        </div>
+
+        <div class="ruhie-hud__item ruhie-hud__attempts">
+          <span>Дубины</span>
+          <div class="ruhie-attempts" id="ruhie-attempts" aria-label="Оставшиеся попытки"></div>
+        </div>
+
+        <div class="ruhie-hud__item">
+          <span>Время</span>
+          <strong id="ruhie-time">03:30</strong>
+        </div>
+      </div>
+
+      <div class="ruhie-meter" aria-hidden="true">
+        <span id="ruhie-progress-bar"></span>
+      </div>
+
+      <div class="ruhie-field" id="ruhie-field" aria-label="Игровое поле Рюхи">
+        <canvas class="ruhie-canvas" id="ruhie-canvas"></canvas>
+
+        <img class="ruhie-hero" id="ruhie-hero" src="images/ruhero1.png" alt="Герой с дубиной" draggable="false">
+
+        <div class="ruhie-aim-zone" id="ruhie-aim-zone" aria-label="Зона натягивания броска"></div>
+
+        <div class="ruhie-help" id="ruhie-help">
+          Зажми героя, потяни назад и отпусти
+        </div>
+      </div>
+
+      <div class="ruhie-actions">
+        <button class="btn btn--ghost" id="ruhie-restart-btn" type="button">Начать заново</button>
+      </div>
+    </section>
+
+    <section class="card game-card ruhie-result" id="ruhie-result" hidden>
+      <p class="game-label">Результат</p>
+      <h2>Игра завершена</h2>
+      <p class="ruhie-result__score">Твой счёт: <strong id="ruhie-final-score">0</strong></p>
+      <p class="ruhie-result__text" id="ruhie-result-text">Попробуй ещё раз и улучши результат.</p>
+      <div class="ruhie-actions ruhie-actions--center">
+        <button class="btn btn--primary" id="ruhie-result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+    
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+    
+          <p>
+    
+            Рюхи — старинная игра народов Северо-Запада на меткость. С помощью деревянной биты нужно выбить все рюхи, сложенные в фигуру, за как можно меньшее количество бросков.
+    
+          </p>
+    
+          <ul>
+    
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+    
+            <li>Нажми на деревянную биту и потяни её назад, чтобы выбрать силу и направление броска.</li>
+    
+            <li>Отпусти кнопку мыши или палец, чтобы выполнить бросок.</li>
+    
+            <li>Старайся попасть по фигуре из рюх и выбить как можно больше очков за один удар.</li>
+    
+            <li>Когда все рюхи будут выбиты, уровень будет успешно завершён.</li>
+    
+            
+    
+          </ul>
+    
+          <p>
+    
+            Прицелься внимательно, рассчитай силу броска и покажи настоящую меткость!
+    
+          </p>
+    
+        </div>
+    
+        <div class="game-help-actions">
+    
+          <button class="btn btn--primary" type="button" data-help-close>
+    
+            Понятно
+    
+          </button>
+    
+        </div>
+    
+      </div>
+    
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/ruhie.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добрыня-эрудит — Уроки с Добрыней</title>
+  <meta name="description" content="Образовательные игры и тренажёры проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="erudit.css">
+</head>
+<body class="erudit-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="erudit-page">
+    <header class="erudit-hero">
+      <p class="erudit-hero__badge">Интерактивные тренажёры</p>
+      <h1>Добрыня-эрудит</h1>
+      <p>Выбирай любую игру или тренажёр, развивай память, логику, внимание и мышление вместе с Добрыней.</p>
+    </header>
+
+    <section class="erudit-catalog" aria-labelledby="erudit-catalog-title">
+      <div class="erudit-catalog__head">
+        <div>
+          <p class="erudit-catalog__label">Игры и тренажёры</p>
+          <h2 id="erudit-catalog-title">Выбери задание</h2>
+        </div>
+        <p>Все задания доступны сразу. Начни с любого и проверь свои знания.</p>
+      </div>
+
+      <div class="erudit-list">
+        <article class="erudit-card erudit-card--math">
+          <div class="erudit-card__icon" aria-hidden="true"><span>×</span></div>
+          <div class="erudit-card__content">
+            <p class="erudit-card__type">Математический тренажёр</p>
+            <h3>Таблица умножения</h3>
+            <p>Решай примеры, закрепляй таблицу умножения и старайся отвечать точно и без ошибок.</p>
+          </div>
+          <a class="erudit-card__button" href="multiplication.html">Начать</a>
+        </article>
+
+        <article class="erudit-card erudit-card--logic">
+          <div class="erudit-card__icon" aria-hidden="true"><span>?</span></div>
+          <div class="erudit-card__content">
+            <p class="erudit-card__type">Логическая задача</p>
+            <h3>Умная переправа</h3>
+            <p>Перевези всех на другой берег, соблюдая условия задачи и продумывая каждый следующий шаг.</p>
+          </div>
+          <a class="erudit-card__button" href="river-puzzle.html">Начать</a>
+        </article>
+
+        <article class="erudit-card erudit-card--literature">
+          <div class="erudit-card__icon" aria-hidden="true"><span>А</span></div>
+          <div class="erudit-card__content">
+            <p class="erudit-card__type">Литературная игра</p>
+            <h3>«У лукоморья»</h3>
+            <p>Продолжай строки известного произведения А. С. Пушкина, вспоминай текст и тренируй память.</p>
+          </div>
+          <a class="erudit-card__button" href="pushkin-quiz.html">Начать</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+      const nav = document.querySelector(".top-nav");
+      const burger = document.getElementById("nav-burger");
+      const menu = document.getElementById("nav-menu");
+      const year = document.getElementById("year");
+
+      if (year) year.textContent = new Date().getFullYear();
+
+      burger?.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("is-open");
+        burger.setAttribute("aria-expanded", String(isOpen));
+        burger.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+        document.body.classList.toggle("nav-open", isOpen);
+      });
+
+      menu?.addEventListener("click", function (event) {
+        if (!event.target.closest("a")) return;
+        nav.classList.remove("is-open");
+        document.body.classList.remove("nav-open");
+        burger?.setAttribute("aria-expanded", "false");
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+        nav.classList.remove("is-open");
+        document.body.classList.remove("nav-open");
+        burger?.setAttribute("aria-expanded", "false");
+      });
+    })();
+  </script>
+</body>
+</html>

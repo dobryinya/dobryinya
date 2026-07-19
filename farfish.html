@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Большой улов — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Большой улов для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="farfish-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page farfish-page">
+    <section class="card game-card farfish-start" id="farfish-start">
+      <img class="farfish-start__icon" src="images/farfish/icon.png" alt="Иконка игры Большой улов" draggable="false">
+      <p class="game-label">Игра народов Дальнего Востока</p>
+      <h1>Большой улов</h1>
+      <p class="farfish-start__text">
+        Рыба выпадает из сачков сверху. Беги по пристани и лови её в корзину, пока улов не уплыл обратно в море.
+      </p>
+      <button class="btn btn--primary farfish-btn" id="farfish-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    
+    </section>
+
+    <section class="card game-card farfish-shell" id="farfish-shell" hidden>
+      <div class="farfish-hud" aria-label="Панель игры">
+        <div class="farfish-hud__item">
+          <span>Время</span>
+          <strong id="farfish-time">45</strong>
+        </div>
+
+        <div class="farfish-hud__item">
+          <span>Поймано</span>
+          <strong id="farfish-score">0</strong>
+        </div>
+
+        <div class="farfish-hud__item">
+          <span>Упало</span>
+          <strong id="farfish-missed">0/3</strong>
+        </div>
+      </div>
+
+      <div class="farfish-field" id="farfish-field" tabindex="0" aria-label="Игровое поле Большой улов">
+        <img class="farfish-bg" id="farfish-bg" src="images/farfish/bg.png" alt="Морской пейзаж Дальнего Востока" draggable="false">
+        <div class="farfish-nets" id="farfish-nets"></div>
+        <div class="farfish-fishes" id="farfish-fishes"></div>
+        <img class="farfish-player" id="farfish-player" src="images/farfish/player.png" alt="Рыбак с корзиной" draggable="false">
+        <div class="farfish-overlay" id="farfish-overlay" hidden>Лови!</div>
+      </div>
+
+      <div class="farfish-progress" aria-hidden="true">
+        <span id="farfish-progress-bar"></span>
+      </div>
+
+      <div class="farfish-controls" aria-label="Управление на телефоне">
+        <button class="btn btn--ghost farfish-control" id="farfish-left-btn" type="button">← Влево</button>
+        <button class="btn btn--ghost farfish-control" id="farfish-right-btn" type="button">Вправо →</button>
+      </div>
+
+      <p class="farfish-hint" id="farfish-hint">Управление: стрелки ← →, A/D или кнопки на экране.</p>
+    </section>
+
+    <section class="card game-card farfish-result" id="farfish-result" hidden>
+      <p class="game-label" id="farfish-result-label">Результат</p>
+      <h2 id="farfish-result-title">Игра завершена</h2>
+      <img class="farfish-result__hero" id="farfish-result-img" src="images/farfish/win.png" alt="Результат игры" draggable="false">
+      <p class="farfish-result__text" id="farfish-result-text">Попробуй ещё раз и собери большой улов.</p>
+      <p class="farfish-fact">
+        На Дальнем Востоке рыболовство издавна было важной частью жизни прибрежных народов. Рыбу ловили, сушили и заготавливали впрок для семьи и долгих переходов.
+      </p>
+      <div class="farfish-actions farfish-actions--center">
+        <button class="btn btn--primary" id="farfish-result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+  <div class="game-help-modal__backdrop" data-help-close></div>
+
+  <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+    <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+
+    <h2 id="game-help-title">Как играть</h2>
+
+    <div class="game-help-modal__content">
+      <p>
+        Помоги рыбаку Дальнего Востока поймать рыбу, которая выпадает из сачков сверху.
+      </p>
+
+      <ul>
+        <li>Нажми <strong>«Начать игру»</strong>.</li>
+        <li>Передвигай рыбака влево и вправо стрелками <strong>← →</strong> или клавишами <strong>A/D</strong>.</li>
+        <li>На телефоне используй кнопки управления снизу.</li>
+        <li>Смотри на сачки сверху: когда в сачке появляется рыба, она скоро упадёт вниз.</li>
+        <li>Подставляй корзину под падающую рыбу, чтобы поймать её.</li>
+        <li>Если несколько рыб упадут мимо — игра закончится.</li>
+        <li>Поймай нужное количество рыбы до окончания времени.</li>
+      </ul>
+
+      <p>
+        Следи за сачками и быстро меняй позицию рыбака, чтобы собрать большой улов!
+      </p>
+    </div>
+
+    <div class="game-help-actions">
+      <button class="btn btn--primary" type="button" data-help-close>
+        Понятно
+      </button>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/farfish.js"></script>
+  <script src="js/game-ui.js"></script>
+  
+</body>
+</html>

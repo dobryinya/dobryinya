@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Собери рюкзак добрых дел — Уроки с Добрыней</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/backpack.js" defer></script>
+</head>
+<body class="tropa-page backpack-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link is-active" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="backpack-layout">
+    <section class="backpack-screen backpack-screen--start is-active" id="backpackStart">
+      <img class="backpack-start-icon" id="backpackStartIcon" src="" alt="">
+      <p class="backpack-badge" id="backpackStartBadge"></p>
+      <h1 id="backpackStartTitle"></h1>
+      <p id="backpackStartText"></p>
+      <div class="backpack-actions">
+        <button class="backpack-btn backpack-btn--primary" id="backpackStartBtn" type="button"></button>
+        <button class="backpack-btn backpack-btn--ghost" id="backpackHelpBtn" type="button"></button>
+      </div>
+    </section>
+
+    <section class="backpack-screen backpack-screen--game" id="backpackGame">
+      <div class="backpack-panel-head">
+        <div>
+          <p class="backpack-badge" id="backpackGameBadge"></p>
+          <h2 id="backpackGameTitle"></h2>
+          <p id="backpackHint"></p>
+        </div>
+        <div class="backpack-progress-wrap" aria-label="Прогресс игры">
+          <span class="backpack-progress-label" id="backpackProgressLabel"></span>
+          <div class="backpack-progress" id="backpackProgress"></div>
+        </div>
+      </div>
+
+      <div class="backpack-field" id="backpackField">
+        <img class="backpack-bg" id="backpackBg" src="" alt="">
+        <div class="backpack-bag-zone" id="backpackBagZone" aria-label="Рюкзак добрых дел">
+          <div class="backpack-glow" aria-hidden="true"></div>
+          <img class="backpack-bag" id="backpackBag" src="" alt="Рюкзак добрых дел">
+          <div class="backpack-count" id="backpackCount" aria-live="polite"></div>
+        </div>
+        <div class="backpack-cards" id="backpackCards"></div>
+        <div class="backpack-feedback" id="backpackFeedback" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="backpack-actions backpack-actions--center">
+        <button class="backpack-btn backpack-btn--ghost" id="backpackRestartBtn" type="button"></button>
+      </div>
+    </section>
+
+    <section class="backpack-screen backpack-screen--result" id="backpackResult">
+      <img class="backpack-result-image" id="backpackResultImage" src="" alt="">
+      <p class="backpack-badge" id="backpackResultBadge"></p>
+      <h2 id="backpackResultTitle"></h2>
+      <p id="backpackResultText"></p>
+      <p class="backpack-lesson" id="backpackLesson"></p>
+      <div class="backpack-actions">
+        <button class="backpack-btn backpack-btn--primary" id="backpackAgainBtn" type="button"></button>
+        <a class="backpack-btn backpack-btn--ghost" id="backpackMapLink" href="tropa.html"></a>
+      </div>
+    </section>
+  </main>
+
+  <div class="backpack-modal" id="backpackHelpModal" aria-hidden="true">
+    <div class="backpack-modal__overlay" data-backpack-close></div>
+    <div class="backpack-modal__card" role="dialog" aria-modal="true" aria-labelledby="backpackHelpTitle">
+      <button class="backpack-modal__close" type="button" data-backpack-close aria-label="Закрыть">×</button>
+      <h2 id="backpackHelpTitle"></h2>
+      <div id="backpackHelpText"></div>
+    </div>
+  </div>
+</body>
+</html>

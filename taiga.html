@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Таёжный путь — Уроки с Добрыней</title>
+  <meta name="description" content="Логическая мини-игра Таёжный путь для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="taiga-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page taiga-page">
+    <section class="card game-card taiga-start" id="taiga-start">
+      <img class="taiga-start__icon" src="images/taiga/start.png" alt="Игра Таёжный путь" draggable="false">
+      <p class="game-label">Игра народов Западной Сибири</p>
+      <h1>Таёжный путь</h1>
+      <p class="taiga-start__text">Поворачивай деревянные мостки и собери безопасную тропу через болотистую тайгу от избушки до лабаза.</p>
+      <button class="btn btn--primary taiga-btn" id="taiga-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card taiga-shell" id="taiga-shell" hidden>
+      <div class="taiga-hud" aria-label="Панель игры">
+        <div class="taiga-hud__item">
+          <span>Ходы</span>
+          <strong id="taiga-moves">0</strong>
+        </div>
+        <div class="taiga-hud__item">
+          <span>Соединено</span>
+          <strong><span id="taiga-connected">0</span>%</strong>
+        </div>
+        <button class="btn btn--ghost taiga-restart" id="taiga-restart-btn" type="button">Начать заново</button>
+      </div>
+
+      <div class="taiga-field-wrap">
+        <div class="taiga-field" id="taiga-field" aria-label="Игровое поле Таёжный путь">
+          <div class="taiga-grid" id="taiga-grid"></div>
+          <img class="taiga-walker" id="taiga-walker" src="images/taiga/win.png" alt="Охотник идёт по мосту" draggable="false" hidden>
+          <div class="taiga-message" id="taiga-message" hidden>Путь найден!</div>
+        </div>
+      </div>
+
+      <p class="taiga-hint" id="taiga-hint">Кликай по секциям моста, чтобы повернуть их. Избушка и лабаз не вращаются.</p>
+    </section>
+
+    <section class="card game-card taiga-result" id="taiga-result" hidden>
+      <p class="game-label" id="taiga-result-label">Победа</p>
+      <h2 id="taiga-result-title">Таёжный путь собран!</h2>
+      <p class="taiga-result__text" id="taiga-result-text">Ты нашёл безопасную тропу через болото.</p>
+      <p class="taiga-fact">В Западной Сибири люди веками умели ориентироваться среди рек, болот и тайги. Надёжная тропа и внимательность помогали добраться до стойбища, лабаза или охотничьей избушки.</p>
+      <div class="taiga-actions taiga-actions--center">
+        <button class="btn btn--primary" id="taiga-result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+          <p>
+            Помоги охотнику народов Западной Сибири построить надёжный мост через таёжную реку. Поворачивай деревянные мостики так, чтобы соединить берег с охотничьим лабазом.
+          </p>
+    
+          <ul>
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+            <li>Щёлкай по деревянным мостикам, чтобы поворачивать их.</li>
+            <li>Соедини все части моста в непрерывную дорожку от начала до конца.</li>
+            <li>Когда мост будет собран правильно, охотник сможет безопасно перейти через реку.</li>
+            <li>Если не получается, попробуй ещё раз — решение всегда существует.</li>
+          </ul>
+    
+          <p>
+            Внимательно продумывай каждый поворот и помоги охотнику найти безопасный путь через тайгу!
+          </p>
+        </div>
+    
+        <div class="game-help-actions">
+          <button class="btn btn--primary" type="button" data-help-close>
+            Понятно
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/taiga.js"></script>
+</body>
+</html>

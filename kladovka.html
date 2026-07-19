@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кладовая стойбища — Уроки с Добрыней</title>
+  <meta name="description" content="Логическая мини-игра Кладовая стойбища для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="kladovka-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page kladovka-page">
+    <section class="card game-card kladovka-start" id="kladovka-start">
+      <img class="kladovka-start__icon" src="images/kladovka/box.png" alt="Иконка игры Кладовая стойбища" draggable="false">
+      <p class="game-label">Игра народов Восточной Сибири</p>
+      <h1>Кладовая стойбища</h1>
+      <p class="kladovka-start__text">
+        Разложи припасы в деревянной кладовой так, чтобы все правила хранения были выполнены.
+      </p>
+      <button class="btn btn--primary kladovka-btn" id="kladovka-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card kladovka-shell" id="kladovka-shell" hidden>
+      <div class="kladovka-hud" aria-label="Панель игры">
+        <div class="kladovka-hud__item">
+          <span>Предметы</span>
+          <strong id="kladovka-items-count">0</strong>
+        </div>
+
+        <div class="kladovka-hud__item">
+          <span>Правила</span>
+          <strong id="kladovka-rules-count">0</strong>
+        </div>
+
+        <button class="btn btn--primary kladovka-check" id="kladovka-check-btn" type="button">Проверить</button>
+      </div>
+
+      <div class="kladovka-layout">
+        <div class="kladovka-field-wrap">
+          <div class="kladovka-field" id="kladovka-field" aria-label="Игровое поле Кладовая стойбища">
+            <img class="kladovka-bg" src="images/kladovka/bg.png" alt="Пустая деревянная кладовая" draggable="false">
+            <div class="kladovka-grid" id="kladovka-grid" aria-label="Сетка кладовой"></div>
+            <div class="kladovka-message" id="kladovka-message" hidden></div>
+          </div>
+
+          <div class="kladovka-tray" id="kladovka-tray" aria-label="Предметы для размещения"></div>
+        </div>
+
+        <aside class="kladovka-rules" id="kladovka-rules" aria-label="Правила хранения">
+          <button class="kladovka-rules__toggle" id="kladovka-rules-toggle" type="button" aria-expanded="true">
+            Правила
+          </button>
+          <div class="kladovka-rules__content" id="kladovka-rules-content">
+            <h2>Правила кладовой</h2>
+            <ol id="kladovka-rules-list"></ol>
+          </div>
+        </aside>
+      </div>
+
+      <p class="kladovka-hint" id="kladovka-hint">
+        Перетащи все предметы снизу на клетки кладовой, затем нажми «Проверить».
+      </p>
+    </section>
+
+    <section class="card game-card kladovka-result" id="kladovka-result" hidden>
+      <p class="game-label">Победа</p>
+      <h2>Кладовая собрана правильно!</h2>
+      <p class="kladovka-result__text">
+        Отлично! Все припасы лежат на своих местах, а правила хранения выполнены.
+      </p>
+      <p class="kladovka-fact">
+        У народов Восточной Сибири бережное хранение припасов было очень важным: продукты, меха, дрова и посуду раскладывали так, чтобы они не портились и всегда были под рукой.
+      </p>
+      <div class="kladovka-actions kladovka-actions--center">
+        <button class="btn btn--primary" id="kladovka-result-restart-btn" type="button">Новая задача</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+          <p>
+            Помоги правильно разложить припасы в кладовой эвенкийского стойбища Восточной Сибири.
+          </p>
+    
+          <ul>
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+            <li>Снизу появятся предметы: рыба, мясо, дрова, мех, травы, котелок и другие припасы.</li>
+            <li>Перетаскивай предметы мышкой или пальцем на клетки кладовой.</li>
+            <li>Справа показаны правила расстановки. На телефоне правила находятся под игровым полем.</li>
+            <li>Когда все предметы разложены, нажми <strong>«Проверить»</strong>.</li>
+            <li>Если что-то не так, попробуй переставить предметы и проверить снова.</li>
+            <li>Когда все правила выполнены, кладовая будет собрана правильно.</li>
+          </ul>
+    
+          <p>
+            Думай внимательно: некоторые предметы должны стоять рядом, а некоторые нельзя класть близко друг к другу!
+          </p>
+        </div>
+    
+        <div class="game-help-actions">
+          <button class="btn btn--primary" type="button" data-help-close>
+            Понятно
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/kladovka.js"></script>
+</body>
+</html>

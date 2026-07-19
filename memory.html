@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кладовая ремёсел — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Кладовая ремёсел для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="memory-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page memory-page">
+    <section class="card game-card memory-start" id="memory-start">
+      <img class="memory-start__icon" src="images/memory/tail.png" alt="Карточка игры Кладовая ремёсел" draggable="false">
+      <p class="game-label">Игра народов Центральной России</p>
+      <h1>Кладовая ремёсел</h1>
+      <p class="memory-start__text">
+        Запомни расположение карточек и найди пары предметов из кладовой народных ремёсел.
+      </p>
+      <button class="btn btn--primary memory-btn" id="memory-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card memory-shell" id="memory-shell" hidden>
+      <div class="memory-hud" aria-label="Панель игры">
+        <div class="memory-hud__item">
+          <span>Очки</span>
+          <strong id="memory-score">0</strong>
+        </div>
+
+        <div class="memory-hud__item">
+          <span>Ошибки</span>
+          <strong id="memory-lives">❤️❤️❤️</strong>
+        </div>
+
+        <div class="memory-hud__item">
+          <span>Найдено пар</span>
+          <strong><span id="memory-pairs">0</span>/8</strong>
+        </div>
+      </div>
+
+      <div class="memory-field-wrap">
+        <div class="memory-field" id="memory-field" aria-label="Игровое поле Кладовая ремёсел">
+          <div class="memory-grid" id="memory-grid"></div>
+          <div class="memory-message" id="memory-message" hidden>Запоминай карточки!</div>
+        </div>
+      </div>
+
+      <p class="memory-hint" id="memory-hint">Сначала карточки откроются на 2 секунды. Постарайся запомнить пары.</p>
+
+      <div class="memory-actions">
+        <button class="btn btn--ghost" id="memory-restart-btn" type="button">Начать заново</button>
+      </div>
+    </section>
+
+    <section class="card game-card memory-result" id="memory-result" hidden>
+      <p class="game-label" id="memory-result-label">Результат</p>
+      <h2 id="memory-result-title">Игра завершена</h2>
+      <p class="memory-result__score">Твой счёт: <strong id="memory-final-score">0</strong></p>
+      <p class="memory-result__text" id="memory-result-text">Попробуй ещё раз и улучши результат.</p>
+      <p class="memory-fact">
+        Русские мастера веками развивали народные ремёсла: гжельскую роспись, хохлому, дымковскую игрушку, резьбу по дереву и многие другие промыслы. Их изделия ценятся и сегодня.
+      </p>
+      <div class="memory-actions memory-actions--center">
+        <button class="btn btn--primary" id="memory-result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+    
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+    
+          <p>
+    
+            В «Кладовой ремёсел» тебе предстоит проверить свою память и познакомиться с предметами традиционных народных промыслов Центральной России.
+    
+          </p>
+    
+          <ul>
+    
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+    
+            <li>В начале все карточки откроются на несколько секунд — постарайся запомнить, где находится каждый предмет.</li>
+    
+            <li>После этого карточки закроются.</li>
+    
+            <li>Открывай по две карточки за ход.</li>
+    
+            <li>Если изображения совпали — пара останется открытой.</li>
+    
+            <li>Если карточки разные — они снова закроются, а ты потеряешь одну жизнь.</li>
+    
+            <li>Найди все пары раньше, чем закончатся жизни.</li>
+    
+          </ul>
+    
+          <p>
+    
+            Будь внимателен и тренируй память — так ты быстрее соберёшь всю коллекцию народных ремёсел!
+    
+          </p>
+    
+        </div>
+    
+        <div class="game-help-actions">
+    
+          <button class="btn btn--primary" type="button" data-help-close">
+    
+            Понятно
+    
+          </button>
+    
+        </div>
+    
+      </div>
+    
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/memory.js"></script>
+</body>
+</html>

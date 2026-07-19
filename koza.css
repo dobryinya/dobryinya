@@ -1,0 +1,314 @@
+:root {
+  --koza-scene-radius: 28px;
+}
+
+.koza-page {
+  width: min(1180px, calc(100% - 32px));
+}
+
+.koza-intro {
+  min-height: calc(100vh - 180px);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.koza-intro h1,
+.koza-head h1,
+.koza-modal__card h2 {
+  margin: 0;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  color: #2b6ab8;
+  line-height: 1.08;
+}
+
+.koza-intro h1 { font-size: clamp(38px, 6vw, 70px); }
+.koza-head h1 { font-size: clamp(28px, 4vw, 46px); }
+.koza-modal__card h2 { font-size: clamp(28px, 4vw, 44px); }
+
+.koza-intro > p:not(.game-label) {
+  max-width: 760px;
+  margin: 0;
+  color: #365877;
+  font-size: clamp(18px, 2.1vw, 23px);
+}
+
+.koza-rules {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.koza-rules span {
+  padding: 10px 14px;
+  border: 1px solid rgba(47, 141, 246, .25);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(226,248,255,.82));
+  color: #315d85;
+  font-weight: 700;
+}
+
+.koza-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.koza-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.koza-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.koza-moves {
+  min-width: 96px;
+  padding: 10px 14px;
+  border: 1px solid rgba(47,141,246,.27);
+  border-radius: 18px;
+  background: linear-gradient(140deg, rgba(255,255,255,.94), rgba(228,247,255,.9));
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(37,91,143,.11);
+}
+
+.koza-moves span {
+  display: block;
+  color: #4f6f8e;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.koza-moves strong {
+  display: block;
+  color: #ff9f32;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.koza-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(47,141,246,.33);
+  border-radius: var(--koza-scene-radius);
+  background: #dff6ff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 18px 36px rgba(24,53,79,.2);
+  isolation: isolate;
+}
+
+.koza-scene__river,
+.koza-scene__sky,
+.koza-scene__main {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.koza-scene__river { z-index: 1; overflow: hidden; }
+.koza-scene__sky { z-index: 2; overflow: hidden; }
+.koza-scene__main { z-index: 3; object-fit: fill; }
+
+.koza-scene__river-track {
+  position: absolute;
+  inset: 0;
+  height: 200%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  animation: koza-river-flow 50s linear infinite;
+}
+
+.koza-scene__river-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.koza-scene__sky-track {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  animation: koza-sky-drift 700s linear infinite;
+}
+
+.koza-scene__sky-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.koza-character,
+.koza-boat {
+  position: absolute;
+  z-index: 6;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 12px rgba(24,53,79,.22));
+  transition: left 3.75s cubic-bezier(.22,.75,.25,1), top .35s ease, transform .25s ease, filter .2s ease, opacity .2s ease;
+}
+
+.koza-character:hover,
+.koza-character:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 0 14px rgba(255,227,107,.95)) drop-shadow(0 10px 12px rgba(24,53,79,.2));
+  outline: none;
+}
+
+.koza-character.is-selected {
+  transform: translateY(-6px) scale(1.06);
+  filter: drop-shadow(0 0 18px rgba(255,227,107,1)) drop-shadow(0 12px 14px rgba(24,53,79,.22));
+}
+
+.koza-character img,
+.koza-boat img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.koza-character--wolf { width: 13%; left: 8%; top: 56%; }
+.koza-character--goat { width: 11%; left: 21%; top: 57%; }
+.koza-character--cabbage { width: 12%; left: 32%; top: 61%; }
+
+.koza-boat {
+  width: 20%;
+  left: 38.8%;
+  top: 51%;
+  cursor: default;
+  transform-origin: center;
+}
+
+.koza-boat.is-sailing {
+  animation: koza-boat-bob .72s ease-in-out infinite alternate;
+}
+
+.koza-boat.is-facing-left img { transform: scaleX(-1); }
+.koza-boat.is-facing-right img { transform: scaleX(1); }
+
+.koza-bank-label {
+  position: absolute;
+  z-index: 5;
+  top: 4%;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  color: #235784;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(24,53,79,.13);
+  pointer-events: none;
+}
+
+.koza-bank-label--left { left: 4%; }
+.koza-bank-label--right { right: 4%; }
+
+.koza-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.koza-status {
+  margin: 0;
+  color: #365877;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.koza-cross-btn { min-width: 260px; }
+.koza-cross-btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+.koza-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.koza-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(24,53,79,.38);
+  backdrop-filter: blur(5px);
+}
+
+.koza-modal__card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid rgba(62,132,200,.33);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255,227,107,.45), transparent 36%),
+    radial-gradient(circle at 12% 88%, rgba(54,198,255,.28), transparent 40%),
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(246,253,255,.97));
+  box-shadow: 0 24px 65px rgba(24,53,79,.28);
+  text-align: center;
+}
+
+.koza-modal__card p:not(.game-label) {
+  color: #365877;
+  font-size: 18px;
+}
+
+.koza-modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+@keyframes koza-river-flow {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes koza-sky-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes koza-boat-bob {
+  from { margin-top: -3px; }
+  to { margin-top: 3px; }
+}
+
+@media (max-width: 760px) {
+  .koza-page { width: min(100% - 16px, 1180px); }
+  .koza-shell { padding: 14px; }
+  .koza-head { align-items: flex-start; }
+  .koza-scene { border-radius: 20px; }
+  .koza-character--wolf { width: 15%; left: 5%; }
+  .koza-character--goat { width: 13%; left: 20%; }
+  .koza-character--cabbage { width: 14%; left: 33%; }
+  .koza-boat { width: 23%; left: 37.5%; }
+  .koza-bank-label { font-size: 12px; padding: 5px 8px; }
+  .koza-status { width: 100%; text-align: center; font-size: 15px; }
+  .koza-cross-btn { width: 100%; min-width: 0; }
+}

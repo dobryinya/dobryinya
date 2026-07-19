@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сабантуй — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Сабантуй для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="runner-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page runner-page">
+    <section class="card game-card runner-start" id="runner-start">
+      <img class="runner-start__icon" src="images/runner/icon.png" alt="Иконка игры Сабантуй" draggable="false">
+      <p class="game-label">Игра народов Поволжья</p>
+      <h1>Сабантуй</h1>
+      <p class="runner-start__text">
+        Беги по праздничной дороге, перепрыгивай препятствия и донеси коромысло до финиша.
+      </p>
+      <button class="btn btn--primary runner-btn" id="runner-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card runner-shell" id="runner-shell" hidden>
+      <div class="runner-hud" aria-label="Панель игры">
+        <div class="runner-hud__item">
+          <span>Время</span>
+          <strong id="runner-time">45</strong>
+        </div>
+
+        <div class="runner-hud__item">
+          <span>Скорость</span>
+          <strong id="runner-speed">1.0x</strong>
+        </div>
+
+        <button class="btn btn--ghost runner-restart" id="runner-restart-btn" type="button">Заново</button>
+      </div>
+
+      <div class="runner-field" id="runner-field" tabindex="0" aria-label="Игровое поле Сабантуй">
+        <div class="runner-bg runner-bg--one" id="runner-bg-one"></div>
+        <div class="runner-bg runner-bg--two" id="runner-bg-two"></div>
+        <div class="runner-bg runner-bg--road" id="runner-bg-road"></div>
+
+        <div class="runner-objects" id="runner-objects"></div>
+        <img class="runner-hero" id="runner-hero" src="images/runner/run1.png" alt="Бегущий участник Сабантуя" draggable="false">
+        <div class="runner-overlay" id="runner-overlay" hidden>Прыгай!</div>
+      </div>
+
+      <div class="runner-progress" aria-hidden="true">
+        <span id="runner-progress-bar"></span>
+      </div>
+
+      <p class="runner-hint" id="runner-hint">Прыжок: пробел, стрелка вверх, клик или тап по игровому полю.</p>
+    </section>
+
+    <section class="card game-card runner-result" id="runner-result" hidden>
+      <p class="game-label" id="runner-result-label">Результат</p>
+      <h2 id="runner-result-title">Игра завершена</h2>
+      <p class="runner-result__text" id="runner-result-text">Попробуй ещё раз и добеги до финиша.</p>
+      <p class="runner-fact">
+        Сабантуй — народный праздник татар и башкир, который проводят после окончания весенних полевых работ. На нём устраивают игры, состязания в ловкости, силе и быстроте.
+      </p>
+      <div class="runner-actions runner-actions--center">
+        <button class="btn btn--primary" id="runner-result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+          <p>
+            На празднике Сабантуй участники соревновались в ловкости, силе и быстроте. В этой игре тебе предстоит пробежать полосу препятствий и успешно добраться до финиша.
+          </p>
+    
+          <ul>
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+            <li>Персонаж бежит вперёд автоматически.</li>
+            <li>Чтобы перепрыгнуть препятствие, нажимай <strong>Пробел</strong>, клавишу <strong>↑</strong>, кликай мышью по игровому полю или касайся экрана на телефоне.</li>
+            <li>Перепрыгивай брёвна, камни, вёдра и другие препятствия.</li>
+            <li>Если столкнёшься с препятствием — игра закончится.</li>
+            <li>Продержись до окончания времени и успешно заверши забег.</li>
+          </ul>
+    
+          <p>
+            Будь внимателен, рассчитывай момент прыжка и помоги участнику Сабантуя добежать до финиша!
+          </p>
+        </div>
+    
+        <div class="game-help-actions">
+          <button class="btn btn--primary" type="button" data-help-close>
+            Понятно
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/sabantuy.js"></script>
+</body>
+</html>

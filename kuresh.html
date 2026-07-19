@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Куреш — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Куреш: перетяни соперника и выведи его из равновесия.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page kuresh-page">
+    <section class="card game-start kuresh-start" id="kuresh-start">
+      <img class="game-start__icon" src="images/fighter1.png" alt="Куреш" draggable="false">
+      <p class="game-start__label">Игра народов Урала</p>
+      <h1>Куреш: выведи из равновесия</h1>
+      <p>Кликай по игровому полю после удара гонга, чтобы тянуть сильнее соперника. Бот будет сопротивляться и делать рывки.</p>
+      <button class="btn btn--primary" id="kuresh-start-btn" type="button">Начать игру</button>
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card kuresh-shell" id="kuresh-shell" hidden>
+      <div class="kuresh-head">
+        <div class="kuresh-stat">
+          <span>Время</span>
+          <strong id="kuresh-time">00:40</strong>
+        </div>
+        <div class="kuresh-stat">
+          <span>Положение</span>
+          <strong id="kuresh-position">0%</strong>
+        </div>
+        <button class="btn btn--secondary kuresh-restart" id="kuresh-restart-btn" type="button">Заново</button>
+      </div>
+
+      <div class="kuresh-bars" aria-label="Шкалы силы">
+        <div class="kuresh-bar kuresh-bar--player">
+          <div class="kuresh-bar__top"><span>Ты</span><strong id="kuresh-player-force-text">0</strong></div>
+          <div class="kuresh-meter"><span id="kuresh-player-force"></span></div>
+        </div>
+        <div class="kuresh-bar kuresh-bar--bot">
+          <div class="kuresh-bar__top"><span>Соперник</span><strong id="kuresh-bot-force-text">0</strong></div>
+          <div class="kuresh-meter"><span id="kuresh-bot-force"></span></div>
+        </div>
+      </div>
+
+      <div class="kuresh-field" id="kuresh-field" role="button" tabindex="0" aria-label="Игровое поле. Кликайте, чтобы тянуть сильнее">
+        <div class="kuresh-overlay" id="kuresh-overlay">Жди гонга...</div>
+        <div class="kuresh-tug" id="kuresh-tug">
+          <img class="kuresh-fighter kuresh-fighter--left" id="kuresh-fighter-left" src="images/fighter1.png" alt="Игрок" draggable="false">
+          <img class="kuresh-rope" id="kuresh-rope" src="images/tros.png" alt="Трос" draggable="false">
+          <img class="kuresh-fighter kuresh-fighter--right" id="kuresh-fighter-right" src="images/fighter2.png" alt="Соперник" draggable="false">
+        </div>
+      </div>
+
+      <p class="kuresh-hint" id="kuresh-hint">После гонга быстро кликай по полю. Соперник тянет сам и иногда делает рывок.</p>
+    </section>
+
+    <section class="card game-result kuresh-result" id="kuresh-result" hidden>
+      <p class="game-start__label" id="kuresh-result-label">Результат</p>
+      <h2 id="kuresh-result-title">Игра окончена</h2>
+      <p id="kuresh-result-text">Твой результат появится здесь.</p>
+      <p class="kuresh-fact">Куреш — традиционная борьба башкир и татар, где важны техника и выдержка.</p>
+      <button class="btn btn--primary" id="kuresh-result-restart-btn" type="button">Играть ещё раз</button>
+
+      <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+    </section>
+    
+    
+
+
+
+    <div class="game-help-modal" data-help-modal hidden>
+
+      <div class="game-help-modal__backdrop" data-help-close></div>
+
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+
+        <h2 id="game-help-title">Как играть</h2>
+
+        <div class="game-help-modal__content">
+
+          <p>
+
+            Куреш — традиционная борьба народов Урала, в которой два борца стараются вывести друг друга из равновесия, удерживая соперника за пояс. В этой игре тебе предстоит помочь своему борцу одержать победу!
+
+          </p>
+
+          <ul>
+
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+
+            <li>Как можно быстрее нажимай на экран, чтобы тянуть соперника к себе.</li>
+
+            <li>Каждое правильное нажатие приближает твоего борца к победе.</li>
+
+            <li>Компьютер тоже сопротивляется, поэтому не останавливайся!</li>
+
+            <li>Следи за полосой борьбы и старайся перетянуть соперника на свою сторону.</li>
+
+            <li>Победи до окончания времени и стань сильнейшим!</li>
+
+          </ul>
+
+          <p>
+
+            Скорость и настойчивость помогут одержать победу в поединке!
+
+          </p>
+
+        </div>
+
+        <div class="game-help-actions">
+
+          <button class="btn btn--primary" type="button" data-help-close>
+
+            Понятно
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/kuresh.js"></script>
+</body>
+</html>

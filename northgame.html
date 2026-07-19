@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Поймай оленя — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Поймай оленя для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page">
+    <section class="card card--northgame game-start" id="game-start">
+      
+      <img class="game-icon" src="images/iconnorthgame.png" alt="Иконка игры Поймай оленя" loading="eager">
+      <p class="game-label">Игра народов Европейского Севера</p>
+      <h1>Поймай оленя</h1>
+      <p class="game-lead">За 30 секунд поймай как можно больше оленей. Нажимай по бегущим оленям, а после попадания на поле появится новый.</p>
+      <button class="btn btn--primary game-start__btn" id="game-start-btn" type="button">Начать игру</button>
+      <!-- как играть -->
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+      
+    </section>
+
+    <section class="card card--northgame game-shell" id="game-shell" hidden>
+      <div class="game-head">
+        <div>
+          
+          <h1>Поймай оленя</h1>
+        </div>
+        <div class="game-scorebox" aria-live="polite">
+          <span>Поймано</span>
+          <strong id="game-score">0</strong>
+        </div>
+      </div>
+
+      <div class="game-stats" aria-label="Статистика игры">
+        <div class="game-stat">
+          <span>Время</span>
+          <strong><span id="game-time">60</span> сек.</strong>
+        </div>
+        <div class="game-stat">
+          <span>На поле</span>
+          <strong><span id="game-count">0</span> оленей</strong>
+        </div>
+      </div>
+
+      <div class="game-field" id="game-field" aria-label="Игровое поле: ловите оленей кликом или касанием">
+        <div class="game-field__hint" id="game-hint">Кликай по оленям!</div>
+      </div>
+
+      <div class="game-progress" aria-label="Оставшееся время">
+        <span id="game-progress-bar"></span>
+      </div>
+
+      <div class="game-actions">
+        <button class="btn btn--secondary" id="game-restart-btn" type="button">Начать заново</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+
+    <section class="card card--northgame game-result" id="game-result" hidden>
+      <p class="game-label">Игра завершена</p>
+      <h2>Твой результат</h2>
+      <div class="result-score"><span id="final-score">0</span></div>
+      <p id="result-text">Отличная попытка!</p>
+      <div class="game-actions game-actions--center">
+        <button class="btn btn--primary" id="result-restart-btn" type="button">Играть ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+          <p>
+            На Севере умение быстро и точно набросить аркан на оленя было очень важным навыком. В этой игре тебе предстоит стать настоящим северным оленеводом!
+          </p>
+    
+          <ul>
+            <li>Нажми кнопку <strong>«Начать игру»</strong>.</li>
+            <li>На игровом поле будут появляться бегущие олени.</li>
+            <li>Щёлкай по каждому оленю как можно быстрее, чтобы поймать его.</li>
+            <li>За каждого пойманного оленя начисляются очки.</li>
+            <li>Постарайся поймать как можно больше оленей до окончания времени.</li>
+          </ul>
+    
+          <p>
+            Чем быстрее ты реагируешь, тем выше будет твой результат!
+          </p>
+        </div>
+    
+        <div class="game-help-actions">
+          <button class="btn btn--primary" type="button" data-help-close>
+            Понятно
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/northgame.js"></script>
+</body>
+</html>

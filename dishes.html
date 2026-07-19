@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Помоги маме рассортировать посуду — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Тропы Добра: разложи посуду по своим местам.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/dishes.js" defer></script>
+</head>
+
+<body class="tropa-page dishes-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="dishes-layout">
+    <section class="dishes-screen dishes-screen--start is-active" id="dishesStartScreen">
+      <img
+        class="dishes-start-icon"
+        id="dishesStartIcon"
+        src=""
+        alt=""
+        draggable="false"
+      >
+
+      <p class="dishes-badge">Станция помощи</p>
+
+      <h1>Помоги маме рассортировать посуду</h1>
+
+      <p>
+        Разложи кружки, тарелки, ложки, вилки и кастрюли по своим местам,
+        чтобы на кухне снова стало чисто и аккуратно.
+      </p>
+
+      <div class="dishes-actions">
+        <button
+          class="dishes-btn dishes-btn--primary"
+          id="dishesStartButton"
+          type="button"
+        >
+          Начать игру
+        </button>
+
+        <button
+          class="dishes-btn dishes-btn--ghost"
+          id="dishesHelpButton"
+          type="button"
+          data-help-open
+        >
+          Как играть
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="dishes-screen dishes-screen--game"
+      id="dishesGameScreen"
+      aria-label="Игра Помоги маме рассортировать посуду"
+    >
+      <div class="dishes-hud">
+        <div class="dishes-hud__item">
+          <span>Осталось</span>
+          <strong id="dishesProgressText">0 предметов</strong>
+        </div>
+
+        <div class="dishes-hud__item dishes-hud__item--hint">
+          <span>Задача</span>
+          <strong>Разложи посуду по своим местам</strong>
+        </div>
+
+        <button
+          class="dishes-btn dishes-btn--ghost"
+          id="dishesRestartButton"
+          type="button"
+        >
+          Заново
+        </button>
+      </div>
+
+      <div class="dishes-field" id="dishesStage">
+        <img
+          class="dishes-background"
+          id="dishesBackground"
+          src=""
+          alt=""
+          draggable="false"
+        >
+
+        <div class="dishes-drop-layer" id="dishesDropLayer" aria-hidden="true"></div>
+        <div class="dishes-placed-layer" id="dishesPlacedLayer"></div>
+        <div class="dishes-items-layer" id="dishesItemsLayer"></div>
+
+        <div
+          class="dishes-feedback"
+          id="dishesMessage"
+          role="status"
+          aria-live="polite"
+        ></div>
+      </div>
+
+      <p class="dishes-game-hint">
+        Перетащи предмет примерно в нужное место — он сам аккуратно встанет в свободную ячейку.
+      </p>
+    </section>
+
+    <section class="dishes-screen dishes-screen--result" id="dishesSuccessScreen">
+      <img
+        class="dishes-result-image"
+        id="dishesSuccessImage"
+        src=""
+        alt=""
+        draggable="false"
+      >
+
+      <p class="dishes-badge">Победа</p>
+
+      <h2>На кухне снова порядок!</h2>
+
+      <p>
+        Ты помог маме и аккуратно разложил всю посуду по своим местам.
+      </p>
+
+      <p class="dishes-lesson">
+        Учись быть трудолюбивым и заботиться о семье.
+      </p>
+
+      <div class="dishes-actions">
+        <button
+          class="dishes-btn dishes-btn--primary"
+          id="dishesAgainButton"
+          type="button"
+        >
+          Сыграть ещё раз
+        </button>
+
+        <a class="dishes-btn dishes-btn--ghost" href="tropa.html">
+          Вернуться на карту
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div class="dishes-modal" id="dishesHelpModal" aria-hidden="true">
+    <div class="dishes-modal__overlay" data-help-close></div>
+
+    <div
+      class="dishes-modal__card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dishesHelpTitle"
+    >
+      <button
+        class="dishes-modal__close"
+        type="button"
+        data-help-close
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+      <h2 id="dishesHelpTitle">Как играть</h2>
+
+      <p>Перетаскивай предметы мышью или пальцем.</p>
+      <p><strong>Кружки</strong> ставь на верхнюю полку.</p>
+      <p><strong>Тарелки</strong> ставь на среднюю полку.</p>
+      <p><strong>Ложки</strong> опускай в левую подставку.</p>
+      <p><strong>Вилки</strong> опускай в правую подставку.</p>
+      <p><strong>Кастрюли</strong> ставь на нижнюю полку.</p>
+      <p>Точно попадать не нужно: достаточно отпустить предмет в правильной области.</p>
+    </div>
+  </div>
+</body>
+</html>

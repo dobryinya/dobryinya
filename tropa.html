@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тропа Добра — Уроки с Добрыней</title>
+  <meta name="description" content="Интерактивный квест Тропа Добра для детского образовательного проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/tropa-map.js" defer></script>
+</head>
+<body class="tropa-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="tropa-page">
+    <header class="tropa-hero">
+      <p class="tropa-hero__badge">Интерактивный квест</p>
+      <h1>Тропа Добра</h1>
+      <p>
+        Выбирай любую станцию на сказочной карте, проходи добрые мини-игры и помогай Добрыне учиться честности,
+        заботе, дружбе и справедливости.
+      </p>
+    </header>
+
+    <section class="tropa-map-section" aria-label="Карта интерактивного квеста Тропа Добра">
+      <div class="tropa-map-card">
+        <div class="tropa-map-head">
+          <div>
+            <p class="tropa-map-head__label">Карта квеста</p>
+            <h2>Выбери станцию</h2>
+          </div>
+          <p>Все игры открыты сразу. Нажми на иконку, чтобы узнать задание.</p>
+        </div>
+
+        <div class="tropa-map-wrap">
+          <img src="images/tropa/tropa-map.png" alt="Карта Тропы Добра" class="tropa-map" draggable="false">
+
+          <a class="station-point" href="balloons.html" data-station="balloons" aria-label="Распредели шарики малышам">
+            <img src="images/tropa/icons/balloons.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="puppy.html" data-station="puppy" aria-label="Спаси щенка от дождя">
+            <img src="images/tropa/icons/puppy.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="wordsearch.html" data-station="wordsearch" aria-label="Филворд Добрые слова">
+            <img src="images/tropa/icons/wordsearch.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="vase.html" data-station="vase" aria-label="Собери разбитую вазу">
+            <img src="images/tropa/icons/vase.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="granny.html" data-station="granny" aria-label="Перенеси бабушке сумки">
+            <img src="images/tropa/icons/granny.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="tower.html" data-station="tower" aria-label="Башня дружбы">
+            <img src="images/tropa/icons/tower.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="dishes.html" data-station="dishes" aria-label="Помоги маме рассортировать посуду">
+            <img src="images/tropa/icons/dishes.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="bridge.html" data-station="bridge" aria-label="Мост примирения">
+            <img src="images/tropa/icons/bridge.png" alt="" draggable="false">
+          </a>
+
+          <a class="station-point" href="backpack.html" data-station="backpack" aria-label="Собери рюкзак добрых дел">
+            <img src="images/tropa/icons/backpack.png" alt="" draggable="false">
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="tropa-pdf-section" aria-labelledby="tropa-pdf-title">
+      <div class="tropa-pdf-card">
+        <div class="tropa-pdf-card__content">
+          <p class="tropa-pdf-card__label">Материалы для печати</p>
+    
+          <h2 id="tropa-pdf-title">
+            Награды 
+          </h2>
+    
+          <p>
+            Откройте материал в режиме предпросмотра или скачайте PDF-файл
+            для печати и проведения занятия.
+          </p>
+        </div>
+    
+        <div class="tropa-pdf-card__actions">
+          <a
+            class="btn btn--primary"
+            href="images/tropa/tropa_dobra.pdf"
+            data-pdf-preview
+            data-pdf-label="Тропа Добра"
+          >
+            Предпросмотр PDF
+          </a>
+    
+          <a
+            class="btn btn--secondary"
+            href="images/tropa/tropa_dobra.pdf"
+            download
+          >
+            Скачать PDF
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="pdf-modal" id="pdf-modal" aria-hidden="true">
+    <div class="pdf-modal__backdrop" data-pdf-close></div>
+  
+    <div
+      class="pdf-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pdf-modal-title"
+    >
+      <div class="pdf-modal__head">
+        <h3 class="pdf-modal__title" id="pdf-modal-title">
+          Предпросмотр PDF
+        </h3>
+  
+        <button
+          class="pdf-modal__close"
+          id="pdf-close-btn"
+          type="button"
+          aria-label="Закрыть предпросмотр"
+        >
+          ✕
+        </button>
+      </div>
+  
+      <div class="pdf-modal__actions">
+        <a
+          class="btn btn--ghost"
+          id="pdf-open-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Открыть в новой вкладке
+        </a>
+  
+        <a
+          class="btn btn--secondary"
+          id="pdf-download-link"
+          href="#"
+          download
+        >
+          Скачать PDF
+        </a>
+      </div>
+  
+      <iframe
+        class="pdf-modal__frame"
+        id="pdf-frame"
+        title="Предпросмотр PDF"
+        loading="lazy"
+      ></iframe>
+  
+      <p class="pdf-modal__note">
+        Если PDF не отображается, нажмите «Открыть в новой вкладке».
+      </p>
+    </div>
+  </div>
+
+  <div class="station-modal" id="stationModal" aria-hidden="true">
+    <div class="station-modal__overlay" data-close-modal></div>
+    <div class="station-modal__card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="station-modal__close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <img class="station-modal__icon" id="modalIcon" src="" alt="" draggable="false">
+      <p class="station-modal__label">Станция Тропы Добра</p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <p class="station-modal__lesson">
+        
+        <span id="modalLesson"></span>
+      </p>
+      <a class="station-modal__play" id="modalPlayLink" href="#">Играть</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+</body>
+</html>

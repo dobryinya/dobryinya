@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Распредели шарики малышам — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Тропы Добра: разложи шарики по цветам.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/balloons.js" defer></script>
+</head>
+<body class="tropa-page balloons-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="balloons-page-wrap">
+    <section class="balloons-screen balloons-start is-active" id="balloonsStart">
+      <img class="balloons-start__icon" id="balloonsStartIcon" src="" alt="">
+      <p class="balloons-badge">Станция доброты</p>
+      <h1 id="balloonsTitle">Распредели шарики малышам</h1>
+      <p class="balloons-lead" id="balloonsIntro">
+        Разложи цветные шарики по колбам так, чтобы в каждой колбе оказались шарики только одного цвета.
+      </p>
+      <div class="balloons-actions">
+        <button class="balloons-btn balloons-btn--primary" id="balloonsStartBtn" type="button">Начать игру</button>
+        <button class="balloons-btn balloons-btn--ghost" id="balloonsHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+
+    <section class="balloons-screen balloons-game" id="balloonsGame" aria-label="Игра Распредели шарики малышам">
+      <div class="balloons-hud">
+        <div class="balloons-hud__item">
+          <span>Ходов</span>
+          <strong id="balloonsMoves">0</strong>
+        </div>
+        <div class="balloons-hud__item balloons-hud__item--wide">
+          <span>Задача</span>
+          <strong>Собери одинаковые цвета</strong>
+        </div>
+        <button class="balloons-btn balloons-btn--ghost" id="balloonsRestartBtn" type="button">Заново</button>
+      </div>
+
+      <p class="balloons-game-hint" id="balloonsHint">Нажми колбу с шариком, потом колбу, куда его переложить.</p>
+      <div class="balloons-field" id="balloonsField"></div>
+    </section>
+
+    <section class="balloons-screen balloons-result" id="balloonsResult">
+      <img class="balloons-result__image" id="balloonsSuccessImage" src="" alt="">
+      <p class="balloons-badge">Победа</p>
+      <h2>Все шарики распределены!</h2>
+      <p class="balloons-lead">
+        Отлично! Ты навёл порядок и поступил справедливо: каждому малышу достанется свой аккуратный набор.
+      </p>
+      <p class="balloons-lesson">Будь добрым, внимательным к другим и справедливым.</p>
+      <div class="balloons-actions">
+        <button class="balloons-btn balloons-btn--primary" id="balloonsAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="balloons-btn balloons-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="balloons-modal" id="balloonsHelpModal" aria-hidden="true">
+    <div class="balloons-modal__overlay" data-balloons-close></div>
+    <div class="balloons-modal__card" role="dialog" aria-modal="true" aria-labelledby="balloonsHelpTitle">
+      <button class="balloons-modal__close" data-balloons-close type="button" aria-label="Закрыть">×</button>
+      <h2 id="balloonsHelpTitle">Как играть</h2>
+      <p>Нажми на колбу, из которой хочешь взять верхний шарик.</p>
+      <p>Затем нажми на другую колбу — шарик переложится туда, если там есть свободное место.</p>
+      <p>Победа будет тогда, когда в каждой непустой колбе лежат шарики только одного цвета.</p>
+    </div>
+  </div>
+</body>
+</html>

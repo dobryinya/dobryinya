@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сказочная викторина — Добрыня-эрудит</title>
+  <meta name="description" content="Командная викторина по сказкам Александра Сергеевича Пушкина проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="pushkin-quiz.css">
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page pushkin-page">
+    <section class="card pushkin-intro" id="pushkin-intro">
+      <p class="game-label">Командная викторина</p>
+      <h1>По сказкам Пушкина</h1>
+      <p>Две команды по очереди отвечают на 15 вопросов. У каждого вопроса четыре варианта ответа.</p>
+
+      <div class="pushkin-rules">
+        <span>15 туров</span>
+        <span>4 варианта ответа</span>
+        <span>По одному вопросу каждой команде</span>
+      </div>
+
+      <div class="pushkin-team-inputs">
+        <label>
+          <span>Первая команда</span>
+          <input id="team-one-input" type="text" maxlength="28" value="Команда 1">
+        </label>
+        <label>
+          <span>Вторая команда</span>
+          <input id="team-two-input" type="text" maxlength="28" value="Команда 2">
+        </label>
+      </div>
+
+      <button class="btn btn--primary" id="pushkin-start-btn" type="button">Начать викторину</button>
+    </section>
+
+    <section class="card pushkin-shell" id="pushkin-shell" hidden>
+      <div class="pushkin-head">
+        <div>
+          <p class="game-label">Командная викторина</p>
+          <h1>По сказкам Пушкина</h1>
+        </div>
+        <div class="pushkin-head__actions">
+          <div class="pushkin-round-box"><span>Тур</span><strong><b id="round-current">1</b> / <b id="round-total">15</b></strong></div>
+          <button class="btn btn--ghost" id="pushkin-restart-btn" type="button">Начать заново</button>
+        </div>
+      </div>
+
+      <div class="pushkin-scoreboard">
+        <article class="pushkin-team-card pushkin-team-card--one is-active" id="team-one-card">
+          <span class="pushkin-team-card__caption">Первая команда</span>
+          <h2 id="team-one-name">Команда 1</h2>
+          <div class="pushkin-team-card__score"><strong id="team-one-score">0</strong><span>правильных ответов</span></div>
+        </article>
+
+        <div class="pushkin-turn-marker" aria-hidden="true">VS</div>
+
+        <article class="pushkin-team-card pushkin-team-card--two" id="team-two-card">
+          <span class="pushkin-team-card__caption">Вторая команда</span>
+          <h2 id="team-two-name">Команда 2</h2>
+          <div class="pushkin-team-card__score"><strong id="team-two-score">0</strong><span>правильных ответов</span></div>
+        </article>
+      </div>
+
+      <section class="pushkin-question-card" aria-labelledby="question-text">
+        <div class="pushkin-question-card__top">
+          <span class="pushkin-turn-badge" id="turn-badge">Отвечает Команда 1</span>
+          <span class="pushkin-question-number">Вопрос <b id="question-number">1</b> из 15</span>
+        </div>
+
+        <h2 id="question-text">Вопрос появится здесь</h2>
+
+        <div class="pushkin-options" id="answer-options" aria-label="Варианты ответа"></div>
+
+        <div class="pushkin-feedback" id="answer-feedback" hidden aria-live="polite">
+          <span id="feedback-label">Правильный ответ</span>
+          <strong id="feedback-text"></strong>
+        </div>
+
+        <div class="pushkin-question-actions">
+          <button class="btn btn--primary" id="next-question-btn" type="button" hidden>Следующий вопрос</button>
+        </div>
+      </section>
+
+      <p class="pushkin-status" id="pushkin-status" aria-live="polite">Первая команда выбирает ответ.</p>
+    </section>
+  </main>
+
+  <div class="pushkin-modal" id="pushkin-modal" hidden>
+    <div class="pushkin-modal__backdrop"></div>
+    <section class="pushkin-modal__card" role="dialog" aria-modal="true" aria-labelledby="pushkin-modal-title">
+      <p class="game-label">Викторина завершена</p>
+      <h2 id="pushkin-modal-title">Результат</h2>
+      <p id="pushkin-modal-text"></p>
+      <div class="pushkin-final-score">
+        <div><span id="final-team-one-name">Команда 1</span><strong id="final-team-one-score">0</strong></div>
+        <div><span id="final-team-two-name">Команда 2</span><strong id="final-team-two-score">0</strong></div>
+      </div>
+      <div class="pushkin-modal__actions">
+        <button class="btn btn--primary" id="pushkin-modal-restart" type="button">Играть ещё</button>
+        <a class="btn btn--ghost" href="erudit.html">К тренажёрам</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/erudit/pushkin-quiz.js"></script>
+</body>
+</html>

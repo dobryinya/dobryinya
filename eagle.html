@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Полёт орла — Уроки с Добрыней</title>
+  <meta name="description" content="Мини-игра Полёт орла для проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="games.css">
+</head>
+<body class="eagle-page-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="game-page eagle-page">
+    <section class="card game-card eagle-start" id="eagle-start">
+      <img class="eagle-start__icon" src="images/eagle/win.png" alt="Горный орёл" draggable="false">
+      <p class="game-label">Игра народов Северного Кавказа</p>
+      <h1>Полёт горного орла</h1>
+      <p class="eagle-start__text">
+        Проведи орла через горные ущелья Кавказа. Нажимай пробел, стрелку вверх, кликай или тапай по полю, чтобы взмахнуть крыльями.
+      </p>
+      <button class="btn btn--primary eagle-btn" id="eagle-start-btn" type="button">Начать полёт</button>
+    
+      <button class="btn btn--ghost" type="button" data-help-open>
+        Как играть
+      </button>
+    </section>
+
+    <section class="card game-card eagle-shell" id="eagle-shell" hidden>
+      <div class="eagle-hud" aria-label="Панель игры">
+        <div class="eagle-hud__item">
+          <span>Время</span>
+          <strong><span id="eagle-time">45</span> сек</strong>
+        </div>
+        <div class="eagle-hud__item">
+          <span>Скорость</span>
+          <strong id="eagle-speed">1x</strong>
+        </div>
+        <button class="btn btn--ghost eagle-restart" id="eagle-restart-btn" type="button">Начать заново</button>
+      </div>
+
+      <div class="eagle-progress" aria-hidden="true">
+        <span id="eagle-progress-bar"></span>
+      </div>
+
+      <div class="eagle-field" id="eagle-field" tabindex="0" role="application" aria-label="Игровое поле Полёт горного орла">
+        <div class="eagle-bg eagle-bg--one" id="eagle-bg-one"></div>
+        <div class="eagle-bg eagle-bg--two" id="eagle-bg-two"></div>
+        <div class="eagle-bg eagle-bg--three" id="eagle-bg-three"></div>
+        <div class="eagle-gates" id="eagle-gates"></div>
+        <img class="eagle-bird" id="eagle-bird" src="images/eagle/eagle1.png" alt="Летящий орёл" draggable="false">
+        <div class="eagle-overlay" id="eagle-overlay" hidden></div>
+      </div>
+
+      <p class="eagle-hint" id="eagle-hint">Управление: пробел, стрелка вверх, клик или тап по игровому полю.</p>
+    </section>
+
+    <section class="card game-card eagle-result" id="eagle-result" hidden>
+      <p class="game-label" id="eagle-result-label">Результат</p>
+      <h2 id="eagle-result-title">Полёт завершён</h2>
+      <p class="eagle-result__text" id="eagle-result-text">Попробуй ещё раз и проведи орла дальше.</p>
+      <p class="eagle-fact">
+        Орёл у многих народов Кавказа считается символом силы, свободы и смелости.
+      </p>
+      <div class="eagle-actions eagle-actions--center">
+        <button class="btn btn--primary" id="eagle-result-restart-btn" type="button">Лететь ещё раз</button>
+        <a class="btn btn--ghost" href="biggame.html">Вернуться на карту</a>
+      </div>
+    </section>
+    <div class="game-help-modal" data-help-modal hidden>
+      <div class="game-help-modal__backdrop" data-help-close></div>
+    
+      <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+        <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+    
+        <h2 id="game-help-title">Как играть</h2>
+    
+        <div class="game-help-modal__content">
+          <p>
+            Помоги горному орлу пролететь через узкое ущелье Северного Кавказа! Управляй полётом, обходи скалы и продержись до конца маршрута.
+          </p>
+    
+          <ul>
+            <li>Нажми <strong>«Начать игру»</strong>.</li>
+            <li>Чтобы взмахнуть крыльями, нажимай <strong>Пробел</strong>, <strong>↑</strong>, кликай мышью по игровому полю или касайся экрана на телефоне.</li>
+            <li>Каждый взмах поднимает орла вверх, затем он начинает плавно снижаться.</li>
+            <li>Пролетай между верхними и нижними скалами, не касаясь их.</li>
+            <li>Если орёл столкнётся со скалой — игра закончится.</li>
+            <li>Продержись в воздухе до окончания времени, чтобы успешно завершить полёт.</li>
+          </ul>
+    
+          <p>
+            Лети внимательно, рассчитывай каждый взмах крыльев и проведи орла через всё ущелье!
+          </p>
+        </div>
+    
+        <div class="game-help-actions">
+          <button class="btn btn--primary" type="button" data-help-close>
+            Понятно
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="game-help-modal" data-help-modal hidden>
+  <div class="game-help-modal__backdrop" data-help-close></div>
+
+  <div class="game-help-modal__window" role="dialog" aria-modal="true" aria-labelledby="game-help-title">
+    <button class="game-help-modal__close" type="button" data-help-close aria-label="Закрыть">×</button>
+
+    <h2 id="game-help-title">Как играть</h2>
+
+    <div class="game-help-modal__content">
+      <p>
+        Помоги рыбаку Дальнего Востока поймать рыбу, которая выпадает из сачков сверху.
+      </p>
+
+      <ul>
+        <li>Нажми <strong>«Начать игру»</strong>.</li>
+        <li>Передвигай рыбака влево и вправо стрелками <strong>← →</strong> или клавишами <strong>A/D</strong>.</li>
+        <li>На телефоне используй кнопки управления снизу.</li>
+        <li>Смотри на сачки сверху: когда в сачке появляется рыба, она скоро упадёт вниз.</li>
+        <li>Подставляй корзину под падающую рыбу, чтобы поймать её.</li>
+        <li>Если несколько рыб упадут мимо — игра закончится.</li>
+        <li>Поймай нужное количество рыбы до окончания времени.</li>
+      </ul>
+
+      <p>
+        Следи за сачками и быстро меняй позицию рыбака, чтобы собрать большой улов!
+      </p>
+    </div>
+
+    <div class="game-help-actions">
+      <button class="btn btn--primary" type="button" data-help-close>
+        Понятно
+      </button>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Уроки с Добрыней</p>
+  </footer>
+  <script src="js/game-ui.js"></script>
+  <script src="js/eagle.js"></script>
+</body>
+</html>

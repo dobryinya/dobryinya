@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Большая карта народов — Уроки с Добрыней</title>
+  <meta name="description" content="Интерактивная карта народов России с видео, тезисами и переходами к играм проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="biggame-body">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="biggame-page" aria-label="Интерактивная карта народов России">
+    <section class="biggame-map-card" aria-labelledby="biggame-title">
+      <div class="biggame-map-head">
+        
+        <h1 id="biggame-title">Большая игра с народами России</h1>
+        <p>Нажми на регион на карте</p>
+      </div>
+
+      <div class="biggame-map" id="biggame-map">
+        <div class="biggame-map__inner">
+          <img class="biggame-map__image" src="images/gamez/bg.png" alt="Карта народов России" draggable="false">
+          <div class="biggame-map__markers" id="biggame-markers" aria-label="Регионы на карте"></div>
+          <button
+            class="biggame-start-button"
+            id="biggame-start-button"
+            type="button"
+            aria-label="Смотреть начало игры"
+          >
+            <span class="biggame-start-button__icon">▶</span>
+
+            <span class="biggame-start-button__text">
+              <strong>Начало игры</strong>
+              <small>Посмотреть вступительное видео</small>
+            </span>
+          </button>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="biggame-popup" id="biggame-popup" aria-hidden="true">
+    <div class="biggame-popup__backdrop" data-biggame-close></div>
+
+    <article class="biggame-popup__window" id="biggame-popup-window" role="dialog" aria-modal="true" aria-labelledby="biggame-popup-title">
+      <button class="biggame-popup__close" type="button" data-biggame-close aria-label="Закрыть">×</button>
+
+      <div class="biggame-popup__media">
+        <iframe
+            id="biggame-popup-video"
+            src=""
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Плеер VK Видео"
+          ></iframe>
+      </div>
+
+      <div class="biggame-popup__content">
+        <p class="biggame-popup__region" id="biggame-popup-region">Регион</p>
+        <h2 id="biggame-popup-title">Название региона</h2>
+        <p class="biggame-popup__game" id="biggame-popup-game">Название игры</p>
+        
+        <a
+            class="biggame-popup__method"
+            id="biggame-popup-method"
+            href="/materials/metod-rek/11MP.pdf"
+            download
+            target="_blank"
+        >
+            Методическая разработка
+        </a>
+        
+        <div style="display: none;" class="biggame-popup__photo-wrap">
+          <img class="biggame-popup__photo" id="biggame-popup-photo" src="" alt="" draggable="false">
+        </div>
+      </div>
+      
+      <div class="biggame-popup__bottom">
+        
+        <ul class="biggame-popup__theses" id="biggame-popup-theses"></ul>
+      
+        <div style="text-align: center;"><a class="btn biggame-popup__play" id="biggame-popup-play" href="#">Играть</a></div>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="js/biggame.js"></script>
+</body>
+</html>

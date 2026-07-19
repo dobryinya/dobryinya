@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/bridge.js" defer></script>
+</head>
+<body class="tropa-page bridge-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" id="bridgeBrand" href="#"></a>
+      <div class="top-nav__menu" id="nav-menu"></div>
+    </div>
+  </nav>
+
+  <main class="bridge-layout">
+    <section class="bridge-screen bridge-screen--start is-active" id="bridgeStart">
+      <img class="bridge-start-icon" id="bridgeStartIcon" src="" alt="">
+      <p class="bridge-badge" id="bridgeStartBadge"></p>
+      <h1 id="bridgeStartTitle"></h1>
+      <p id="bridgeStartText"></p>
+      <div class="bridge-actions">
+        <button class="bridge-btn bridge-btn--primary" id="bridgeStartBtn" type="button"></button>
+        <button class="bridge-btn bridge-btn--ghost" id="bridgeHelpBtn" type="button"></button>
+      </div>
+    </section>
+
+    <section class="bridge-screen bridge-screen--game" id="bridgeGame">
+      <div class="bridge-hud">
+        <div class="bridge-hud__item">
+          <span id="bridgeProgressLabel"></span>
+          <strong><span id="bridgeProgress">0</span>/<span id="bridgeGoal">8</span></strong>
+        </div>
+        <div class="bridge-hud__item bridge-hud__item--hint">
+          <span id="bridgeHintLabel"></span>
+          <strong id="bridgeHint"></strong>
+        </div>
+        <button class="bridge-btn bridge-btn--ghost" id="bridgeRestartBtn" type="button"></button>
+      </div>
+
+      <div class="bridge-field" id="bridgeField" aria-label="">
+        <img class="bridge-field__bg" id="bridgeBackground" src="" alt="" draggable="false">
+        <div class="bridge-pieces" id="bridgePieces" aria-hidden="true"></div>
+        <img class="bridge-character bridge-character--left" id="bridgeDobrynya" src="" alt="" draggable="false">
+        <img class="bridge-character bridge-character--right" id="bridgeFriend" src="" alt="" draggable="false">
+        <div class="bridge-sparkles" id="bridgeSparkles" aria-hidden="true"></div>
+        <div class="bridge-feedback" id="bridgeFeedback" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="bridge-question-panel">
+        <p class="bridge-step" id="bridgeStep"></p>
+        <h2 id="bridgeQuestion"></h2>
+        <div class="bridge-choices" id="bridgeChoices"></div>
+      </div>
+    </section>
+
+    <section class="bridge-screen bridge-screen--result" id="bridgeResult">
+      <img class="bridge-result-image" id="bridgeResultImage" src="" alt="">
+      <p class="bridge-badge" id="bridgeResultBadge"></p>
+      <h2 id="bridgeResultTitle"></h2>
+      <p id="bridgeResultText"></p>
+      <p class="bridge-lesson" id="bridgeLesson"></p>
+      <div class="bridge-actions">
+        <button class="bridge-btn bridge-btn--primary" id="bridgeAgainBtn" type="button"></button>
+        <a class="bridge-btn bridge-btn--ghost" id="bridgeMapLink" href="#"></a>
+      </div>
+    </section>
+  </main>
+
+  <div class="bridge-modal" id="bridgeHelpModal" aria-hidden="true">
+    <div class="bridge-modal__overlay" data-bridge-close></div>
+    <div class="bridge-modal__card" role="dialog" aria-modal="true" aria-labelledby="bridgeHelpTitle">
+      <button class="bridge-modal__close" id="bridgeHelpClose" type="button" data-bridge-close aria-label="">×</button>
+      <h2 id="bridgeHelpTitle"></h2>
+      <div id="bridgeHelpContent"></div>
+    </div>
+  </div>
+</body>
+</html>

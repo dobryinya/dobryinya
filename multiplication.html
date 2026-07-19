@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Таблица умножения — Добрыня-эрудит</title>
+  <meta name="description" content="Тренажёр таблицы умножения проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="erudit.css">
+</head>
+<body class="erudit-body multiplication-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="trainer-page">
+    <section class="trainer-shell" aria-live="polite">
+      <div class="trainer-topline"></div>
+
+      <section class="trainer-screen is-active" data-screen="settings">
+        <header class="trainer-header">
+          <p class="trainer-kicker">Математический тренажёр</p>
+          <h1>Таблица умножения</h1>
+          <p>Выбери таблицы, количество примеров и удобный способ ответа.</p>
+        </header>
+
+        <div class="settings-grid">
+          <section class="setting-card setting-card--wide setting-card--tables">
+            <div class="setting-card__head">
+              <div><span class="setting-number">1</span><h2>Какие таблицы тренируем?</h2></div>
+              <button class="text-button" type="button" data-action="select-all">Выбрать все</button>
+            </div>
+            <div class="table-picker" data-role="table-picker"></div>
+            <div class="preset-row" data-role="presets"></div>
+          </section>
+
+          <section class="setting-card setting-card--count">
+            <div class="setting-card__head">
+              <div><span class="setting-number">2</span><h2>Количество примеров</h2></div>
+            </div>
+            <div class="choice-grid choice-grid--count" data-role="count-picker"></div>
+          </section>
+
+          <section class="setting-card setting-card--mode">
+            <div class="setting-card__head">
+              <div><span class="setting-number">3</span><h2>Формат ответа</h2></div>
+            </div>
+            <div class="mode-picker" data-role="mode-picker"></div>
+          </section>
+
+          <section class="setting-card setting-card--wide setting-card--order">
+            <div class="setting-card__head">
+              <div><span class="setting-number">4</span><h2>Порядок примеров</h2></div>
+            </div>
+            <div class="choice-grid choice-grid--order" data-role="order-picker"></div>
+          </section>
+        </div>
+
+        <div class="settings-footer">
+          <p class="selection-summary" data-role="selection-summary"></p>
+          <button class="trainer-btn trainer-btn--primary trainer-btn--large" type="button" data-action="start">Начать тренировку</button>
+        </div>
+      </section>
+
+      <section class="trainer-screen" data-screen="training">
+        <header class="training-hud">
+          <div class="hud-stat"><span>Пример</span><strong data-role="question-counter">1 из 10</strong></div>
+          <div class="hud-stat"><span>Правильно</span><strong data-role="score-counter">0</strong></div>
+          <div class="hud-stat"><span>Серия</span><strong data-role="streak-counter">0</strong></div>
+          <button class="trainer-btn trainer-btn--ghost trainer-btn--compact" type="button" data-action="stop">Завершить</button>
+        </header>
+
+        <div class="emoji-progress" data-role="emoji-progress" aria-label="Прогресс тренировки"></div>
+
+        <section class="exercise-card">
+          <p class="exercise-label">Реши пример</p>
+          <div class="exercise-expression" data-role="expression">7 × 8 = ?</div>
+          <div class="feedback" data-role="feedback"></div>
+          <div class="hint-panel" data-role="hint" hidden></div>
+          <div class="answer-area" data-role="answer-area"></div>
+        </section>
+      </section>
+
+      <section class="trainer-screen" data-screen="result">
+        <header class="trainer-header trainer-header--result">
+          <div class="result-emoji" data-role="result-emoji">🎉</div>
+          <p class="trainer-kicker">Тренировка завершена</p>
+          <h1 data-role="result-title">Отличная работа!</h1>
+          <p data-role="result-message"></p>
+        </header>
+
+        <div class="result-grid">
+          <article class="result-card"><span>Правильно</span><strong data-role="result-score">0 из 0</strong></article>
+          <article class="result-card"><span>Точность</span><strong data-role="result-accuracy">0%</strong></article>
+          <article class="result-card"><span>Лучшая серия</span><strong data-role="result-streak">0</strong></article>
+        </div>
+
+        <section class="review-card" data-role="review-card">
+          <h2>Что стоит повторить</h2>
+          <div class="review-list" data-role="review-list"></div>
+        </section>
+
+        <div class="result-actions">
+          <button class="trainer-btn trainer-btn--primary" type="button" data-action="retry-mistakes">Повторить ошибки</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="restart">Ещё раз</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="settings">Изменить настройки</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer"><p>© <span id="year"></span> Уроки с Добрыней</p></footer>
+
+  <script src="js/erudit/multiplication.js"></script>
+  <script>
+    (function () {
+      const nav = document.querySelector('.top-nav');
+      const burger = document.getElementById('nav-burger');
+      const menu = document.getElementById('nav-menu');
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+      burger?.addEventListener('click', function () {
+        const open = nav.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu?.addEventListener('click', function (event) {
+        if (!event.target.closest('a')) return;
+        nav.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+        burger?.setAttribute('aria-expanded', 'false');
+      });
+    })();
+  </script>
+</body>
+</html>

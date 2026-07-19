@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Филворд «Добрые слова» — Уроки с Добрыней</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/wordsearch.js" defer></script>
+</head>
+
+<body class="tropa-page wordsearch-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wordsearch-layout">
+    <section class="wordsearch-screen wordsearch-screen--start is-active" id="wordsearchStart">
+      <img class="wordsearch-start-icon" id="wordsearchStartIcon" src="" alt="">
+      <p class="wordsearch-badge">Станция добрых слов</p>
+      <h1 id="wordsearchTitle">Филворд «Добрые слова»</h1>
+      <p id="wordsearchIntro">
+        Найди на поле слова, которые помогают человеку поступать по-доброму.
+      </p>
+
+      <div class="wordsearch-actions">
+        <button class="wordsearch-btn wordsearch-btn--primary" id="wordsearchStartBtn" type="button">Начать игру</button>
+        <button class="wordsearch-btn wordsearch-btn--ghost" id="wordsearchHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+
+    <section class="wordsearch-screen wordsearch-screen--game" id="wordsearchGame">
+      <div class="wordsearch-hud">
+        <div class="wordsearch-hud__item">
+          <span>Найдено</span>
+          <strong><span id="wordsearchFoundCount">0</span>/<span id="wordsearchTotalCount">0</span></strong>
+        </div>
+
+        <div class="wordsearch-hud__item wordsearch-hud__item--hint">
+          <span>Подсказка</span>
+          <strong id="wordsearchHint">Проведи по буквам, чтобы собрать слово</strong>
+        </div>
+
+        <button class="wordsearch-btn wordsearch-btn--ghost" id="wordsearchRestartBtn" type="button">Заново</button>
+      </div>
+
+      <div class="wordsearch-game-area">
+        <div class="wordsearch-board-wrap">
+          <div class="wordsearch-board" id="wordsearchBoard" aria-label="Поле филворда"></div>
+        </div>
+
+        <aside class="wordsearch-words" aria-label="Список слов">
+          <h2>Найди слова</h2>
+          <ul id="wordsearchWords"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wordsearch-screen wordsearch-screen--result" id="wordsearchResult">
+      <img class="wordsearch-result-image" id="wordsearchSuccessImage" src="" alt="">
+      <p class="wordsearch-badge">Победа</p>
+      <h2>Все добрые слова найдены!</h2>
+      <p>
+        Отлично! Ты собрал слова, которые помогают быть внимательнее, честнее и добрее к другим.
+      </p>
+
+      <p class="wordsearch-lesson">
+        <strong>Чему учит игра:</strong> пониманию нравственных понятий: доброта, совесть, честь и помощь.
+      </p>
+
+      <div class="wordsearch-actions">
+        <button class="wordsearch-btn wordsearch-btn--primary" id="wordsearchAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="wordsearch-btn wordsearch-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="wordsearch-modal" id="wordsearchHelpModal" aria-hidden="true">
+    <div class="wordsearch-modal__overlay" data-wordsearch-close></div>
+
+    <div class="wordsearch-modal__card" role="dialog" aria-modal="true" aria-labelledby="wordsearchHelpTitle">
+      <button class="wordsearch-modal__close" data-wordsearch-close type="button" aria-label="Закрыть">×</button>
+      <h2 id="wordsearchHelpTitle">Как играть</h2>
+      <p>Нажми на первую букву слова и веди мышкой или пальцем по соседним буквам.</p>
+      <p>Слова могут идти по горизонтали, вертикали и диагонали.</p>
+      <p>Когда слово найдено, оно подсветится на поле и вычеркнется в списке.</p>
+    </div>
+  </div>
+</body>
+</html>

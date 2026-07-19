@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Башня дружбы — Уроки с Добрыней</title>
+  <meta name="description" content="Детская мини-игра Башня дружбы проекта Уроки с Добрыней.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/tower.js" defer></script>
+</head>
+<body class="tropa-page tower-page">
+  <div class="page-bg"></div>
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+  <main class="tower-layout">
+    <section class="tower-screen tower-screen--start is-active" id="towerStart">
+      <img class="tower-start-icon" id="towerStartIcon" src="" alt="">
+      <p class="tower-badge">Станция дружбы</p>
+      <h1>Башня дружбы</h1>
+      <p>Ставь в башню добрые качества и убирай плохие. Чем больше плохих слов окажется внутри, тем сильнее будет шататься башня.</p>
+      <div class="tower-actions">
+        <button class="tower-btn tower-btn--primary" id="towerStartBtn" type="button">Начать игру</button>
+        <button class="tower-btn tower-btn--ghost" id="towerHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+    <section class="tower-screen tower-screen--game" id="towerGame">
+      <div class="tower-hud">
+        <div class="tower-hud__item"><span>Добрые блоки</span><strong><b id="towerGoodCount">0</b>/<b id="towerGoal">8</b></strong></div>
+        <div class="tower-hud__item"><span>Промахи</span><strong id="towerMisses">0/3</strong></div>
+        <div class="tower-hud__item tower-hud__item--hint"><span>Подсказка</span><strong id="towerHint">Реши, нужен ли этот блок башне дружбы.</strong></div>
+        <button class="tower-btn tower-btn--ghost" id="towerRestartBtn" type="button">Заново</button>
+      </div>
+      <div class="tower-field" id="towerField" aria-label="Игровое поле Башня дружбы">
+        <div class="tower-bg"></div>
+        <div class="tower-stage" id="towerStage">
+          <div class="tower-stack" id="towerStack"><div class="tower-base" aria-hidden="true"></div></div>
+          <button class="tower-moving-block" id="towerMovingBlock" type="button" aria-label="Опустить текущий блок">
+            <img id="towerMovingImage" src="" alt=""><span id="towerMovingWord"></span>
+          </button>
+          <div class="tower-feedback" id="towerFeedback" aria-live="polite"></div>
+        </div>
+        <div class="tower-controls">
+          <button class="tower-choice tower-choice--place" id="towerPlaceBtn" type="button">Поставить</button>
+          <button class="tower-choice tower-choice--remove" id="towerRemoveBtn" type="button">Убрать</button>
+        </div>
+      </div>
+    </section>
+    <section class="tower-screen tower-screen--result" id="towerResult">
+      <img class="tower-result-image" id="towerResultImage" src="" alt="">
+      <p class="tower-badge" id="towerResultBadge">Победа</p>
+      <h2 id="towerResultTitle">Башня дружбы построена!</h2>
+      <p id="towerResultText">Дружба становится крепче, когда в ней есть доброта, помощь, уважение и забота.</p>
+      <p class="tower-lesson">Будь терпеливым и учись справляться с гневом.</p>
+      <div class="tower-actions">
+        <button class="tower-btn tower-btn--primary" id="towerAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="tower-btn tower-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+  <div class="tower-modal" id="towerHelpModal" aria-hidden="true">
+    <div class="tower-modal__overlay" data-tower-close></div>
+    <div class="tower-modal__card" role="dialog" aria-modal="true" aria-labelledby="towerHelpTitle">
+      <button class="tower-modal__close" type="button" data-tower-close aria-label="Закрыть">×</button>
+      <h2 id="towerHelpTitle">Как играть</h2>
+      <p>На каждом блоке написано качество или поступок.</p>
+      <p>Добрые слова нажимай <strong>«Поставить»</strong>, плохие — <strong>«Убрать»</strong>.</p>
+      <p>После выбора «Поставить» блок начнёт ездить над башней. Нажми на блок, поле или клавишу пробела, чтобы опустить его.</p>
+      <p>Плохой блок, поставленный в башню, останется в ней и усилит раскачивание. Три промаха завершают попытку.</p>
+      <div class="tower-actions"><button class="tower-btn tower-btn--primary" type="button" data-tower-close>Понятно</button></div>
+    </div>
+  </div>
+</body>
+</html>

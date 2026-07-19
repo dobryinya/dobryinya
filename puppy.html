@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спаси щенка от дождя — Уроки с Добрыней</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/puppy.js" defer></script>
+</head>
+<body class="tropa-page puppy-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="puppy-layout">
+    <section class="puppy-screen puppy-screen--start is-active" id="puppyStart">
+      <img class="puppy-start-icon" id="puppyStartIcon" src="" alt="">
+      <p class="puppy-badge">Станция милосердия</p>
+      <h1>Спаси щенка от дождя</h1>
+      <p>Выбери предметы, которые действительно помогут промокшему щенку, а потом проводи его в сухое укрытие.</p>
+      <div class="puppy-actions">
+        <button class="puppy-btn puppy-btn--primary" id="puppyStartBtn" type="button">Начать игру</button>
+        <button class="puppy-btn puppy-btn--ghost" id="puppyHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+
+    <section class="puppy-screen puppy-screen--select" id="puppySelect">
+      <div class="puppy-panel-head">
+        <div>
+          <p class="puppy-badge">Шаг 1</p>
+          <h2>Собери набор помощи</h2>
+          <p id="puppySelectHint">Нажимай только на предметы, которые помогут щенку.</p>
+        </div>
+        <div class="puppy-counter"><span>Собрано</span><strong><span id="puppyCollected">0</span>/4</strong></div>
+      </div>
+
+      <div class="puppy-select-field" id="puppySelectField">
+        <img class="puppy-bg" id="puppySelectBg" src="" alt="">
+        <img class="puppy-select-dog" id="puppySelectDog" src="" alt="Промокший щенок">
+        <div class="puppy-basket" id="puppyBasket" aria-label="Корзинка помощи"></div>
+        <div class="puppy-items" id="puppyItems"></div>
+      </div>
+
+      <div class="puppy-actions puppy-actions--center">
+        <button class="puppy-btn puppy-btn--primary" id="puppyGoPathBtn" type="button" disabled>Провести щенка</button>
+        <button class="puppy-btn puppy-btn--ghost" id="puppySelectRestartBtn" type="button">Заново</button>
+      </div>
+    </section>
+
+    <section class="puppy-screen puppy-screen--path" id="puppyPath">
+      <div class="puppy-panel-head">
+        <div>
+          <p class="puppy-badge">Шаг 2</p>
+          <h2>Проведи щенка в будку</h2>
+          <p id="puppyPathHint">Кликай по безопасным местам на дорожке. Обходи лужи.</p>
+        </div>
+        <button class="puppy-btn puppy-btn--ghost" id="puppyPathRestartBtn" type="button">Заново</button>
+      </div>
+
+      <div class="puppy-path-field" id="puppyPathField">
+        <img class="puppy-bg" id="puppyPathBg" src="" alt="">
+        <img class="puppy-runner" id="puppyRunner" src="" alt="Щенок">
+        <div class="puppy-finish-zone" aria-hidden="true">Домик</div>
+      </div>
+    </section>
+
+    <section class="puppy-screen puppy-screen--result" id="puppyResult">
+      <img class="puppy-result-image" id="puppyResultDog" src="" alt="">
+      <p class="puppy-badge">Победа</p>
+      <h2>Щенок спасён!</h2>
+      <p>Теперь он в сухом укрытии. Ты проявил милосердие и помог тому, кто слабее.</p>
+      <p class="puppy-lesson">Будь милосердным и заботься о слабом.</p>
+      <div class="puppy-actions">
+        <button class="puppy-btn puppy-btn--primary" id="puppyAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="puppy-btn puppy-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="puppy-modal" id="puppyHelpModal" aria-hidden="true">
+    <div class="puppy-modal__overlay" data-puppy-close></div>
+    <div class="puppy-modal__card">
+      <button class="puppy-modal__close" type="button" data-puppy-close aria-label="Закрыть">×</button>
+      <h2>Как играть</h2>
+      <p>Сначала выбери только полезные предметы: зонтик, полотенце, коробку и миску с водой.</p>
+      <p>Потом нажми «Провести щенка» и кликай по безопасным местам, чтобы довести его до будки.</p>
+      <p>Лужи лучше обходить: если щенок попадёт в лужу, он вернётся немного назад.</p>
+    </div>
+  </div>
+</body>
+</html>

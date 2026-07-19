@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Собери разбитую вазу — Уроки с Добрыней</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/vase.js" defer></script>
+</head>
+<body class="tropa-page vase-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="vase-layout">
+    <section class="vase-screen vase-screen--start is-active" id="vaseStart">
+      <img class="vase-start-image" id="vaseBrokenImage" src="" alt="Разбитая ваза">
+      <p class="vase-badge">Станция честности</p>
+      <h1>Собери разбитую вазу</h1>
+      <p>Добрыня случайно разбил вазу в классе. Помоги собрать её, а потом выбери честный поступок.</p>
+      <div class="vase-actions">
+        <button class="vase-btn vase-btn--primary" id="vaseStartBtn" type="button">Начать игру</button>
+        <button class="vase-btn vase-btn--ghost" id="vaseHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+
+    <section class="vase-screen vase-screen--game" id="vaseGame">
+      <div class="vase-hud">
+        <div class="vase-hud__item">
+          <span>Собрано</span>
+          <strong><span id="vasePlacedCount">0</span>/9</strong>
+        </div>
+        <div class="vase-hud__item vase-hud__item--hint">
+          <span>Подсказка</span>
+          <strong id="vaseHint">Перетащи кусочки на поле пазла.</strong>
+        </div>
+        <button class="vase-btn vase-btn--ghost" id="vaseRestartBtn" type="button">Заново</button>
+      </div>
+
+      <div class="vase-game-area">
+        <div class="vase-puzzle-wrap">
+          <div class="vase-puzzle" id="vasePuzzle" aria-label="Поле пазла"></div>
+        </div>
+        <div class="vase-tray-wrap">
+          <h2>Кусочки вазы</h2>
+          <div class="vase-tray" id="vaseTray" aria-label="Кусочки пазла"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vase-screen vase-screen--choice" id="vaseChoice">
+      <img class="vase-choice-image" id="vaseCompleteImage" src="" alt="Собранная ваза">
+      <p class="vase-badge">Выбор поступка</p>
+      <h2>Что нужно сделать?</h2>
+      <p>Ваза собрана. Теперь помоги Добрыне выбрать честный и ответственный поступок.</p>
+      <div class="vase-choice-list" id="vaseChoices"></div>
+    </section>
+
+    <section class="vase-screen vase-screen--result" id="vaseResult">
+      <img class="vase-result-image" id="vaseSuccessImage" src="" alt="Победа">
+      <p class="vase-badge">Победа</p>
+      <h2>Ты поступил честно!</h2>
+      <p>Ошибку можно исправить, если не прятаться, а сказать правду и помочь навести порядок.</p>
+      <p class="vase-lesson">Учись быть ответственным и честным.</p>
+      <div class="vase-actions">
+        <button class="vase-btn vase-btn--primary" id="vaseAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="vase-btn vase-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="vase-modal" id="vaseHelpModal" aria-hidden="true">
+    <div class="vase-modal__overlay" data-vase-close></div>
+    <div class="vase-modal__card">
+      <button class="vase-modal__close" data-vase-close type="button" aria-label="Закрыть">×</button>
+      <h2>Как играть</h2>
+      <p>Перетащи кусочки вазы на пустое поле пазла.</p>
+      <p>Если кусочек поставлен правильно, он закрепится на месте.</p>
+      <p>После сборки выбери честный поступок Добрыни.</p>
+    </div>
+  </div>
+</body>
+</html>

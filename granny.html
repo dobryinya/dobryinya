@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перенеси бабушке сумки — Уроки с Добрыней</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="images/fav.png">
+  <link rel="stylesheet" href="tropa.css">
+  <script src="js/tropa/granny.js" defer></script>
+</head>
+<body class="tropa-page granny-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="granny-layout">
+    <section class="granny-screen granny-screen--start is-active" id="grannyStart">
+      <img class="granny-start-icon" id="grannyStartIcon" src="" alt="">
+      <p class="granny-badge">Станция заботы</p>
+      <h1>Перенеси бабушке сумки</h1>
+      <p>
+        Добрыня несёт тяжёлые сумки с продуктами. Помоги ему удержать равновесие и аккуратно дойти до дома.
+      </p>
+
+      <div class="granny-actions">
+        <button class="granny-btn granny-btn--primary" id="grannyStartBtn" type="button">Начать игру</button>
+        <button class="granny-btn granny-btn--ghost" id="grannyHelpBtn" type="button">Как играть</button>
+      </div>
+    </section>
+
+    <section class="granny-screen granny-screen--game" id="grannyGame">
+      <div class="granny-hud">
+        <div class="granny-hud__item">
+          <span>Путь</span>
+          <strong><span id="grannyDistance">0</span>%</strong>
+        </div>
+
+        <div class="granny-hud__item granny-hud__item--balance">
+          <span>Равновесие</span>
+          <div class="granny-balance" aria-label="Индикатор равновесия">
+            <div class="granny-balance__safe"></div>
+            <div class="granny-balance__needle" id="grannyBalanceNeedle"></div>
+          </div>
+        </div>
+
+        <div class="granny-hud__item">
+          <span>Продукты</span>
+          <strong id="grannyLives">🍎 🥖 🥛</strong>
+        </div>
+      </div>
+
+      <div class="granny-field" id="grannyField" aria-label="Игровое поле">
+        <div class="granny-parallax granny-parallax--bg1" id="grannyBg1"></div>
+        <div class="granny-parallax granny-parallax--bg2" id="grannyBg2"></div>
+        <div class="granny-parallax granny-parallax--bg3" id="grannyBg3"></div>
+
+        <div class="granny-obstacles" id="grannyObstacles"></div>
+        <div class="granny-drops" id="grannyDrops"></div>
+
+        <img class="granny-boy" id="grannyBoy" src="" alt="Добрыня с сумками" draggable="false">
+
+        <div class="granny-field-hint" id="grannyHint">Удерживай сумки в равновесии: ← и →</div>
+      </div>
+
+      <div class="granny-controls" aria-label="Управление">
+        <button class="granny-control" id="grannyLeftBtn" type="button">←</button>
+        <button class="granny-control" id="grannyRightBtn" type="button">→</button>
+      </div>
+    </section>
+
+    <section class="granny-screen granny-screen--result" id="grannyResult">
+      <img class="granny-result-image" id="grannyResultImage" src="" alt="">
+      <p class="granny-badge" id="grannyResultBadge">Победа</p>
+      <h2 id="grannyResultTitle">Сумки донесены!</h2>
+      <p id="grannyResultText">
+        Добрыня аккуратно донёс продукты и помог бабушке. Это настоящий добрый поступок.
+      </p>
+
+      <p class="granny-lesson">
+        Помогай старшим, заботься и будь внимательным.
+      </p>
+
+      <div class="granny-actions">
+        <button class="granny-btn granny-btn--primary" id="grannyAgainBtn" type="button">Сыграть ещё раз</button>
+        <a class="granny-btn granny-btn--ghost" href="tropa.html">Вернуться на карту</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="granny-modal" id="grannyHelpModal" aria-hidden="true">
+    <div class="granny-modal__overlay" data-granny-close></div>
+    <div class="granny-modal__card">
+      <button class="granny-modal__close" data-granny-close type="button" aria-label="Закрыть">×</button>
+      <h2>Как играть</h2>
+      <p>Добрыня сам идёт вперёд, а сумки раскачиваются.</p>
+      <p>Нажимай <strong>←</strong>, если сумки уводит вправо. Нажимай <strong>→</strong>, если уводит влево.</p>
+      <p>Лужи, камни и игрушки резко раскачивают сумки. Если стрелка уйдёт слишком далеко, один продукт выпадет.</p>
+    </div>
+  </div>
+</body>
+</html>
