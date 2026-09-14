@@ -1245,3 +1245,349 @@ button { -webkit-tap-highlight-color: transparent; }
   .result-grid { grid-template-columns: 1fr; }
   .exercise-card { min-height: 450px; padding: 24px 16px; border-radius: 22px; }
 }
+
+
+/* =========================================================
+   ДОПОЛНЕНИЕ:
+   тренажёры компонентов арифметических действий
+   Сложение / вычитание / умножение / деление
+   ========================================================= */
+
+.component-action-picker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+
+/* Карточки выбора действия и компонентов */
+
+.component-operation-card,
+.component-card {
+  border: 1px solid rgba(47, 141, 246, .22);
+  border-radius: 18px;
+  background: #fff;
+  color: #21517f;
+  box-shadow: 0 8px 18px rgba(37, 91, 143, .1);
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+
+/* Карточки:
+   сложение / вычитание / умножение / деление */
+
+.component-operation-card {
+  min-height: 82px;
+  padding: 14px 16px;
+
+  display: grid;
+  place-items: center;
+  gap: 4px;
+
+  text-align: center;
+  font-weight: 800;
+}
+
+.component-operation-card strong {
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: 26px;
+  color: #2b6ab8;
+}
+
+.component-operation-card span {
+  font-size: 14px;
+  color: #55728f;
+}
+
+
+/* Наведение */
+
+.component-operation-card:hover,
+.component-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(47, 141, 246, .48);
+  box-shadow: 0 12px 24px rgba(37, 91, 143, .14);
+}
+
+
+/* Выбранная карточка */
+
+.component-operation-card.is-selected,
+.component-card.is-selected {
+  border-color: rgba(255, 184, 77, .85);
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff9d9,
+      #fff2c5
+    );
+
+  box-shadow:
+    0 10px 24px rgba(255, 184, 77, .22);
+}
+
+
+/* =========================================================
+   ВЫБОР КОМПОНЕНТОВ
+   ========================================================= */
+
+.component-picker {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.component-card {
+  min-height: 86px;
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+  text-align: left;
+}
+
+
+/* Маленький значок:
+   a, b, P и т. п. */
+
+.component-card__symbol {
+  flex: 0 0 44px;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #dff7ff,
+      #bfeeff
+    );
+
+  color: #1f71d1;
+
+  font-family: "Comfortaa", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* Текст карточки */
+
+.component-card__text strong,
+.component-card__text span {
+  display: block;
+}
+
+.component-card__text strong {
+  color: #285f9c;
+  font-size: 16px;
+}
+
+.component-card__text span {
+  margin-top: 3px;
+
+  color: #67809a;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   ДИАПАЗОН ЧИСЕЛ
+   ========================================================= */
+
+.component-range-picker {
+  grid-template-columns:
+    repeat(3, 1fr);
+}
+
+
+/* =========================================================
+   КАРТОЧКА ЗАДАНИЯ
+   ========================================================= */
+
+.components-exercise-card {
+  max-width: 900px;
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   ТАБЛИЦА КОМПОНЕНТОВ
+   Например:
+   Множитель | Множитель | Произведение
+   ========================================================= */
+
+.component-table {
+  width: min(700px, 100%);
+
+  margin:
+    0 auto 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  overflow: hidden;
+
+  border:
+    2px solid rgba(47, 141, 246, .28);
+
+  border-radius: 18px;
+
+  background: #fff;
+
+  box-shadow:
+    0 10px 24px rgba(37, 91, 143, .10);
+}
+
+
+/* Ячейка таблицы */
+
+.component-table__cell {
+  min-height: 76px;
+
+  padding: 12px 10px;
+
+  display: grid;
+  place-items: center;
+
+  gap: 3px;
+
+  border-right:
+    1px solid rgba(47, 141, 246, .20);
+}
+
+.component-table__cell:last-child {
+  border-right: 0;
+}
+
+
+/* Чередование оттенков,
+   как в учебной таблице */
+
+.component-table__cell:nth-child(odd) {
+  background:
+    linear-gradient(
+      145deg,
+      #fff8cb,
+      #fff3a8
+    );
+}
+
+.component-table__cell:nth-child(even) {
+  background:
+    linear-gradient(
+      145deg,
+      #effaff,
+      #dff6ff
+    );
+}
+
+
+/* Название компонента */
+
+.component-table__name {
+  color: #4f6f8e;
+
+  font-size:
+    clamp(12px, 1.5vw, 15px);
+
+  font-weight: 800;
+
+  text-align: center;
+}
+
+
+/* Число */
+
+.component-table__value {
+  color: #18354f;
+
+  font-family:
+    "Comfortaa",
+    "Onest",
+    sans-serif;
+
+  font-size:
+    clamp(23px, 3vw, 34px);
+
+  font-weight: 700;
+}
+
+
+/* Неизвестный компонент */
+
+.component-table__cell.is-missing {
+  background:
+    linear-gradient(
+      145deg,
+      #fff0f3,
+      #ffe1e6
+    );
+}
+
+.component-table__cell.is-missing
+.component-table__value {
+  color: #c94e68;
+}
+
+
+/* Сам математический пример */
+
+.component-expression {
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .component-action-picker,
+  .component-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .component-range-picker {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .component-table {
+    grid-template-columns: 1fr;
+  }
+
+  .component-table__cell {
+    border-right: 0;
+
+    border-bottom:
+      1px solid rgba(47, 141, 246, .20);
+  }
+
+  .component-table__cell:last-child {
+    border-bottom: 0;
+  }
+
+}
