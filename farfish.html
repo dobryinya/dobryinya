@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/fav.png">
-  <link rel="stylesheet" href="games.css">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/biggame/games.css">
 </head>
 <body class="farfish-page-body">
   <div class="page-bg"></div>
@@ -34,7 +34,7 @@
 
   <main class="game-page farfish-page">
     <section class="card game-card farfish-start" id="farfish-start">
-      <img class="farfish-start__icon" src="images/farfish/icon.png" alt="Иконка игры Большой улов" draggable="false">
+      <img class="farfish-start__icon" src="/images/farfish/icon.png" alt="Иконка игры Большой улов" draggable="false">
       <p class="game-label">Игра народов Дальнего Востока</p>
       <h1>Большой улов</h1>
       <p class="farfish-start__text">
@@ -66,10 +66,10 @@
       </div>
 
       <div class="farfish-field" id="farfish-field" tabindex="0" aria-label="Игровое поле Большой улов">
-        <img class="farfish-bg" id="farfish-bg" src="images/farfish/bg.png" alt="Морской пейзаж Дальнего Востока" draggable="false">
+        <img class="farfish-bg" id="farfish-bg" src="/images/farfish/bg.png" alt="Морской пейзаж Дальнего Востока" draggable="false">
         <div class="farfish-nets" id="farfish-nets"></div>
         <div class="farfish-fishes" id="farfish-fishes"></div>
-        <img class="farfish-player" id="farfish-player" src="images/farfish/player.png" alt="Рыбак с корзиной" draggable="false">
+        <img class="farfish-player" id="farfish-player" src="/images/farfish/player.png" alt="Рыбак с корзиной" draggable="false">
         <div class="farfish-overlay" id="farfish-overlay" hidden>Лови!</div>
       </div>
 
@@ -88,7 +88,7 @@
     <section class="card game-card farfish-result" id="farfish-result" hidden>
       <p class="game-label" id="farfish-result-label">Результат</p>
       <h2 id="farfish-result-title">Игра завершена</h2>
-      <img class="farfish-result__hero" id="farfish-result-img" src="images/farfish/win.png" alt="Результат игры" draggable="false">
+      <img class="farfish-result__hero" id="farfish-result-img" src="/images/farfish/win.png" alt="Результат игры" draggable="false">
       <p class="farfish-result__text" id="farfish-result-text">Попробуй ещё раз и собери большой улов.</p>
       <p class="farfish-fact">
         На Дальнем Востоке рыболовство издавна было важной частью жизни прибрежных народов. Рыбу ловили, сушили и заготавливали впрок для семьи и долгих переходов.
@@ -138,8 +138,8 @@
   <footer class="footer">
     <p>© <span id="year"></span> Уроки с Добрыней</p>
   </footer>
-  <script src="js/farfish.js"></script>
-  <script src="js/game-ui.js"></script>
+  <script src="js/biggame/farfish.js"></script>
+  <script src="js/core/game-ui.js"></script>
   
 </body>
 </html>

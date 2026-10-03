@@ -30,7 +30,7 @@ body {
   radial-gradient(circle at 85% 22%, rgba(54, 198, 255, 0.28), transparent 28%),
   radial-gradient(circle at 78% 78%, rgba(255, 141, 160, 0.22), transparent 26%),
   linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.23)),
-  url("images/backgr.png");
+  url("/images/backgr.png");
   background-position: center;
   position: relative;
 }
@@ -46,7 +46,7 @@ body.nav-open { overflow: hidden; }
     radial-gradient(circle at 85% 22%, rgba(54, 198, 255, 0.28), transparent 28%),
     radial-gradient(circle at 78% 78%, rgba(255, 141, 160, 0.22), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.23)),
-    url("images/backgr.png");
+    url("/images/backgr.png");
   background-size: cover;
   background-position: center;
 }
@@ -1590,4 +1590,134 @@ button { -webkit-tap-highlight-color: transparent; }
     border-bottom: 0;
   }
 
+}
+
+
+/* === Группировка каталога Добрыня-эрудит === */
+.erudit-groups { display: grid; gap: 28px; }
+.erudit-group { position: relative; padding-top: 4px; }
+.erudit-group + .erudit-group { padding-top: 28px; border-top: 1px solid rgba(62,132,200,.18); }
+
+.erudit-group__head {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.erudit-group__icon {
+  width: 68px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border: 4px solid rgba(255,255,255,.92);
+  border-radius: 22px;
+  color: #1f71d1;
+  background: radial-gradient(circle at 30% 24%, rgba(255,255,255,.92), transparent 28%), linear-gradient(145deg, #d8f5ff, #79cfff);
+  box-shadow: 0 10px 22px rgba(37,91,143,.14);
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.erudit-group--logic .erudit-group__icon {
+  color: #4b7b2a;
+  background: radial-gradient(circle at 30% 24%, rgba(255,255,255,.92), transparent 28%), linear-gradient(145deg, #e4ffd2, #ffe68a);
+}
+
+.erudit-group--literature .erudit-group__icon {
+  color: #9b4f55;
+  background: radial-gradient(circle at 30% 24%, rgba(255,255,255,.92), transparent 28%), linear-gradient(145deg, #ffe2e7, #ffd39a);
+}
+
+.erudit-group__eyebrow {
+  margin: 0 0 3px;
+  color: #66819a;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.erudit-group__head h3 {
+  margin: 0;
+  color: #2b6ab8;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(24px, 2.7vw, 34px);
+  line-height: 1.12;
+}
+
+.erudit-group__head > div:last-child > p:last-child {
+  max-width: 760px;
+  margin: 7px 0 0;
+  color: #4f6f8e;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.erudit-group .erudit-list { gap: 13px; }
+
+.erudit-group .erudit-card {
+  min-height: 168px;
+  grid-template-columns: 96px minmax(0, 1fr) auto;
+  gap: clamp(16px, 2.6vw, 28px);
+  padding: clamp(18px, 2.6vw, 25px);
+}
+
+.erudit-group .erudit-card__icon {
+  width: 90px;
+  border-radius: 24px;
+  font-size: 39px;
+}
+
+.erudit-group .erudit-card__icon span { line-height: 1; }
+.erudit-group .erudit-card h3 { font-size: clamp(24px, 2.6vw, 34px); }
+.erudit-group .erudit-card__content > p:last-child { font-size: clamp(15px, 1.5vw, 18px); }
+
+.erudit-group .erudit-card__button {
+  min-width: 150px;
+  min-height: 56px;
+  padding: 13px 22px;
+  font-size: 17px;
+}
+
+@media (max-width: 900px) {
+  .erudit-group .erudit-card { grid-template-columns: 82px minmax(0, 1fr); }
+  .erudit-group .erudit-card__icon { width: 78px; border-radius: 21px; font-size: 34px; }
+  .erudit-group .erudit-card__button { grid-column: 1 / -1; width: 100%; }
+}
+
+@media (max-width: 700px) {
+  .erudit-groups { gap: 24px; }
+  .erudit-group + .erudit-group { padding-top: 22px; }
+
+  .erudit-group__head {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 13px;
+    text-align: left;
+  }
+
+  .erudit-group__icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    font-size: 20px;
+  }
+
+  .erudit-group__head h3 { font-size: 22px; }
+  .erudit-group__head > div:last-child > p:last-child { font-size: 14px; }
+
+  .erudit-group .erudit-card {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .erudit-group .erudit-card__icon { width: 82px; }
+  .erudit-group .erudit-card__button { grid-column: auto; }
 }

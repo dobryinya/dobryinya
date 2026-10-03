@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/fav.png">
-  <link rel="stylesheet" href="games.css">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/biggame/games.css">
 </head>
 <body class="taiga-page-body">
   <div class="page-bg"></div>
@@ -34,7 +34,7 @@
 
   <main class="game-page taiga-page">
     <section class="card game-card taiga-start" id="taiga-start">
-      <img class="taiga-start__icon" src="images/taiga/start.png" alt="Игра Таёжный путь" draggable="false">
+      <img class="taiga-start__icon" src="/images/taiga/start.png" alt="Игра Таёжный путь" draggable="false">
       <p class="game-label">Игра народов Западной Сибири</p>
       <h1>Таёжный путь</h1>
       <p class="taiga-start__text">Поворачивай деревянные мостки и собери безопасную тропу через болотистую тайгу от избушки до лабаза.</p>
@@ -60,7 +60,7 @@
       <div class="taiga-field-wrap">
         <div class="taiga-field" id="taiga-field" aria-label="Игровое поле Таёжный путь">
           <div class="taiga-grid" id="taiga-grid"></div>
-          <img class="taiga-walker" id="taiga-walker" src="images/taiga/win.png" alt="Охотник идёт по мосту" draggable="false" hidden>
+          <img class="taiga-walker" id="taiga-walker" src="/images/taiga/win.png" alt="Охотник идёт по мосту" draggable="false" hidden>
           <div class="taiga-message" id="taiga-message" hidden>Путь найден!</div>
         </div>
       </div>
@@ -117,7 +117,7 @@
   <footer class="footer">
     <p>© <span id="year"></span> Уроки с Добрыней</p>
   </footer>
-  <script src="js/game-ui.js"></script>
-  <script src="js/taiga.js"></script>
+  <script src="js/core/game-ui.js"></script>
+  <script src="js/biggame/taiga.js"></script>
 </body>
 </html>

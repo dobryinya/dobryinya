@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/fav.png">
-  <link rel="stylesheet" href="erudit.css">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/erudit/erudit.css">
 </head>
 <body class="erudit-body">
   <div class="page-bg"></div>
@@ -37,67 +37,158 @@
       <p>Выбирай любую игру или тренажёр, развивай память, логику, внимание и мышление вместе с Добрыней.</p>
     </header>
 
+
     <section class="erudit-catalog" aria-labelledby="erudit-catalog-title">
       <div class="erudit-catalog__head">
         <div>
           <p class="erudit-catalog__label">Игры и тренажёры</p>
           <h2 id="erudit-catalog-title">Выбери задание</h2>
         </div>
-        <p>Все задания доступны сразу. Начни с любого и проверь свои знания.</p>
+        <p>Выбирай направление и тренируйся в удобном темпе. Все задания доступны сразу.</p>
       </div>
 
-      <div class="erudit-list">
-        <article class="erudit-card erudit-card--math">
-          <div class="erudit-card__icon" aria-hidden="true"><span>×</span></div>
-          <div class="erudit-card__content">
-            <p class="erudit-card__type">Математический тренажёр</p>
-            <h3>Таблица умножения</h3>
-            <p>Решай примеры, закрепляй таблицу умножения и старайся отвечать точно и без ошибок.</p>
+      <div class="erudit-groups">
+        <section class="erudit-group erudit-group--math" aria-labelledby="erudit-math-title">
+          <div class="erudit-group__head">
+            <div class="erudit-group__icon" aria-hidden="true">123</div>
+            <div>
+              <p class="erudit-group__eyebrow">Математика</p>
+              <h3 id="erudit-math-title">Счёт и вычисления</h3>
+              <p>Тренируй устный счёт, порядок действий, компоненты и решение практических задач.</p>
+            </div>
           </div>
-          <a class="erudit-card__button" href="multiplication.html">Начать</a>
-        </article>
 
-        <article class="erudit-card erudit-card--math">
-          <div class="erudit-card__icon" aria-hidden="true"><span>×</span></div>
-          <div class="erudit-card__content">
-            <p class="erudit-card__type">Математический тренажёр</p>
-            <h3>Компоненты действий(сложение, вычитание)</h3>
-            <p>Решай примеры, закрепляй компоненты действий и старайся отвечать точно и без ошибок.</p>
-          </div>
-          <a class="erudit-card__button" href="components.html">Начать</a>
-        </article>
+          <div class="erudit-list">
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>×</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Математика</p>
+                <h3>Таблица умножения</h3>
+                <p>Решай примеры, закрепляй таблицу умножения и старайся отвечать точно и без ошибок.</p>
+              </div>
+              <a class="erudit-card__button" href="multiplication.html">Начать</a>
+            </article>
 
-        <article class="erudit-card erudit-card--math">
-          <div class="erudit-card__icon" aria-hidden="true"><span>×</span></div>
-          <div class="erudit-card__content">
-            <p class="erudit-card__type">Математический тренажёр</p>
-            <h3>Компоненты действий (умножение, деление)</h3>
-            <p>Решай примеры, закрепляй таблицу умножения и компоненты действий.</p>
-          </div>
-          <a class="erudit-card__button" href="multiplication_division.html">Начать</a>
-        </article>
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>+</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Математика</p>
+                <h3>Компоненты сложения и вычитания</h3>
+                <p>Находи неизвестные слагаемые, уменьшаемое, вычитаемое и разность.</p>
+              </div>
+              <a class="erudit-card__button" href="components.html">Начать</a>
+            </article>
 
-        <article class="erudit-card erudit-card--logic">
-          <div class="erudit-card__icon" aria-hidden="true"><span>?</span></div>
-          <div class="erudit-card__content">
-            <p class="erudit-card__type">Логическая задача</p>
-            <h3>Умная переправа</h3>
-            <p>Перевези всех на другой берег, соблюдая условия задачи и продумывая каждый следующий шаг.</p>
-          </div>
-          <a class="erudit-card__button" href="river-puzzle.html">Начать</a>
-        </article>
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>÷</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Математика</p>
+                <h3>Компоненты умножения и деления</h3>
+                <p>Закрепляй связь между множителями, произведением, делимым, делителем и частным.</p>
+              </div>
+              <a class="erudit-card__button" href="multiplication_division.html">Начать</a>
+            </article>
 
-        <article class="erudit-card erudit-card--literature">
-          <div class="erudit-card__icon" aria-hidden="true"><span>А</span></div>
-          <div class="erudit-card__content">
-            <p class="erudit-card__type">Литературная игра</p>
-            <h3>Лукоморье</h3>
-            <p>Продолжай строки известного произведения А. С. Пушкина, вспоминай текст и тренируй память.</p>
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>₽</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Практические задачи</p>
+                <h3>Стоимость и сдача</h3>
+                <p>Считай стоимость покупок, находи сдачу и проверяй решение задач из повседневной жизни.</p>
+              </div>
+              <a class="erudit-card__button" href="vpr-shop.html">Начать</a>
+            </article>
+
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>□</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Геометрия</p>
+                <h3>Площадь и периметр</h3>
+                <p>Читай условие, считай клетки и находи площадь или периметр прямоугольников и фигур.</p>
+              </div>
+              <a class="erudit-card__button" href="area-perimeter.html">Начать</a>
+            </article>
+
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>()</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Вычисления</p>
+                <h3>Порядок действий</h3>
+                <p>Вычисляй значения выражений со скобками, умножением, делением, сложением и вычитанием.</p>
+              </div>
+              <a class="erudit-card__button" href="expressions.html">Начать</a>
+            </article>
+
+            <article class="erudit-card erudit-card--math">
+              <div class="erudit-card__icon" aria-hidden="true"><span>↓</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Устный счёт</p>
+                <h3>Цепочка действий</h3>
+                <p>Выполняй действия одно за другим, удерживай промежуточный результат и считай в уме.</p>
+              </div>
+              <a class="erudit-card__button" href="mental-chain.html">Начать</a>
+            </article>
           </div>
-          <a class="erudit-card__button" href="pushkin-quiz.html">Начать</a>
-        </article>
+        </section>
+
+        <section class="erudit-group erudit-group--logic" aria-labelledby="erudit-logic-title">
+          <div class="erudit-group__head">
+            <div class="erudit-group__icon" aria-hidden="true">?</div>
+            <div>
+              <p class="erudit-group__eyebrow">Логика и мышление</p>
+              <h3 id="erudit-logic-title">Задачи на рассуждение</h3>
+              <p>Ищи закономерности, строй последовательность действий и проверяй свои догадки.</p>
+            </div>
+          </div>
+
+          <div class="erudit-list">
+            <article class="erudit-card erudit-card--logic">
+              <div class="erudit-card__icon" aria-hidden="true"><span>?</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Логическая задача</p>
+                <h3>Умная переправа</h3>
+                <p>Перевези всех на другой берег, соблюдая условия задачи и продумывая каждый следующий шаг.</p>
+              </div>
+              <a class="erudit-card__button" href="river-puzzle.html">Начать</a>
+            </article>
+
+            <article class="erudit-card erudit-card--logic">
+              <div class="erudit-card__icon" aria-hidden="true"><span>🧩</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Математическая логика</p>
+                <h3>Математический ребус</h3>
+                <p>Определи значения картинок по равенствам и разгадай ребус шаг за шагом.</p>
+              </div>
+              <a class="erudit-card__button" href="math-rebus.html">Начать</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="erudit-group erudit-group--literature" aria-labelledby="erudit-literature-title">
+          <div class="erudit-group__head">
+            <div class="erudit-group__icon" aria-hidden="true">А</div>
+            <div>
+              <p class="erudit-group__eyebrow">Литература и память</p>
+              <h3 id="erudit-literature-title">Слово и текст</h3>
+              <p>Вспоминай знакомые произведения, тренируй память и внимание к тексту.</p>
+            </div>
+          </div>
+
+          <div class="erudit-list">
+            <article class="erudit-card erudit-card--literature">
+              <div class="erudit-card__icon" aria-hidden="true"><span>А</span></div>
+              <div class="erudit-card__content">
+                <p class="erudit-card__type">Литературная игра</p>
+                <h3>Лукоморье</h3>
+                <p>Продолжай строки известного произведения А. С. Пушкина, вспоминай текст и тренируй память.</p>
+              </div>
+              <a class="erudit-card__button" href="pushkin-quiz.html">Начать</a>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">

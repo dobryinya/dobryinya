@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/fav.png">
-  <link rel="stylesheet" href="games.css">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/biggame/games.css">
 </head>
 <body>
   <div class="page-bg"></div>
@@ -30,7 +30,7 @@
 
   <main class="game-page kuresh-page">
     <section class="card game-start kuresh-start" id="kuresh-start">
-      <img class="game-start__icon" src="images/fighter1.png" alt="Куреш" draggable="false">
+      <img class="game-start__icon" src="/images/fighter1.png" alt="Куреш" draggable="false">
       <p class="game-start__label">Игра народов Урала</p>
       <h1>Куреш: выведи из равновесия</h1>
       <p>Кликай по игровому полю после удара гонга, чтобы тянуть сильнее соперника. Бот будет сопротивляться и делать рывки.</p>
@@ -67,9 +67,9 @@
       <div class="kuresh-field" id="kuresh-field" role="button" tabindex="0" aria-label="Игровое поле. Кликайте, чтобы тянуть сильнее">
         <div class="kuresh-overlay" id="kuresh-overlay">Жди гонга...</div>
         <div class="kuresh-tug" id="kuresh-tug">
-          <img class="kuresh-fighter kuresh-fighter--left" id="kuresh-fighter-left" src="images/fighter1.png" alt="Игрок" draggable="false">
-          <img class="kuresh-rope" id="kuresh-rope" src="images/tros.png" alt="Трос" draggable="false">
-          <img class="kuresh-fighter kuresh-fighter--right" id="kuresh-fighter-right" src="images/fighter2.png" alt="Соперник" draggable="false">
+          <img class="kuresh-fighter kuresh-fighter--left" id="kuresh-fighter-left" src="/images/fighter1.png" alt="Игрок" draggable="false">
+          <img class="kuresh-rope" id="kuresh-rope" src="/images/tros.png" alt="Трос" draggable="false">
+          <img class="kuresh-fighter kuresh-fighter--right" id="kuresh-fighter-right" src="/images/fighter2.png" alt="Соперник" draggable="false">
         </div>
       </div>
 
@@ -150,7 +150,7 @@
   <footer class="footer">
     <p>© <span id="year"></span> Уроки с Добрыней</p>
   </footer>
-  <script src="js/game-ui.js"></script>
-  <script src="js/kuresh.js"></script>
+  <script src="js/core/game-ui.js"></script>
+  <script src="js/biggame/kuresh.js"></script>
 </body>
 </html>

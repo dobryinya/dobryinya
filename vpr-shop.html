@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Задачи про покупки — Добрыня-эрудит</title>
+  <meta name="description" content="Тренажёр по математике: задачи на стоимость покупки и сдачу.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/erudit/erudit.css">
+  <link rel="stylesheet" href="css/erudit/vpr-shop.css">
+</head>
+<body class="erudit-body vpr-shop-page">
+  <div class="page-bg"></div>
+
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="trainer-page">
+    <section class="trainer-shell" aria-live="polite">
+      <div class="trainer-topline"></div>
+
+      <section class="trainer-screen is-active" data-screen="settings">
+        <header class="trainer-header vpr-intro">
+          <p class="trainer-kicker">Математика</p>
+          <h1>Задачи про покупки</h1>
+          <p>Считай стоимость покупки и сдачу. Решение записывай на бумаге, а на сайте вводи только ответ.</p>
+        </header>
+
+        <section class="vpr-start-card">
+          <div>
+            
+            <h2>Сколько заданий решить?</h2>
+            
+          </div>
+          <div class="vpr-count-picker" data-role="count-picker"></div>
+          <button class="trainer-btn trainer-btn--primary trainer-btn--large" type="button" data-action="start">Начать тренировку</button>
+        </section>
+      </section>
+
+      <section class="trainer-screen" data-screen="training">
+        <header class="training-hud">
+          <div class="hud-stat"><span>Задание</span><strong data-role="question-counter">1 из 10</strong></div>
+          <div class="hud-stat"><span>Правильно</span><strong data-role="score-counter">0</strong></div>
+          <div class="hud-stat"><span>Серия</span><strong data-role="streak-counter">0</strong></div>
+          <button class="trainer-btn trainer-btn--ghost trainer-btn--compact" type="button" data-action="stop">Завершить</button>
+        </header>
+
+        <div class="emoji-progress" data-role="emoji-progress" aria-label="Прогресс тренировки"></div>
+
+        <section class="exercise-card vpr-exercise-card">
+          <div class="vpr-task-head">
+            <span class="vpr-task-badge" data-role="task-kind">Стоимость покупки</span>
+            <p>Реши на бумаге, затем введи ответ.</p>
+          </div>
+
+          <p class="vpr-task-text" data-role="task-text"></p>
+
+          <div class="vpr-scene" data-role="scene"></div>
+
+          <div class="feedback" data-role="feedback"></div>
+          <div class="hint-panel vpr-hint" data-role="hint" hidden></div>
+          <div class="vpr-solution" data-role="solution" hidden></div>
+          <div class="answer-area vpr-answer-area" data-role="answer-area"></div>
+        </section>
+      </section>
+
+      <section class="trainer-screen" data-screen="result">
+        <header class="trainer-header trainer-header--result">
+          <div class="result-emoji" data-role="result-emoji">🎉</div>
+          <p class="trainer-kicker">Тренировка завершена</p>
+          <h1 data-role="result-title">Отличная работа!</h1>
+          <p data-role="result-message"></p>
+        </header>
+
+        <div class="result-grid">
+          <article class="result-card"><span>Правильно</span><strong data-role="result-score">0 из 0</strong></article>
+          <article class="result-card"><span>Точность</span><strong data-role="result-accuracy">0%</strong></article>
+          <article class="result-card"><span>Лучшая серия</span><strong data-role="result-streak">0</strong></article>
+        </div>
+
+        <section class="review-card">
+          <h2>Какие задачи встретились</h2>
+          <div class="vpr-type-results" data-role="type-results"></div>
+        </section>
+
+        <section class="review-card" data-role="review-card">
+          <h2>Что стоит повторить</h2>
+          <div class="review-list" data-role="review-list"></div>
+        </section>
+
+        <div class="result-actions">
+          <button class="trainer-btn trainer-btn--primary" type="button" data-action="retry-mistakes">Повторить ошибки</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="restart">Ещё раз</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="settings">Изменить количество</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer"><p>© <span id="year"></span> Уроки с Добрыней</p></footer>
+
+  <script src="js/erudit/vpr-shop.js"></script>
+  <script>
+    (function () {
+      const nav = document.querySelector('.top-nav');
+      const burger = document.getElementById('nav-burger');
+      const menu = document.getElementById('nav-menu');
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+      burger?.addEventListener('click', function () {
+        const open = nav.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu?.addEventListener('click', function (event) {
+        if (!event.target.closest('a')) return;
+        nav.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+        burger?.setAttribute('aria-expanded', 'false');
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        nav.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+        burger?.setAttribute('aria-expanded', 'false');
+      });
+    })();
+  </script>
+</body>
+</html>

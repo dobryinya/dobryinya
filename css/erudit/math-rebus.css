@@ -1,0 +1,226 @@
+/* =========================================================
+   ДОБРЫНЯ-ЭРУДИТ — МАТЕМАТИЧЕСКИЙ РЕБУС
+   ========================================================= */
+
+.rebus-intro {
+  max-width: 760px;
+  margin: 16px auto 0;
+  color: #476786;
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.55;
+}
+
+.rebus-settings-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.rebus-settings-footer {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.rebus-exercise-card {
+  max-width: 900px;
+  min-height: 600px;
+  margin: 0 auto;
+}
+
+.rebus-board {
+  width: min(700px, 100%);
+  margin: 10px auto 0;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(47,141,246,.18);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 84% 15%, rgba(255,227,107,.24), transparent 34%),
+    linear-gradient(145deg, #fffef2, #fff9bf);
+  box-shadow: 0 12px 28px rgba(37,91,143,.09);
+}
+
+.rebus-question-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(16px, 4vw, 34px);
+  margin-bottom: 22px;
+}
+
+.rebus-question-item {
+  display: grid;
+  grid-template-columns: 74px auto;
+  align-items: center;
+  gap: 3px;
+}
+
+.rebus-question-item img,
+.rebus-icon {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+}
+
+.rebus-question-mark {
+  color: #263d52;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.rebus-equations {
+  display: grid;
+  gap: 12px;
+}
+
+.rebus-equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  min-height: 72px;
+  color: #223c54;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(23px, 4vw, 34px);
+  font-weight: 700;
+}
+
+.rebus-equation .rebus-icon {
+  width: 58px;
+  height: 58px;
+}
+
+.rebus-answer-area {
+  width: min(720px, 100%);
+  margin: 22px auto 0;
+}
+
+.rebus-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rebus-input-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid rgba(47,141,246,.18);
+  border-radius: 20px;
+  background: rgba(255,255,255,.9);
+}
+
+.rebus-input-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.rebus-input-card input {
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+  border: 2px solid rgba(47,141,246,.26);
+  border-radius: 16px;
+  padding: 0 10px;
+  color: #1f5b96;
+  background: #fff;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+}
+
+.rebus-input-card input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(47,141,246,.1);
+}
+
+.rebus-input-card input.is-wrong {
+  border-color: #f1a4af;
+  background: #fff3f5;
+  animation: trainer-shake .34s ease;
+}
+
+.rebus-input-card input.is-correct {
+  border-color: #71d5a5;
+  background: #effff5;
+}
+
+.rebus-check-wrap {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.rebus-hint {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.rebus-solution {
+  width: min(720px, 100%);
+  margin: 18px auto 0;
+  padding: 18px 20px;
+  border: 1px solid rgba(126,217,87,.34);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #f7fff3, #eaffdf);
+  color: #315b3d;
+}
+
+.rebus-solution h3 {
+  margin: 0 0 10px;
+  color: #367449;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 19px;
+}
+
+.rebus-solution-step {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 8px 0 0;
+  color: #244d32;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.rebus-solution-step img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.rebus-next-wrap {
+  margin-top: 18px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .rebus-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .rebus-input-card {
+    grid-template-columns: 66px 1fr;
+    align-items: center;
+  }
+
+  .rebus-question-item {
+    grid-template-columns: 62px auto;
+  }
+
+  .rebus-question-item img,
+  .rebus-icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .rebus-equation .rebus-icon {
+    width: 48px;
+    height: 48px;
+  }
+}

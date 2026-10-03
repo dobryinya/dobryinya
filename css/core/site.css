@@ -171,7 +171,7 @@ header[id] {
     radial-gradient(circle at 85% 22%, rgba(54, 198, 255, 0.28), transparent 28%),
     radial-gradient(circle at 78% 78%, rgba(255, 141, 160, 0.22), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.23)),
-    url("images/backgr.png");
+    url("/images/backgr.png");
   background-size: cover;
   background-position: center;
   z-index: -2;

@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/fav.png">
-  <link rel="stylesheet" href="games.css">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/biggame/games.css">
 </head>
 <body class="kladovka-page-body">
   <div class="page-bg"></div>
@@ -34,7 +34,7 @@
 
   <main class="game-page kladovka-page">
     <section class="card game-card kladovka-start" id="kladovka-start">
-      <img class="kladovka-start__icon" src="images/kladovka/box.png" alt="Иконка игры Кладовая стойбища" draggable="false">
+      <img class="kladovka-start__icon" src="/images/kladovka/box.png" alt="Иконка игры Кладовая стойбища" draggable="false">
       <p class="game-label">Игра народов Восточной Сибири</p>
       <h1>Кладовая стойбища</h1>
       <p class="kladovka-start__text">
@@ -64,7 +64,7 @@
       <div class="kladovka-layout">
         <div class="kladovka-field-wrap">
           <div class="kladovka-field" id="kladovka-field" aria-label="Игровое поле Кладовая стойбища">
-            <img class="kladovka-bg" src="images/kladovka/bg.png" alt="Пустая деревянная кладовая" draggable="false">
+            <img class="kladovka-bg" src="/images/kladovka/bg.png" alt="Пустая деревянная кладовая" draggable="false">
             <div class="kladovka-grid" id="kladovka-grid" aria-label="Сетка кладовой"></div>
             <div class="kladovka-message" id="kladovka-message" hidden></div>
           </div>
@@ -146,7 +146,7 @@
   <footer class="footer">
     <p>© <span id="year"></span> Уроки с Добрыней</p>
   </footer>
-  <script src="js/game-ui.js"></script>
-  <script src="js/kladovka.js"></script>
+  <script src="js/core/game-ui.js"></script>
+  <script src="js/biggame/kladovka.js"></script>
 </body>
 </html>

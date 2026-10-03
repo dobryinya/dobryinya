@@ -1,0 +1,340 @@
+/* Дополнение к erudit.css: тренажёр ВПР «Задачи про покупки» */
+
+.vpr-intro > p:last-child {
+  max-width: 760px;
+  margin: 14px auto 0;
+  color: #456985;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.vpr-start-card {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(47,141,246,.24);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(255,227,107,.25), transparent 34%),
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(235,249,255,.92));
+  box-shadow: 0 16px 34px rgba(37,91,143,.12);
+  text-align: center;
+}
+
+.vpr-start-card__eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #66839d;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.vpr-start-card h2 {
+  margin: 0;
+  color: #2b6ab8;
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(25px, 4vw, 36px);
+}
+
+.vpr-start-card p {
+  margin: 10px auto 0;
+  color: #55728f;
+  font-weight: 600;
+}
+
+.vpr-count-picker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.vpr-count-card {
+  min-height: 72px;
+  border: 1px solid rgba(47,141,246,.24);
+  border-radius: 20px;
+  color: #2864a6;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(37,91,143,.09);
+  font-family: "Comfortaa", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.vpr-count-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(47,141,246,.48);
+  box-shadow: 0 12px 22px rgba(37,91,143,.13);
+}
+
+.vpr-count-card.is-selected {
+  border-color: rgba(255,184,77,.85);
+  background: linear-gradient(145deg, #fff9d9, #fff1be);
+  box-shadow: 0 10px 24px rgba(255,184,77,.20);
+}
+
+.vpr-exercise-card {
+  width: min(980px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+  align-items: stretch;
+}
+
+.vpr-task-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.vpr-task-head p {
+  margin: 0;
+  color: #67809a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.vpr-task-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  color: #6a5433;
+  background: linear-gradient(90deg, #fff0c1, #fff8dd);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.vpr-task-text {
+  width: min(860px, 100%);
+  margin: 0 auto 22px;
+  color: #18354f;
+  font-size: clamp(19px, 2.3vw, 24px);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.vpr-scene {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+/* Тип 1: стоимость покупки — товары стоят на прилавке */
+.vpr-counter {
+  position: relative;
+  overflow: hidden;
+  min-height: 390px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(10px, 2.5vw, 26px);
+  padding: 74px clamp(14px, 4vw, 46px) 48px;
+  border: 1px solid rgba(47,141,246,.24);
+  border-radius: 26px;
+  background-color: #eaf8ff;
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.05)),
+    url("/images/erudit/vpr-shop/counter.png");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 12px 28px rgba(37,91,143,.12);
+}
+
+.vpr-counter-item {
+  position: relative;
+  z-index: 1;
+  width: min(190px, 30%);
+  min-width: 118px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  transform: translateY(10px)
+}
+
+.vpr-counter-item img {
+  width: clamp(100px, 16vw, 170px);
+  height: clamp(100px, 16vw, 170px);
+  object-fit: contain;
+  filter: drop-shadow(0 8px 7px rgba(20,52,82,.15));
+  transform: translateY(35px)
+}
+
+/* Тип 2: сдача — белые карточки без прилавка */
+.vpr-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.vpr-product-card {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid rgba(47,141,246,.24);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(37,91,143,.10);
+  text-align: center;
+}
+
+.vpr-product-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 6px rgba(20,52,82,.12));
+}
+
+.vpr-product-name {
+  color: #3872a8;
+  font-size: 22px;
+  font-weight: 800;
+  transform: translateY(15px)
+}
+
+.vpr-price-tag {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  min-width: 92px;
+  padding: 8px 13px;
+  border: 2px solid rgba(255,184,77,.55);
+  border-radius: 14px;
+  color: #754f18;
+  background: linear-gradient(145deg, #fff9d9, #fff0b8);
+  box-shadow: 0 6px 12px rgba(112,79,24,.10);
+  font-family: "Comfortaa", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.vpr-price-unit {
+  color: #806849;
+  font-family: "Onest", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.vpr-hint,
+.vpr-solution,
+.vpr-answer-area {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.vpr-solution {
+  width: min(760px, 100%);
+  margin-top: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(126,217,87,.36);
+  border-radius: 20px;
+  color: #315b44;
+  background: linear-gradient(145deg, #f6fff1, #e7fbdc);
+  box-shadow: 0 8px 20px rgba(70,125,61,.10);
+}
+
+.vpr-solution h3 {
+  margin: 0 0 10px;
+  color: #34754f;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 20px;
+}
+
+.vpr-solution p {
+  margin: 7px 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.vpr-solution strong { color: #205b3d; }
+
+.vpr-answer-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.vpr-answer-wrap {
+  position: relative;
+}
+
+.vpr-answer-wrap input {
+  width: 100%;
+  padding-right: 88px;
+}
+
+.vpr-answer-suffix {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #65809a;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.vpr-next-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.vpr-type-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.vpr-type-result {
+  padding: 14px 16px;
+  border: 1px solid rgba(47,141,246,.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,.82);
+}
+
+.vpr-type-result span {
+  display: block;
+  color: #617f99;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.vpr-type-result strong {
+  display: block;
+  margin-top: 4px;
+  color: #2c659e;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 24px;
+}
+
+@media (max-width: 700px) {
+  .vpr-count-picker { grid-template-columns: 1fr; }
+  .vpr-task-head { align-items: flex-start; flex-direction: column; }
+  .vpr-counter { min-height: 330px; padding: 60px 10px 34px; gap: 6px; }
+  .vpr-counter-item { min-width: 88px; }
+  .vpr-counter-item img { width: 105px; height: 105px; }
+  .vpr-price-tag { min-width: 74px; padding: 7px 9px; font-size: 17px; }
+  .vpr-product-grid { grid-template-columns: 1fr 1fr; }
+  .vpr-product-card { min-height: 220px; padding: 14px; }
+  .vpr-product-card img { width: 120px; height: 120px; }
+  .vpr-answer-row { grid-template-columns: 1fr; }
+  .vpr-type-results { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  .vpr-product-grid { grid-template-columns: 1fr; }
+  .vpr-counter-item img { width: 88px; height: 88px; }
+  .vpr-counter-item { min-width: 72px; }
+}

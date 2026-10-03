@@ -167,12 +167,12 @@ function resolveEpisodeLinks(episode, normalizedPlayerUrl) {
   const workbookUrl =
     episode.workbookUrl && episode.workbookUrl !== "#"
       ? episode.workbookUrl
-      : "materials/work-list/" + episodeNum + ".pdf";
+      : "/materials/work-list/" + episodeNum + ".pdf";
 
   const guideUrl =
     episode.guideUrl && episode.guideUrl !== "#"
       ? episode.guideUrl
-      : "materials/metod-rek/" + episodeNum + "MP.pdf";
+      : "/materials/metod-rek/" + episodeNum + "MP.pdf";
 
   return {
     watchUrl: watchUrl,

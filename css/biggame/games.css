@@ -56,7 +56,7 @@ body.nav-open {
     radial-gradient(circle at 85% 22%, rgba(54, 198, 255, 0.28), transparent 28%),
     radial-gradient(circle at 78% 78%, rgba(255, 141, 160, 0.22), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.23)),
-    url("images/backgr.png");
+    url("/images/backgr.png");
   background-size: cover;
   background-position: center;
   z-index: -2;
@@ -349,7 +349,7 @@ body.nav-open {
   border: 1px solid rgba(47, 141, 246, 0.33);
   background:
     linear-gradient(180deg, rgba(7, 35, 73, 0.04), rgba(8, 48, 86, 0.12)),
-    url("images/backgrnorthgame.png");
+    url("/images/backgrnorthgame.png");
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 18px 36px rgba(24, 53, 79, 0.2);
@@ -629,7 +629,7 @@ body.nav-open {
     radial-gradient(circle at 85% 22%, rgba(54, 198, 255, 0.28), transparent 28%),
     radial-gradient(circle at 78% 78%, rgba(255, 141, 160, 0.22), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.23)),
-    url("images/backgr.png");
+    url("/images/backgr.png");
   background-size: cover;
   background-position: center;
   z-index: -2;
@@ -937,7 +937,7 @@ body.nav-open {
   overflow: hidden;
   border-radius: 26px;
   border: 1px solid rgba(47, 141, 246, 0.32);
-  background-image: url("images/ruhiebg.png");
+  background-image: url("/images/ruhiebg.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1433,7 +1433,7 @@ body.nav-open {
   border: 1px solid rgba(155, 94, 51, 0.35);
   background:
     linear-gradient(180deg, rgba(255, 247, 227, 0.08), rgba(60, 34, 19, 0.15)),
-    url("images/fightersbg.png");
+    url("/images/fightersbg.png");
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 14px 30px rgba(61, 38, 22, 0.22);
@@ -1746,7 +1746,7 @@ body.nav-open {
   border: 1px solid rgba(180, 107, 47, 0.35);
   background-image:
     linear-gradient(180deg, rgba(255, 247, 227, 0.06), rgba(60, 34, 19, 0.1)),
-    url("images/memory/membg.png");
+    url("/images/memory/membg.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -2135,17 +2135,17 @@ body.nav-open {
 
 .runner-bg--one {
   z-index: 1;
-  background-image: url("images/runner/bg1.png");
+  background-image: url("/images/runner/bg1.png");
 }
 
 .runner-bg--two {
   z-index: 2;
-  background-image: url("images/runner/bg2.png");
+  background-image: url("/images/runner/bg2.png");
 }
 
 .runner-bg--road {
   z-index: 3;
-  background-image: url("images/runner/bg3.png");
+  background-image: url("/images/runner/bg3.png");
 }
 
 .runner-objects {
@@ -2456,17 +2456,17 @@ body.nav-open {
 
 .eagle-bg--one {
   z-index: 1;
-  background-image: url("images/eagle/bg1.png");
+  background-image: url("/images/eagle/bg1.png");
 }
 
 .eagle-bg--two {
   z-index: 2;
-  background-image: url("images/eagle/bg2.png");
+  background-image: url("/images/eagle/bg2.png");
 }
 
 .eagle-bg--three {
   z-index: 3;
-  background-image: url("images/eagle/bg3.png");
+  background-image: url("/images/eagle/bg3.png");
 }
 
 .eagle-gates {
@@ -2731,7 +2731,7 @@ body.nav-open {
   border: 1px solid rgba(79, 143, 69, 0.35);
   background-image:
     linear-gradient(180deg, rgba(255, 247, 227, 0.05), rgba(21, 57, 31, 0.08)),
-    url("images/taiga/bg.png");
+    url("/images/taiga/bg.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
