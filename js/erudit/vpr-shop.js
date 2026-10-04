@@ -323,11 +323,13 @@ function generateQuestion() {
 
 function generateTotalQuestion() {
   const category = randomItem(CONFIG.categories);
-  const productIds = sample(category.products, randomInt(2, Math.min(3, category.products.length)));
-  const lines = productIds.map((id, index) => {
-    const product = CONFIG.products[id];
+  const displayIds = buildDisplayProductIds(category);
+  const displayLines = displayIds.map(id => buildLine(id, CONFIG.products[id], 1));
+  const purchaseIds = sample(displayIds, randomInt(1, Math.min(3, displayIds.length)));
+  const lines = purchaseIds.map((id, index) => {
+    const displayLine = displayLines.find(line => line.id === id);
     const quantity = index === 0 ? randomInt(2, 4) : randomInt(1, 3);
-    return buildLine(id, product, quantity);
+    return { ...displayLine, quantity };
   });
 
   const answer = lines.reduce((sum, line) => sum + line.price * line.quantity, 0);
@@ -338,6 +340,7 @@ function generateTotalQuestion() {
     categoryId: category.id,
     intro: category.intro,
     lines,
+    displayLines,
     banknote: null,
     answer,
     text: buildTotalText(category, lines),
@@ -352,11 +355,13 @@ function generateChangeQuestion() {
    */
   for (let guard = 0; guard < 80; guard++) {
     const category = randomItem(CONFIG.categories);
-    const productIds = sample(category.products, Math.random() < 0.58 ? 1 : 2);
+    const displayIds = buildDisplayProductIds(category);
+    const displayLines = displayIds.map(id => buildLine(id, CONFIG.products[id], 1));
+    const productIds = sample(displayIds, randomInt(1, Math.min(3, displayIds.length)));
     const lines = productIds.map(id => {
-      const product = CONFIG.products[id];
-      const quantity = product.unit === 'kg' ? randomInt(2, 6) : randomInt(1, 3);
-      return buildLine(id, product, quantity);
+      const displayLine = displayLines.find(line => line.id === id);
+      const quantity = displayLine.unit === 'kg' ? randomInt(2, 6) : randomInt(1, 3);
+      return { ...displayLine, quantity };
     });
 
     const cost = lines.reduce((sum, line) => sum + line.price * line.quantity, 0);
@@ -372,6 +377,7 @@ function generateChangeQuestion() {
       categoryId: category.id,
       intro: category.intro,
       lines,
+      displayLines,
       banknote,
       answer,
       text: buildChangeText(category, lines, banknote),
@@ -386,10 +392,22 @@ function generateChangeQuestion() {
   return {
     id: uid(), type: 'change', categoryId: 'stationery',
     intro: 'В магазине продаются канцелярские товары. На рисунке показаны цены.',
-    lines: [line], banknote: 500, answer: 500 - cost,
+    lines: [line], displayLines: [line, ...['pen', 'notebook', 'ruler'].map(id => buildLine(id, CONFIG.products[id], 1))], banknote: 500, answer: 500 - cost,
     text: `В магазине продаются канцелярские товары. На рисунке показаны цены. Покупатель взял ${purchasePhrase(line)}. Сколько рублей сдачи он получит с 500 рублей?`,
     solution: buildSolution('change', [line], 500, 500 - cost)
   };
+}
+
+function buildDisplayProductIds(category) {
+  const ids = [...category.products];
+
+  if (ids.length >= 4) return sample(ids, 4);
+
+  const sameUnitIds = Object.keys(CONFIG.products).filter(id =>
+    !ids.includes(id) && CONFIG.products[id].unit === CONFIG.products[ids[0]].unit
+  );
+
+  return [...ids, ...sample(sameUnitIds, 4 - ids.length)];
 }
 
 function buildLine(id, product, quantity) {
@@ -505,7 +523,7 @@ function renderQuestion() {
 function renderCounter(q) {
   return `
     <div class="vpr-counter" style="background-image: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.05)), url('${CONFIG.assets.counter}')">
-      ${q.lines.map(line => `
+      ${(q.displayLines || q.lines).map(line => `
         <article class="vpr-counter-item">
           <img src="${line.image}" alt="${escapeHtml(line.title)}">
           <span class="vpr-product-name">${escapeHtml(line.title)}</span>
@@ -519,7 +537,7 @@ function renderCounter(q) {
 function renderCards(q) {
   return `
     <div class="vpr-product-grid">
-      ${q.lines.map(line => `
+      ${(q.displayLines || q.lines).map(line => `
         <article class="vpr-product-card">
           <img src="${line.image}" alt="${escapeHtml(line.title)}">
           <span class="vpr-product-name">${escapeHtml(line.title)}</span>
