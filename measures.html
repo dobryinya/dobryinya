@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Меры длины и массы — Добрыня-эрудит</title>
+  <meta name="description" content="Тренажёр по мерам длины и массы для начальной школы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="css/erudit/erudit.css">
+  <link rel="stylesheet" href="css/erudit/measures.css">
+</head>
+<body class="erudit-body measures-page">
+  <div class="page-bg"></div>
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      <div class="top-nav__menu" id="nav-menu">
+        <a class="top-nav__link" href="tropa.html">Тропа Добра</a>
+        <a class="top-nav__link" href="biggame.html">Большая игра с народами России</a>
+        <a class="top-nav__link is-active" href="erudit.html">Добрыня-эрудит</a>
+      </div>
+    </div>
+  </nav>
+  <main class="trainer-page">
+    <section class="trainer-shell" aria-live="polite">
+      <div class="trainer-topline"></div>
+      <section class="trainer-screen is-active" data-screen="settings">
+        <header class="trainer-header">
+          <p class="trainer-kicker">Математика</p>
+          <h1>Меры длины и массы</h1>
+          <p class="measures-intro">Задания на длину и массу будут встречаться вперемешку. Внимательно смотри на единицы измерения.</p>
+        </header>
+        <section class="setting-card measures-settings-card">
+          <div class="setting-card__head"><div><span class="setting-number">1</span><h2>Количество заданий</h2></div></div>
+          <div class="choice-grid choice-grid--count" data-role="count-picker"></div>
+        </section>
+        <div class="settings-footer measures-settings-footer">
+          <p class="selection-summary" data-role="selection-summary"></p>
+          <button class="trainer-btn trainer-btn--primary trainer-btn--large" type="button" data-action="start">Начать тренировку</button>
+        </div>
+      </section>
+      <section class="trainer-screen" data-screen="training">
+        <header class="training-hud">
+          <div class="hud-stat"><span>Задание</span><strong data-role="question-counter">1 из 10</strong></div>
+          <div class="hud-stat"><span>Без ошибок</span><strong data-role="score-counter">0</strong></div>
+          <div class="hud-stat"><span>Серия</span><strong data-role="streak-counter">0</strong></div>
+          <button class="trainer-btn trainer-btn--ghost trainer-btn--compact" type="button" data-action="stop">Завершить</button>
+        </header>
+        <div class="emoji-progress" data-role="emoji-progress"></div>
+        <section class="exercise-card measures-exercise-card">
+          <p class="exercise-label" data-role="exercise-label">Меры длины</p>
+          <div class="measures-task-text" data-role="task-text"></div>
+          <div class="measures-visual" data-role="visual"></div>
+          <div class="feedback" data-role="feedback"></div>
+          <div class="hint-panel measures-hint" data-role="hint" hidden></div>
+          <div class="answer-area measures-answer-area" data-role="answer-area"></div>
+          <div class="measures-solution" data-role="solution" hidden></div>
+          <div class="measures-next-wrap" data-role="next-wrap" hidden>
+            <button class="trainer-btn trainer-btn--primary" type="button" data-action="next">Следующее задание</button>
+          </div>
+        </section>
+      </section>
+      <section class="trainer-screen" data-screen="result">
+        <header class="trainer-header trainer-header--result">
+          <div class="result-emoji" data-role="result-emoji">🎉</div>
+          <p class="trainer-kicker">Тренировка завершена</p>
+          <h1 data-role="result-title">Отличная работа!</h1>
+          <p data-role="result-message"></p>
+        </header>
+        <div class="result-grid">
+          <article class="result-card"><span>Без ошибок</span><strong data-role="result-score">0 из 0</strong></article>
+          <article class="result-card"><span>Точность</span><strong data-role="result-accuracy">0%</strong></article>
+          <article class="result-card"><span>Лучшая серия</span><strong data-role="result-streak">0</strong></article>
+        </div>
+        <section class="review-card"><h2>Как прошли задания</h2><div class="measures-breakdown" data-role="breakdown"></div></section>
+        <section class="review-card"><h2>Задания с ошибками</h2><div class="review-list" data-role="review-list"></div></section>
+        <div class="result-actions">
+          <button class="trainer-btn trainer-btn--primary" type="button" data-action="retry-mistakes">Повторить ошибки</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="restart">Ещё раз</button>
+          <button class="trainer-btn trainer-btn--ghost" type="button" data-action="settings">Изменить количество</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer class="footer"><p>© <span id="year"></span> Уроки с Добрыней</p></footer>
+  <script src="js/erudit/measures.js"></script>
+  <script>
+    (function () {
+      const nav = document.querySelector('.top-nav');
+      const burger = document.getElementById('nav-burger');
+      const menu = document.getElementById('nav-menu');
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+      burger?.addEventListener('click', function () {
+        const open = nav.classList.toggle('is-open');
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        document.body.classList.toggle('nav-open', open);
+      });
+      menu?.addEventListener('click', function (event) {
+        if (!event.target.closest('a')) return;
+        nav.classList.remove('is-open');
+        document.body.classList.remove('nav-open');
+        burger?.setAttribute('aria-expanded', 'false');
+      });
+    })();
+  </script>
+</body>
+</html>
