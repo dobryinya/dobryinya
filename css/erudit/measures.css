@@ -1,0 +1,442 @@
+.measures-intro {
+  max-width: 760px;
+  margin: 16px auto 0;
+  color: #476786;
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.55;
+}
+
+.measures-settings-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.measures-settings-footer {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.measures-exercise-card {
+  max-width: 960px;
+  min-height: 620px;
+  margin: 0 auto;
+}
+
+.measures-task-text {
+  width: min(820px, 100%);
+  margin: 2px auto 18px;
+
+  color: #274e73;
+
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.35;
+
+  text-align: center;
+}
+
+.measures-visual {
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+
+.measures-answer-area,
+.measures-hint {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* =========================
+   Поле числового ответа
+   ========================= */
+
+.measures-number-answer {
+  display: grid;
+  grid-template-columns: minmax(130px, 280px) auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.measures-number-answer input {
+  min-width: 0;
+  height: 68px;
+
+  padding: 0 16px;
+
+  border: 2px solid rgba(47, 141, 246, 0.28);
+  border-radius: 18px;
+
+  color: #1f5b96;
+  background: #fff;
+
+  font-family: "Comfortaa", sans-serif;
+  font-size: 31px;
+  font-weight: 700;
+  text-align: center;
+
+  outline: none;
+}
+
+.measures-number-answer input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 5px rgba(47, 141, 246, 0.1);
+}
+
+.measures-number-answer input.is-wrong {
+  border-color: #f1a4af;
+  background: #fff3f5;
+
+  animation: trainer-shake 0.34s ease;
+}
+
+.measures-number-answer input.is-correct {
+  border-color: #71d5a5;
+  background: #effff5;
+}
+
+.measures-answer-unit {
+  color: #456987;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   Весы
+   ========================= */
+
+.scales-stage {
+  position: relative;
+
+  width: min(760px, 100%);
+  aspect-ratio: 16 / 9;
+
+  margin: 0 auto;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(47, 141, 246, 0.18);
+  border-radius: 24px;
+
+  background: #f9fcff;
+
+  box-shadow: 0 12px 28px rgba(37, 91, 143, 0.1);
+}
+
+.scales-background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+
+/* =========================
+   Грузы на весах
+   ========================= */
+
+.scales-weight-stack {
+  position: absolute;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  transform: translate(-50%, -100%);
+
+  pointer-events: none;
+}
+
+.scales-weight {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 6px 6px rgba(29, 53, 75, 0.16));
+}
+
+.scales-weight-label {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+
+  transform: translateX(-50%);
+
+  min-width: 70%;
+
+  padding: 2px 5px;
+
+  border-radius: 999px;
+
+  color: #27465f;
+  background: rgba(255, 255, 255, 0.88);
+
+  font-family: "Onest", sans-serif;
+  font-size: clamp(32px, 1.5vw, 14px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   Статус весов
+   ========================= */
+
+.scales-status {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  z-index: 5;
+
+  transform: translateX(-50%);
+
+  padding: 8px 14px;
+
+  border: 1px solid rgba(47, 141, 246, 0.18);
+  border-radius: 999px;
+
+  color: #496a87;
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow: 0 6px 14px rgba(37, 91, 143, 0.08);
+
+  font-size: 14px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   Выбор груза
+   ========================= */
+
+.weight-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+
+  width: min(760px, 100%);
+  margin: 18px auto 0;
+}
+
+.weight-choice {
+  min-height: 74px;
+
+  padding: 9px;
+
+  border: 1px solid rgba(47, 141, 246, 0.22);
+  border-radius: 18px;
+
+  color: #245f9c;
+  background: #fff;
+
+  box-shadow: 0 8px 18px rgba(37, 91, 143, 0.09);
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.weight-choice:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  border-color: rgba(47, 141, 246, 0.45);
+
+  box-shadow: 0 11px 22px rgba(37, 91, 143, 0.13);
+}
+
+.weight-choice:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+}
+
+
+/* Выбранный груз */
+
+.weight-choice.is-selected {
+  transform: translateY(-2px);
+
+  border-color: rgba(47, 141, 246, 0.65);
+
+  background: linear-gradient(
+    145deg,
+    #eaf8ff,
+    #fff6cf
+  );
+
+  box-shadow: 0 11px 24px rgba(37, 91, 143, 0.16);
+}
+
+
+/* =========================
+   Кнопки под выбором груза
+   ========================= */
+
+.weight-picker-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  width: min(760px, 100%);
+  margin: 12px auto 0;
+}
+
+.weight-total {
+  width: min(760px, 100%);
+  margin: 10px auto 0;
+
+  color: #55728c;
+
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
+
+/* =========================
+   Решение
+   ========================= */
+
+.measures-solution {
+  width: min(760px, 100%);
+  margin: 18px auto 0;
+
+  padding: 18px 20px;
+
+  border: 1px solid rgba(126, 217, 87, 0.34);
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    #f7fff3,
+    #eaffdf
+  );
+
+  color: #315b3d;
+
+  box-shadow: 0 9px 20px rgba(77, 145, 65, 0.08);
+}
+
+.measures-solution h3 {
+  margin: 0 0 10px;
+
+  color: #367449;
+
+  font-family: "Comfortaa", sans-serif;
+  font-size: 19px;
+}
+
+.measures-solution p {
+  margin: 7px 0 0;
+
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.measures-solution .equation {
+  color: #244d32;
+
+  font-family: "Comfortaa", "Onest", sans-serif;
+  font-size: clamp(17px, 2.3vw, 21px);
+}
+
+
+/* =========================
+   Следующее задание
+   ========================= */
+
+.measures-next-wrap {
+  margin-top: 18px;
+  text-align: center;
+}
+
+
+/* =========================
+   Разбор
+   ========================= */
+
+.measures-breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.measures-breakdown-item {
+  padding: 16px;
+
+  border: 1px solid rgba(47, 141, 246, 0.18);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.measures-breakdown-item span {
+  display: block;
+
+  color: #668099;
+
+  font-weight: 700;
+}
+
+.measures-breakdown-item strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #245f99;
+
+  font-family: "Comfortaa", sans-serif;
+  font-size: 23px;
+}
+
+
+/* =========================
+   Адаптив
+   ========================= */
+
+@media (max-width: 700px) {
+  .measures-number-answer {
+    grid-template-columns: 1fr auto;
+  }
+
+  .measures-number-answer .trainer-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .weight-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .measures-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .scales-status {
+    top: 8px;
+    font-size: 11px;
+  }
+}
