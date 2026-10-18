@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Дерево успеха — Уроки с Добрыней</title>
+  <meta name="description" content="Классная рефлексия: вырасти общее дерево успеха вместе с Добрыней.">
+  <link rel="icon" href="/images/fav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reflexes/tree-success.css">
+  <script defer src="/js/reflexes/tree-success.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <a href="reflexes.html">← Мастерская рефлексии</a>
+    <div class="controls">
+      <button id="sound" type="button" aria-pressed="false">🔇 Звуки</button>
+      <button id="music" type="button" aria-pressed="false">♫ Музыка</button>
+    </div>
+  </header>
+  <main>
+    <div class="heading">
+      <span class="badge">🌳 Рефлексия с Добрыней</span>
+      <h1>Дерево успеха</h1>
+      <p>Выбери листочек, который расскажет о твоей работе на уроке. Вместе вырастим дерево нашего класса!</p>
+    </div>
+    <section class="game" aria-label="Игра Дерево успеха">
+      <div class="stage">
+        <div class="sky-deco" aria-hidden="true">✦　☀　✦</div>
+        <div class="tree-art" id="tree" aria-label="Дерево успеха класса">
+          <img class="tree-base" src="/images/reflexes/tree-empty.png" alt="Пустое сказочное дерево с раскидистыми ветвями">
+          <div class="leaves" id="leaves" aria-hidden="true"></div>
+        </div>
+        <div class="ground" aria-hidden="true"></div>
+        <div class="character"><img src="/images/fav.png" alt="" onerror="this.remove()"><span>Каждый листочек важен! 💚</span></div>
+      </div>
+      <aside class="panel">
+        <h2>Как прошёл урок?</h2>
+        <p>Нажми на подходящий листочек</p>
+        <div class="choices">
+          <button type="button" data-color="green"><img class="leaf-icon" src="/images/reflexes/leaf-green.png" alt=""><strong>Всё получилось!</strong><small>Я справился с заданиями</small></button>
+          <button type="button" data-color="yellow"><img class="leaf-icon" src="/images/reflexes/leaf-yellow.png" alt=""><strong>Были трудности</strong><small>Но я старался</small></button>
+          <button type="button" data-color="orange"><img class="leaf-icon" src="/images/reflexes/leaf-orange.png" alt=""><strong>Нужна тренировка</strong><small>Я хочу разобраться лучше</small></button>
+        </div>
+        <p class="feedback" id="feedback" role="status">Каждый ответ помогает нам понять, как прошёл урок.</p>
+        <div class="stats" aria-live="polite">
+          <div><span>🌿 Всё получилось</span><b id="green-count">0</b></div>
+          <div><span>🌼 Были трудности</span><b id="yellow-count">0</b></div>
+          <div><span>🍁 Нужна тренировка</span><b id="orange-count">0</b></div>
+          <div class="total"><span>Всего листочков:</span><b id="total-count">0</b></div>
+        </div>
+        <div class="actions">
+          <button id="undo" type="button">↶ Отменить</button>
+          <button id="reset" type="button">↻ Новое дерево</button>
+        </div>
+        <p class="note">Дерево сохраняется в этом браузере. Каждый ученик может добавить один листочек по очереди.</p>
+      </aside>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span class="toast__icon" id="toast-icon" aria-hidden="true">✨</span>
+    <p id="toast-message"></p>
+    <button class="toast__close" id="toast-close" type="button" aria-label="Закрыть сообщение">×</button>
+  </div>
+  <footer>© <span id="year"></span> Уроки с Добрыней</footer>
+</body>
+</html>

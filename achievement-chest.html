@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Интерактивная рефлексия для начальной школы: замечаем личные достижения и складываем их в волшебный сундук.">
+  <title>Сундук достижений — Уроки с Добрыней</title>
+  <link rel="icon" href="/images/fav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reflexes/achievement-chest.css">
+  <script defer src="/js/reflexes/achievement-chest.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <a href="/reflexes.html">← Мастерская рефлексии</a>
+    <div class="controls" aria-label="Настройки звука">
+      <button id="sound" type="button" aria-pressed="true">🔊 Звуки</button>
+      <button id="music" type="button" aria-pressed="false">♫ Музыка</button>
+    </div>
+  </header>
+
+  <main>
+    <header class="heading">
+      <span class="badge">🗝️ Рефлексия с Добрыней</span>
+      <h1>Сундук достижений</h1>
+      <p>Вспомни, что у тебя сегодня получилось, и положи это в сундук. Здесь ценятся не только правильные ответы, но и старание, открытия и добрые поступки.</p>
+    </header>
+
+    <section class="game" aria-label="Игра Сундук достижений">
+      <section class="stage" aria-label="Волшебный сундук">
+        <div class="stage-sparkles" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
+        <div class="stage-caption">Вспомни, чем ты сегодня можешь гордиться!</div>
+        <div class="chest-scene">
+          <div class="chest-glow" aria-hidden="true"></div>
+          <div class="chest-wrap" id="chest-wrap">
+            <img class="chest-image" id="chest-image" src="/images/reflexes/achievement-chest/chest-closed.png" alt="Закрытый волшебный сундук">
+            <div class="chest-items" id="chest-items" aria-label="Твои достижения в сундуке"></div>
+          </div>
+          <div class="floor-glow" aria-hidden="true"></div>
+        </div>
+        <div class="guide-message">
+          <div class="guide-avatar"><img src="/images/fav.png" alt="Добрыня"></div>
+          <div><strong>Добрыня советует</strong><p id="guide-text">Подумай, чем ты сегодня можешь гордиться. Можно выбрать сразу несколько достижений!</p></div>
+        </div>
+        <div class="treasure-total"><span>✨ В сундуке</span><strong><span id="count">0</span> из 4</strong></div>
+      </section>
+
+      <aside class="panel">
+        <p class="panel-kicker">Вспомни свои победы</p>
+        <h2>Что положим в сундук?</h2>
+        <p class="panel-intro">Нажми на все карточки, которые подходят тебе сегодня. Тут нет неправильных ответов.</p>
+
+        <div class="achievement-list" id="achievement-list">
+          <button class="achievement-card" type="button" data-achievement="new" aria-pressed="false">
+            <span class="achievement-art"><img src="/images/reflexes/achievement-chest/token-key.png" alt=""></span>
+            <span class="achievement-copy"><strong>Я узнал новое</strong><small>Сегодня у меня появилось новое знание или идея.</small></span>
+            <span class="achievement-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="achievement-card" type="button" data-achievement="effort" aria-pressed="false">
+            <span class="achievement-art"><img src="/images/reflexes/achievement-chest/token-star.png" alt=""></span>
+            <span class="achievement-copy"><strong>Я старался</strong><small>Я работал внимательно и не сдавался.</small></span>
+            <span class="achievement-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="achievement-card" type="button" data-achievement="challenge" aria-pressed="false">
+            <span class="achievement-art"><img src="/images/reflexes/achievement-chest/token-crystal.png" alt=""></span>
+            <span class="achievement-copy"><strong>Я справился с трудностью</strong><small>Я попробовал, разобрался или сделал шаг вперёд.</small></span>
+            <span class="achievement-check" aria-hidden="true">＋</span>
+          </button>
+          <button class="achievement-card" type="button" data-achievement="help" aria-pressed="false">
+            <span class="achievement-art"><img src="/images/reflexes/achievement-chest/token-coin.png" alt=""></span>
+            <span class="achievement-copy"><strong>Я помогал другим</strong><small>Я поддержал одноклассника или поделился идеей.</small></span>
+            <span class="achievement-check" aria-hidden="true">＋</span>
+          </button>
+        </div>
+
+        <div class="feedback" id="feedback" role="status" aria-live="polite">Выбирай одно достижение или несколько — каждое важно.</div>
+        <div class="selected-summary" id="selected-summary" aria-live="polite">
+          <div class="summary-head"><strong>Мои достижения</strong><span id="summary-count">Пока пусто</span></div>
+          <div class="summary-chips" id="summary-chips"><span class="summary-empty">Сундук ждёт твоих побед ✨</span></div>
+        </div>
+        <div class="actions">
+          <button id="undo" type="button" disabled>↶ Отменить последнее</button>
+          <button id="reset" type="button">↻ Новый сундук</button>
+        </div>
+        <p class="note"></p>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span class="toast__icon" id="toast-icon" aria-hidden="true">✨</span>
+    <div class="toast__copy"><strong id="toast-title">Отлично!</strong><p id="toast-message"></p></div>
+    <button class="toast__close" id="toast-close" type="button" aria-label="Закрыть сообщение">×</button>
+  </div>
+  <footer>© <span id="year"></span> Уроки с Добрыней</footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Интерактивная рефлексия «Батарейка энергии» для учеников начальной школы.">
+  <title>Батарейка энергии — Уроки с Добрыней</title>
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="/css/reflexes/energy-battery.css">
+  <script defer src="/js/reflexes/energy-battery.js"></script>
+</head>
+<body class="energy-body">
+  <header class="page-bar">
+    <a class="back-link" href="/reflexes.html">← Мастерская рефлексии</a>
+    <div class="page-controls" aria-label="Настройки звука">
+      <button id="sound-toggle" class="control-button" type="button" aria-pressed="true">🔊 Звуки</button>
+      <button id="music-toggle" class="control-button" type="button" aria-pressed="false" hidden>♫ Музыка</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <header class="intro">
+      <span class="eyebrow">Рефлексия самочувствия</span>
+      <h1>Батарейка энергии</h1>
+      <p>На сколько ты заряжен после урока?</p>
+    </header>
+
+    <section class="energy-workspace" aria-label="Оценка уровня энергии">
+      <section class="energy-scene" id="energy-scene" data-level="empty" aria-label="Общий заряд класса">
+        <div class="scene-sun" aria-hidden="true"></div>
+        <span class="scene-spark scene-spark--one" aria-hidden="true">✦</span>
+        <span class="scene-spark scene-spark--two" aria-hidden="true">✧</span>
+        <div class="scene-heading">
+          <span>ЗАРЯД КЛАССА</span>
+          <strong id="class-state-title">Пока нет ответов</strong>
+        </div>
+
+        <div class="battery-illustration" id="battery-illustration" role="img" aria-label="Общий заряд класса пока не рассчитан">
+          <div class="battery-terminal" aria-hidden="true"></div>
+          <div class="battery-shell">
+            <div class="battery-inner">
+              <div class="battery-fill" id="battery-fill" style="width: 0%"></div>
+              <div class="battery-glint" aria-hidden="true"></div>
+            </div>
+            <div class="battery-bolt" aria-hidden="true">ϟ</div>
+          </div>
+        </div>
+
+        <div class="charge-readout">
+          <strong id="class-charge-value">—</strong>
+          <span id="class-charge-caption">Общий заряд появится после первого ответа</span>
+        </div>
+
+        <div class="dobrynya-advice" id="dobrynya-advice" aria-live="polite">
+          <img src="/images/fav.png" alt="Добрыня" class="dobrynya-avatar">
+          <div class="advice-copy">
+            <strong id="advice-title">Добрыня о результатах класса</strong>
+            <p id="advice-text">Здесь отобразится общий результат после первых ответов.</p>
+          </div>
+        </div>
+        <div class="scene-ground" aria-hidden="true"></div>
+      </section>
+
+      <aside class="energy-panel">
+        <div class="panel-heading">
+          <span class="panel-kicker">Прислушайся к себе</span>
+          <h2>Как ты себя чувствуешь?</h2>
+          <p>Выбери уровень, который сейчас тебе подходит.</p>
+        </div>
+
+        <div class="slider-card">
+          <div class="slider-value-row">
+            <label for="energy-slider">Уровень заряда</label>
+            <output id="slider-output" for="energy-slider">50%</output>
+          </div>
+          <input id="energy-slider" class="energy-slider" type="range" min="0" max="100" step="5" value="50" aria-describedby="slider-labels">
+          <div class="slider-labels" id="slider-labels">
+            <span>Мне нужен отдых</span>
+            <span>Полон сил и идей</span>
+          </div>
+          <div class="scale-markers" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+          <div class="selection-advice" id="selection-advice" aria-live="polite">
+            <strong id="selection-advice-title">Выбранный уровень</strong>
+            <p id="selection-advice-text">Выбери уровень, который сейчас тебе подходит.</p>
+          </div>
+          <button id="add-response" class="primary-button" type="button">Добавить в общий результат <span aria-hidden="true">→</span></button>
+        </div>
+
+        <section class="class-results" aria-labelledby="results-title">
+          <div class="results-heading">
+            <div>
+              <span class="panel-kicker">Общая картина</span>
+              <h3 id="results-title">Заряд класса</h3>
+            </div>
+            <span class="response-count"><strong id="response-count">0</strong><small>ответов</small></span>
+          </div>
+          <div class="average-charge">
+            <div><span>Средний заряд</span><strong id="average-charge">—</strong></div>
+            <div class="average-track" aria-hidden="true"><span id="average-fill"></span></div>
+          </div>
+          <div class="distribution" id="distribution" aria-live="polite">
+            <div class="distribution-empty" id="distribution-empty">Здесь появится распределение ответов класса.</div>
+          </div>
+          <div class="result-actions">
+            <button id="undo-response" class="secondary-button" type="button" disabled>↶ Отменить</button>
+            <button id="clear-results" class="secondary-button secondary-button--reset" type="button" disabled>Очистить результаты</button>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="page-footer">© <span id="year"></span> Уроки с Добрыней</footer>
+</body>
+</html>

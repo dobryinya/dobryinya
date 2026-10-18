@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Общая классная рефлексия «Гора достижений» проекта «Уроки с Добрыней».">
+  <title>Гора достижений — Уроки с Добрыней</title>
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reflexes/achievement-mountain.css">
+  <script defer src="/js/reflexes/achievement-mountain.js"></script>
+</head>
+<body>
+  <header class="page-bar">
+    <a class="back-link" href="/reflexes.html">← Мастерская рефлексии</a>
+    <button id="sound-toggle" class="control-button" type="button" aria-pressed="true">🔊 Звуки</button>
+  </header>
+  <main class="page-main">
+    <header class="intro">
+      <span class="eyebrow">Общая рефлексия класса</span>
+      <h1>Гора достижений</h1>
+      <p>Каждый шаг важен. Вместе поднимаемся к вершине!</p>
+    </header>
+    <section class="mountain-experience" aria-label="Общее восхождение класса">
+      <div class="mountain-stage" id="mountain-stage">
+        <div class="mountain-glow" aria-hidden="true"></div>
+        <div class="summit-marker" id="summit-marker" aria-label="Вершина достижений"><span>⚑</span><strong>Вершина</strong></div>
+        <div id="route-markers" class="route-markers" aria-hidden="true"></div>
+        <div class="climber" id="climber" aria-label="Добрыня поднимается по общему маршруту класса">
+          <img src="/images/fav.png" alt="Добрыня">
+          <span class="climber-spark" aria-hidden="true">✦</span>
+        </div>
+        <div class="summit-celebration" id="summit-celebration" hidden>
+          <strong>Вершина покорена!</strong>
+          <span>Это общий успех нашего класса.</span>
+        </div>
+      </div>
+      <aside class="reflection-panel">
+        <div class="panel-heading">
+          <span class="panel-kicker">Наш общий путь</span>
+          <h2>Какой шаг сделал наш класс?</h2>
+          <p>Каждый ученик выбирает один вариант. Один выбор добавляет классу один шаг к общей вершине.</p>
+        </div>
+        <div class="stage-options" id="stage-options">
+          <button class="stage-option" type="button" data-stage-choice="tried">
+            <span class="stage-option__art stage-option__art--tried"><img src="/images/reflexes/achievement-mountain/flag-tried.png" alt=""></span>
+            <span class="stage-option__copy"><strong>Я попробовал</strong><small>Включился в работу и сделал первый шаг.</small></span>
+            <span class="stage-option__arrow" aria-hidden="true">＋</span>
+          </button>
+          <button class="stage-option" type="button" data-stage-choice="managed">
+            <span class="stage-option__art stage-option__art--managed"><img src="/images/reflexes/achievement-mountain/flag-managed.png" alt=""></span>
+            <span class="stage-option__copy"><strong>Я справился</strong><small>Разобрался с заданием и довёл его до результата.</small></span>
+            <span class="stage-option__arrow" aria-hidden="true">＋</span>
+          </button>
+          <button class="stage-option" type="button" data-stage-choice="teach">
+            <span class="stage-option__art stage-option__art--teach"><img src="/images/reflexes/achievement-mountain/flag-teach.png" alt=""></span>
+            <span class="stage-option__copy"><strong>Я могу научить другого</strong><small>Понимаю способ решения и могу его объяснить.</small></span>
+            <span class="stage-option__arrow" aria-hidden="true">＋</span>
+          </button>
+        </div>
+        <section class="class-progress" aria-label="Прогресс класса">
+          <div class="class-size-setting">
+            <label for="class-size">Количество учеников в классе</label>
+            <input id="class-size" type="number" min="1" max="40" step="1" value="25" inputmode="numeric">
+          </div>
+          <div class="class-progress__heading"><strong>Восхождение класса</strong><span id="step-count">0 из 25 шагов</span></div>
+          <div class="progress-track" role="progressbar" id="progress-track" aria-valuemin="0" aria-valuemax="25" aria-valuenow="0" aria-label="Путь класса к вершине"><span id="progress-fill"></span></div>
+          <p class="progress-note" id="progress-note" aria-live="polite">До вершины — 25 шагов.</p>
+          <div class="class-counts">
+            <div><span class="count-dot count-dot--tried"></span><span>Попробовали</span><strong id="count-tried">0</strong></div>
+            <div><span class="count-dot count-dot--managed"></span><span>Справились</span><strong id="count-managed">0</strong></div>
+            <div><span class="count-dot count-dot--teach"></span><span>Могут объяснить</span><strong id="count-teach">0</strong></div>
+          </div>
+        </section>
+        <section class="encouragement" aria-live="polite">
+          <img class="encouragement__avatar" src="/images/fav.png" alt="Добрыня">
+          <div><strong id="encouragement-title">Каждый шаг важен</strong><p id="encouragement-text">У каждого свой опыт, а вершина у нашего класса общая.</p></div>
+        </section>
+        <div class="reflection-prompt">
+          <span class="reflection-prompt__mark" aria-hidden="true">?</span>
+          <div><strong id="prompt-title">Подумай</strong><p id="prompt-text">Что помогло тебе сделать этот шаг?</p></div>
+        </div>
+        <button class="reset-button" id="reset-climb" type="button" disabled>↻ Начать новое восхождение</button>
+      </aside>
+    </section>
+  </main>
+  <footer class="page-footer">© <span id="year"></span> Уроки с Добрыней</footer>
+</body>
+</html>

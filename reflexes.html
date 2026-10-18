@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Мастерская рефлексии — интерактивные способы завершить урок вместе с Добрыней.">
+  <title>Мастерская рефлексии — Уроки с Добрыней</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="stylesheet" href="/css/reflexes/reflexes.css">
+  <script defer src="/js/reflexes/reflexes.js"></script>
+</head>
+<body class="reflexes-body">
+  <div class="page-bg" aria-hidden="true"></div>
+  <nav class="top-nav" aria-label="Основная навигация">
+    <div class="top-nav__inner">
+      <a class="top-nav__brand" id="brand" href="index.html">Уроки с Добрыней</a>
+      <button class="top-nav__burger" id="nav-burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      <div class="top-nav__menu" id="nav-menu"></div>
+    </div>
+  </nav>
+  <main class="reflexes-page">
+    <header class="reflexes-hero">
+      <div class="reflexes-hero__spark" aria-hidden="true">🌟 🌈 ✨</div>
+      <p class="reflexes-hero__badge" id="hero-badge">Завершаем урок с Добрыней</p>
+      <h1 id="hero-title">Мастерская рефлексии</h1>
+      <p id="hero-description">Здесь можно поделиться успехами и настроением.</p>
+      <span class="reflexes-hero__note">Каждый маленький шаг — уже достижение!</span>
+    </header>
+    <section class="reflexes-catalog" aria-labelledby="catalog-title">
+      <div class="reflexes-catalog__head">
+        <div><p class="reflexes-catalog__label">Волшебные активности</p><h2 id="catalog-title">Выбери свою рефлексию</h2></div>
+        <p id="catalog-description">Пять способов завершить урок.</p>
+      </div>
+      <div class="reflexes-list" id="games-list"></div>
+    </section>
+  </main>
+  <footer class="footer"><p>© <span id="year"></span> Уроки с Добрыней</p></footer>
+</body>
+</html>

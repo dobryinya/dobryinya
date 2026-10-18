@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Интерактивная рефлексия настроения после урока вместе с Добрыней.">
+  <title>Воздушный шар настроения — Уроки с Добрыней</title>
+  <link rel="icon" type="image/png" href="/images/fav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/reflexes/mood-balloon.css">
+  <script defer src="/js/reflexes/mood-balloon.js"></script>
+</head>
+<body>
+  <header class="page-bar">
+    <a class="back-link" href="/reflexes.html">← Мастерская рефлексии</a>
+    <div class="page-controls" aria-label="Настройки звука">
+      <button id="sound-toggle" class="control-button" type="button" aria-pressed="true">🔊 Звуки</button>
+      <button id="music-toggle" class="control-button" type="button" aria-pressed="false" hidden>♫ Музыка</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <header class="intro">
+      <span class="eyebrow">Рефлексия настроения</span>
+      <h1>Воздушный шар настроения</h1>
+      <p>Как ты чувствуешь себя после урока? Выбери шар, который лучше всего передаёт твоё настроение.</p>
+    </header>
+
+    <section class="experience" aria-label="Воздушный шар настроения">
+      <section class="sky-stage" id="sky-stage" aria-label="Небо с воздушными шарами">
+        <div class="sun-disc" aria-hidden="true"></div>
+        <div class="cloud cloud--one" aria-hidden="true"><i></i><b></b><em></em></div>
+        <div class="cloud cloud--two" aria-hidden="true"><i></i><b></b><em></em></div>
+        <div class="cloud cloud--three" aria-hidden="true"><i></i><b></b><em></em></div>
+        <span class="sky-spark sky-spark--one" aria-hidden="true">✦</span>
+        <span class="sky-spark sky-spark--two" aria-hidden="true">✧</span>
+        <span class="sky-spark sky-spark--three" aria-hidden="true">✦</span>
+        <div class="sky-copy" id="sky-copy">
+          <span class="sky-copy__icon" aria-hidden="true">☁</span>
+          <strong>У каждого настроения есть место</strong>
+          <span>Прислушайся к себе</span>
+        </div>
+        <div class="floating-balloon-layer" id="floating-balloon-layer" aria-live="polite"></div>
+        <div class="horizon" aria-hidden="true">
+          <div class="hill hill--back"></div>
+          <div class="hill hill--front"></div>
+          <span class="flower flower--one">✿</span><span class="flower flower--two">✿</span><span class="flower flower--three">✿</span>
+        </div>
+        <div class="dobrynya-note" id="dobrynya-note">
+          <img src="/images/fav.png" alt="Добрыня">
+          <p style="font-size: 30px;" id="dobrynya-message">Иногда полезно остановиться и прислушаться к себе.</p>
+        </div>
+      </section>
+
+      <aside class="mood-panel">
+        <div class="panel-heading">
+          <span class="panel-kicker">Прислушайся к себе</span>
+          <h2>Какое у тебя настроение?</h2>
+          <p>Выбери настроение, которое лучше всего описывает твоё состояние.</p>
+        </div>
+
+        <div class="mood-choices" id="mood-choices">
+          <button class="mood-card" type="button" data-mood="happy" aria-pressed="false">
+            <span class="mood-art"><img src="/images/reflexes/mood-balloon/balloon-happy.png" alt="Весёлый воздушный шар"></span>
+            <span class="mood-copy"><strong>Мне радостно</strong><small>Урок подарил мне хорошие эмоции</small></span>
+            <span class="mood-check" aria-hidden="true">○</span>
+          </button>
+          <button class="mood-card" type="button" data-mood="calm" aria-pressed="false">
+            <span class="mood-art"><img src="/images/reflexes/mood-balloon/balloon-calm.png" alt="Спокойный воздушный шар"></span>
+            <span class="mood-copy"><strong>Я спокоен</strong><small>Чувствую себя ровно и спокойно</small></span>
+            <span class="mood-check" aria-hidden="true">○</span>
+          </button>
+          <button class="mood-card" type="button" data-mood="worried" aria-pressed="false">
+            <span class="mood-art"><img src="/images/reflexes/mood-balloon/balloon-worried.png" alt="Задумчивый воздушный шар"></span>
+            <span class="mood-copy"><strong>Было непросто</strong><small>Что-то осталось сложным или непонятным</small></span>
+            <span class="mood-check" aria-hidden="true">○</span>
+          </button>
+        </div>
+
+        <section class="reflection-question" id="reflection-question" hidden aria-live="polite">
+          <div class="question-mark" aria-hidden="true">?</div>
+          <div>
+            <p class="question-kicker">Вспомни один момент</p>
+            <h3>Что сегодня тебя порадовало?</h3>
+            <p class="question-caption">Маленькая радость тоже важна.</p>
+          </div>
+        </section>
+
+        <div style="display: none;" class="message-card" id="message-card" aria-live="polite">
+          <img src="/images/fav.png" alt="" class="message-avatar">
+          <div><strong id="message-title">Добрыня рядом</strong><p id="message-text">Настроение бывает разным. Важно заметить, что ты чувствуешь.</p></div>
+        </div>
+
+        <button class="again-button" id="choose-again" type="button" hidden>↻ Очистить небо</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="page-footer">© <span id="year"></span> Уроки с Добрыней</footer>
+</body>
+</html>
