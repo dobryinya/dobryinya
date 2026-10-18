@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="470" viewBox="0 0 600 470">
+<defs>
+ <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8b421e"/><stop offset=".22" stop-color="#c87936"/><stop offset=".5" stop-color="#9c4f26"/><stop offset=".76" stop-color="#d68b45"/><stop offset="1" stop-color="#713519"/></linearGradient>
+ <linearGradient id="lid" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e8a24f"/><stop offset=".38" stop-color="#ad5c2b"/><stop offset="1" stop-color="#6c3118"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff2a1"/><stop offset=".28" stop-color="#f8c84e"/><stop offset=".63" stop-color="#c9811e"/><stop offset="1" stop-color="#ffe48a"/></linearGradient>
+ <linearGradient id="darkgold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a35b11"/><stop offset=".5" stop-color="#f5c447"/><stop offset="1" stop-color="#8b4b12"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="13"/></filter>
+</defs>
+<ellipse cx="303" cy="423" rx="205" ry="24" fill="#49250f" opacity=".25" filter="url(#shadow)"/>
+<!-- lid -->
+<path d="M91 235 L91 166 Q91 108 148 93 L452 93 Q509 108 509 166 L509 235 Z" fill="url(#lid)" stroke="#603019" stroke-width="12" stroke-linejoin="round"/>
+<path d="M105 225 L105 167 Q105 126 151 111 L449 111 Q495 126 495 167 L495 225 Z" fill="none" stroke="url(#gold)" stroke-width="12"/>
+<path d="M151 119 H449" stroke="#f4bc68" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+<!-- side and front body -->
+<path d="M89 224 L510 224 L489 395 Q488 410 470 414 L130 414 Q112 410 111 395 Z" fill="url(#wood)" stroke="#673117" stroke-width="13" stroke-linejoin="round"/>
+<path d="M132 244 L132 394 M205 238 L205 404 M395 238 L395 404 M468 244 L468 394" stroke="#6c3219" stroke-width="10" opacity=".75"/>
+<path d="M147 250 L147 385 M218 249 L218 390 M382 249 L382 390 M453 250 L453 385" stroke="#e7a05b" stroke-width="4" opacity=".5"/>
+<!-- horizontal gold bands -->
+<path d="M91 236 H509 L504 272 H96 Z" fill="url(#gold)" stroke="#85501c" stroke-width="7"/>
+<path d="M109 375 H491 L486 401 H114 Z" fill="url(#gold)" stroke="#85501c" stroke-width="6"/>
+<!-- front plaque -->
+<path d="M212 290 Q212 280 224 280 H376 Q388 280 388 292 V347 Q388 359 376 359 H224 Q212 359 212 347 Z" fill="url(#gold)" stroke="#7e4416" stroke-width="8"/>
+<path d="M228 296 H372 V343 H228 Z" fill="#8b4a1c" opacity=".42"/>
+<!-- lock -->
+<path d="M274 249 V237 Q274 215 300 215 Q326 215 326 237 V250" fill="none" stroke="#713a14" stroke-width="17" stroke-linecap="round"/>
+<path d="M274 249 V237 Q274 222 300 222 Q326 222 326 237 V250" fill="none" stroke="url(#gold)" stroke-width="10" stroke-linecap="round"/>
+<path d="M274 246 Q274 237 283 237 H317 Q326 237 326 246 V282 Q326 291 317 291 H283 Q274 291 274 282 Z" fill="url(#gold)" stroke="#7d461a" stroke-width="7"/>
+<circle cx="300" cy="258" r="5" fill="#683411"/><path d="M300 260 L300 276" stroke="#683411" stroke-width="6" stroke-linecap="round"/>
+<!-- rivets and corners -->
+<g fill="url(#gold)" stroke="#7b4619" stroke-width="4"><circle cx="113" cy="249" r="9"/><circle cx="486" cy="249" r="9"/><circle cx="126" cy="389" r="8"/><circle cx="474" cy="389" r="8"/><circle cx="166" cy="241" r="7"/><circle cx="434" cy="241" r="7"/></g>
+<path d="M104 238 L143 238 L143 264 M457 238 L496 238 L496 264" fill="none" stroke="url(#gold)" stroke-width="13" stroke-linecap="round"/>
+<path d="M120 286 Q126 330 126 358 M476 286 Q470 330 470 358" stroke="#f8c176" stroke-width="4" opacity=".55" fill="none"/>
+</svg>
